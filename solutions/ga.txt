@@ -1,0 +1,716 @@
+=== 2019 1
+topic: GA
+pattern: Grammar: relative pronoun with preposition
+type: MCQ
+marks: 1
+ans: C
+concept: The verb "owe" takes "to": you owe something **to** someone. The relative pronoun keeps that preposition: "to whom".
+solution:
+"The flood victims owed their lives **to** the fishermen", so "The fishermen, **to whom** the flood victims owed their lives…". Use "whom" for people, never "which".
+
+=== 2019 2
+topic: GA
+pattern: Syllogism: "some … not" statements
+type: MCQ
+marks: 1
+ans: C
+concept: "Some A are not B" is equivalent to "Some non-B are A". It says nothing about whether any A **are** B.
+solution:
+"Some students were not involved" means "Some who were not involved were students" (iv) ✓.
+(iii) "At least one student was involved" is possible but not necessary. (ii) contradicts nothing but is also not necessary.
+
+=== 2019 3
+topic: GA
+pattern: Percentage change of volume / area
+type: MCQ
+marks: 1
+ans: C
+concept: $V=\frac13\pi r^2h$. Scaling factors multiply.
+solution:
+$r\to1.1r$ and $h\to1.1h$, so $V\to1.1^2\cdot1.1=1.331V$. The increase is $33.1\%$.
+shortcut: If each dimension grows by $p\%$, the product of $k$ dimensions grows by a factor of $(1+p)^k$.
+
+=== 2019 4
+topic: GA
+pattern: Arrangement puzzle with constraints
+type: MCQ
+marks: 1
+ans: C
+concept: Fix the most restrictive constraint first.
+solution:
+1. Odds are 7, 5 and evens are 10, 4, 2. With no two odds or two evens adjacent, the pattern is E O E O E.
+2. 2nd = half of 1st: $1^{st}=10$, $2^{nd}=5$.
+3. Middle = twice the rightmost: $4=2\times2$.
+4. Sequence: 10, 5, 4, 7, 2. The second from the right is **7**.
+
+=== 2019 5
+topic: GA
+pattern: Grammar: verb form (passive / tense)
+type: MCQ
+marks: 1
+ans: A
+concept: "had never been + past participle" is the past perfect passive.
+solution:
+"India had never been **defeated**." The other options are not past participles.
+
+=== 2019 6
+topic: GA
+pattern: Passage inference
+type: MCQ
+marks: 2
+ans: C
+concept: Choose only what the passage supports. Reject "always/whenever/only" generalisations.
+solution:
+The passage says that after banks' demands the government reduced the rates. So the government **sometimes** considers banks' demands (c). (a), (b) and (d) are sweeping generalisations the passage doesn't support.
+
+=== 2019 7
+topic: GA
+pattern: Percentages of a population
+type: MCQ
+marks: 2
+ans: A
+concept: Chain the fractions. Watch for distractor numbers.
+solution:
+Internet users $=294$ million, buyers $=147$ million. $\frac{147}{1400}=10.5\%$. The 70% figure is a distractor.
+
+=== 2019 8
+topic: GA
+pattern: Passage inference
+type: MCQ
+marks: 2
+ans: C
+concept: Match each term with the passage's definition.
+solution:
+Dhrupad–baani ✓, gayaki–vocal ✓, gharana–lineage ✓. **Baaj** refers to instrumental style, not "institution", so (c) is incorrect.
+
+=== 2019 9
+topic: GA
+pattern: Relative speed / time–distance
+type: MCQ
+marks: 2
+ans: B
+concept: Moving in opposite directions, speeds add.
+solution:
+$80+100=180$ km/h, and $\frac{540}{180}=3$ h. $7+3=10$ AM.
+
+=== 2019 10
+topic: GA
+pattern: Passage inference (analogy in passage)
+type: MCQ
+marks: 2
+ans: D
+concept: Map the analogy: kingdom ↔ head-hunter, taxes levied ↔ heads gathered.
+solution:
+A kingdom's prestige came from the number of taxes, so the head-hunter's prestige came from the **number of heads he could gather**.
+
+=== 2020 1
+topic: GA
+pattern: Grammar: prepositions
+type: MCQ
+marks: 1
+ans: C
+concept: An award is conferred **on** someone. An event takes place **at** a specific venue.
+solution:
+"conferred **on** Mary Kom … a ceremony **at** the Rashtrapati Bhavan."
+
+=== 2020 2
+topic: GA
+pattern: Vocabulary: contrast signal word
+type: MCQ
+marks: 1
+ans: B
+concept: "Despite" signals contrast, so the blank must oppose "poor performances".
+solution:
+Poor performances, yet the chances are **bright**. "Slim" would agree with the poor performances, not contrast with them.
+
+=== 2020 3
+topic: GA
+pattern: Verbal analogy (antonym prefix)
+type: MCQ
+marks: 1
+ans: D
+concept: Cover/Uncover are opposites. The standard opposite of "associate" is "dissociate".
+solution:
+**Dissociate**. "Unassociate", "inassociate" and "misassociate" are not the antonym.
+
+=== 2020 4
+topic: GA
+pattern: Passage inference
+type: MCQ
+marks: 1
+ans: D
+concept: Pick the option that states what the officials **hope/believe**, as written.
+solution:
+Officials believe the kharif loss can be recovered through rabi output, so they hope the target will be met due to a good rabi produce (d).
+
+=== 2020 5
+topic: GA
+pattern: Sums of natural / odd numbers
+type: MCQ
+marks: 1
+ans: B
+concept: $\sum_{1}^{m}k=\frac{m(m+1)}2$ and the sum of the first $n$ odd numbers is $n^2$.
+solution:
+$\frac{2n(2n+1)}2-n^2=2n^2+n-n^2=n^2+n$.
+
+=== 2020 6
+topic: GA
+pattern: Passage inference
+type: MCQ
+marks: 2
+ans: D
+concept: Use the definition of the repo rate to reason about cause and effect.
+solution:
+A lower repo rate means banks borrow more cheaply from RBI, so the cost of borrowing falls and lending increases (d).
+
+=== 2020 7
+topic: GA
+pattern: Circular seating arrangement
+type: MCQ
+marks: 2
+ans: C
+concept: Place the fixed pairs first (S opposite W, V next to S), then fit R, U, T. Test which statement holds in **every** valid arrangement.
+solution:
+Placing S and W opposite, V to the left of S, and fitting R with U two to its right and T three to its left gives two possible arrangements. In both, P and Q are not opposite each other, so (c) must be true. In both, V (not R) is S's left neighbour, so (d) fails. (a) and (b) fail in at least one arrangement.
+
+=== 2020 8
+topic: GA
+pattern: Relative speed / time–distance
+type: MCQ
+marks: 2
+ans: B
+concept: Distance covered by P plus distance covered by Q equals 233 at the meeting time.
+solution:
+Let Q's speed be $v$. P travels for $1+1.25=2.25$ h. $2.25(v+10)+1.25v=233$, so $3.5v=210.5$ and $v=60.14$. Q has travelled $1.25v=75.2$ km.
+
+=== 2020 9
+topic: GA
+pattern: Counting free entries of a matrix
+type: MCQ
+marks: 2
+ans: B
+concept: A skew-symmetric matrix is determined by its entries above the diagonal: $\frac{n(n-1)}2$.
+solution:
+$n=4$, so 6 entries.
+
+=== 2020 10
+topic: GA
+pattern: Data interpretation: bar chart
+type: MCQ
+marks: 2
+ans: B
+concept: Revenue $=$ investment $\times(1+\text{profit\%})$. With equal investment $I$ each year, add up.
+solution:
+P's profits: $10+20+40+40+50+40=200\%$, so revenue $=6I+2I=8I$. Q's: $20+30+30+50+60+60=250\%$, so $8.5I$. Ratio $8:8.5=16:17$.
+
+=== 2021 1
+topic: GA
+pattern: Compound growth backwards
+type: MCQ
+marks: 1
+ans: C
+concept: $P_{\text{past}}=\frac{P_{\text{now}}}{(1+r)^n}$.
+solution:
+$\frac{11{,}02{,}500}{1.05^2}=\frac{1102500}{1.1025}=10{,}00{,}000$.
+
+=== 2021 2
+topic: GA
+pattern: Algebraic identity (x + 1/x)
+type: MCQ
+marks: 1
+ans: B
+concept: $x^2+\frac1{x^2}=\left(x+\frac1x\right)^2-2$.
+solution:
+$3^2-2=7$.
+
+=== 2021 3
+topic: GA
+pattern: Line symmetry with squares
+type: MCQ
+marks: 1
+ans: C
+concept: Reflect every square across the line. Each square whose mirror image is missing needs one added square.
+solution:
+Right of the line there are 3 squares (top two and the one beside the cross) with no mirror. Left of the line there are 3 squares with no mirror on the right. None of the six mirror positions is filled, so **6** must be added.
+
+=== 2021 4
+topic: GA
+pattern: Verbal analogy
+type: MCQ
+marks: 1
+ans: C
+concept: Nostalgia looks back at the past, and anticipation looks forward to the future.
+solution:
+Nostalgia : anticipation :: **past : future**.
+
+=== 2021 5
+topic: GA
+pattern: Grammar: verb forms (wake/woke/woken)
+type: MCQ
+marks: 1
+ans: B
+concept: wake – woke – woken. "Wakened up" is non-standard, and "worked up" is wrong.
+solution:
+(i) "I woke up" ✓ and (iii) "I was woken up" ✓.
+
+=== 2021 6
+topic: GA
+pattern: Syllogism: complementary pair ("either-or")
+type: MCQ
+marks: 2
+ans: C
+concept: If two conclusions are contradictory and together cover all cases, exactly one must hold: "either I or II".
+solution:
+From "all purple are green" and "all black are green" nothing definite follows about black and purple. But "some black are purple" and "no black is purple" are complementary, so **either I or II** holds.
+
+=== 2021 7
+topic: GA
+pattern: Passage inference
+type: MCQ
+marks: 2
+ans: D
+concept: Keep only statements the passage directly supports.
+solution:
+(i) "ubiquitous" means present almost everywhere ✓. (iii) It mentions both efficiency (positive) and health issues (negative) ✓. (ii) and (iv) contradict the passage.
+
+=== 2021 8
+topic: GA
+pattern: Mensuration: cone volume
+type: MCQ
+marks: 2
+ans: A
+concept: Revolving a right triangle about a leg gives a cone with $r$ = other leg and $h$ = that leg. $V=\frac13\pi r^2h$.
+solution:
+The legs are both 1, so $V=\frac13\pi(1)^2(1)=\frac\pi3$.
+
+=== 2021 9
+topic: GA
+pattern: Data interpretation: bar chart
+type: MCQ
+marks: 2
+ans: C
+concept: Compare larger ÷ smaller with 1.1 for each day.
+solution:
+Mon 70/45 ✓, Tue 65/55 ✓, Wed 60/50 ✓, Thu 60/55 = 1.09 ✗, Fri 35/20 ✓, Sat 60/50 ✓, Sun 65/55 ✓. That is **6 days**.
+
+=== 2021 10
+topic: GA
+pattern: Mensuration: area ratio by similar triangles
+type: MCQ
+marks: 2
+ans: A
+concept: Area of similar figures scales with the square of the side.
+solution:
+A regular hexagon cut from a triangle of side $3a$ removes three corner triangles of side $a$. The big triangle is $9$ small units, so the hexagon is $9-3=6$ units. Ratio $6:9=2:3$.
+
+=== 2022 1
+topic: GA
+pattern: Grammar: correlative conjunctions
+type: MCQ
+marks: 1
+ans: C
+concept: Correlative pairs: neither…nor and either…or.
+solution:
+"neither Japanese **nor** Chinese".
+
+=== 2022 2
+topic: GA
+pattern: Ratio and proportion
+type: MCQ
+marks: 1
+ans: D
+concept: Find the value of one ratio unit.
+solution:
+R − S $=4-3=1$ part $=₹1000$. Q $=2$ parts $=₹2000$.
+
+=== 2022 3
+topic: GA
+pattern: Mensuration: trapezium height
+type: MCQ
+marks: 1
+ans: B
+concept: Joining the legs after removing the parallelogram gives a triangle with sides 3, 4 and $11-6=5$, which is right-angled.
+solution:
+The height of a 3-4-5 right triangle to its hypotenuse is $\frac{3\cdot4}5=2.4$ cm.
+
+=== 2022 4
+topic: GA
+pattern: Counting squares in a grid
+type: MCQ
+marks: 1
+ans: B
+concept: Count $k\times k$ squares and exclude those containing the hole.
+solution:
+$1\times1$: 15. $2\times2$: 9 positions, 4 contain the hole, giving 5. $3\times3$ and $4\times4$ all contain the hole, giving 0. Total **20**.
+
+=== 2022 5
+topic: GA
+pattern: Spatial reasoning: visibility
+type: MCQ
+marks: 1
+ans: C
+concept: A point sees the whole region if no wall blocks any line of sight. Here that means the part below the inner (reflex) corner.
+solution:
+P and R each lie in one arm. The reflex corner hides the other arm. Q and S lie in the lower part, from which both arms are visible. **Q and S**.
+
+=== 2022 6
+topic: GA
+pattern: Passage inference
+type: MCQ
+marks: 2
+ans: D
+concept: Don't add certainty the passage lacks.
+solution:
+Chemicals "may have undesired consequences". For GM mosquitoes "it remains to be seen". Only (d) states both without overreach.
+
+=== 2022 7
+topic: GA
+pattern: Linear inequalities
+type: MCQ
+marks: 2
+ans: C
+concept: Solve each inequality and intersect the solutions.
+solution:
+$2x>8$ gives $x>4$. $2x<10$ gives $x<5$. So $4<x<5$.
+
+=== 2022 8
+topic: GA
+pattern: Coordinate geometry: area of quadrilateral
+type: MCQ
+marks: 2
+ans: C
+concept: The diagonals of a kite are perpendicular, so Area $=\frac12d_1d_2$.
+solution:
+PQ is vertical with length 4 and RS is horizontal with length 4. They are perpendicular, so Area $=\frac12\cdot4\cdot4=8$.
+
+=== 2022 9
+topic: GA
+pattern: Truth-teller puzzle
+type: MCQ
+marks: 2
+ans: B
+concept: Start from the statement known to be true.
+solution:
+S never lies, so only S tells the truth. R's statement "P did not copy" is false, so **P** copied. Check: P's "R copied" is false ✓, Q's "S copied" is false ✓, T's "R tells truth" is false ✓.
+
+=== 2022 10
+topic: GA
+pattern: Spatial reasoning: rotations and reflections
+type: MCQ
+marks: 2
+ans: B
+concept: Two flips about perpendicular axes equal a 180° rotation. Four 90° rotations equal the identity.
+solution:
+XY is a 180° rotation, and ZZ is another 180°. So XYZZ is the identity, ZZZZ is the identity, and XY alone is 180°. Sequences (1) and (3) are equivalent.
+
+=== 2023 1
+topic: GA
+pattern: Grammar: modal verbs
+type: MCQ
+marks: 1
+ans: C
+concept: Possibility in an undecided situation: "might".
+solution:
+"I **might** visit a friend." (Not "mite", "would" or "didn't".)
+
+=== 2023 2
+topic: GA
+pattern: Verbal analogy (antonyms)
+type: MCQ
+marks: 1
+ans: C
+concept: Eject and insert are opposites. The opposite of advance is **retreat**.
+solution:
+Advance : Retreat.
+
+=== 2023 3
+topic: GA
+pattern: Mensuration: sector of a regular hexagon
+type: MCQ
+marks: 1
+ans: A
+concept: The interior angle of a regular hexagon is $120°$. The shaded part is a sector of radius 5 with angle 120°.
+solution:
+$\frac{120}{360}\pi(5)^2=\frac{25\pi}3$.
+
+=== 2023 4
+topic: GA
+pattern: Liar paradox / self-reference
+type: MCQ
+marks: 1
+ans: D
+concept: Assume the statement is true and look for a contradiction.
+solution:
+If "all ducks always lie" were true, Donald (a duck) would be lying, so the statement would be false. Contradiction. So the statement is **false** (d). (Donald needn't always lie.)
+
+=== 2023 5
+topic: GA
+pattern: Line symmetry with squares
+type: MCQ
+marks: 1
+ans: B
+concept: For both a vertical and a horizontal line of symmetry, mirror columns and rows must match.
+solution:
+1. Horizontal axis (row 3): row 2 (B c d B) must mirror row 4 (B i B B). So d is black and c = i.
+2. Vertical axis: row 2 needs c = d, so c is black, and then i is black.
+3. Colour **c, d, i**.
+
+=== 2023 6
+topic: GA
+pattern: Syllogism: "some" statements
+type: MCQ
+marks: 2
+ans: D
+concept: "Some A are B" converts to "Some B are A".
+solution:
+"Some humans are intelligent" gives "Some intelligent beings are humans" (d). The others can't be inferred.
+
+=== 2023 7
+topic: GA
+pattern: Mean, median, mode from a distribution shape
+type: MCQ
+marks: 2
+ans: A
+concept: A symmetric distribution has mean = median at the centre. Bimodal peaks away from the centre mean the mode differs.
+solution:
+Symmetric about 0, so mean = median = 0. The highest bars are at ±13, so mean = median ≠ mode.
+
+=== 2023 8
+topic: GA
+pattern: Passage inference (find the false statement)
+type: MCQ
+marks: 2
+ans: D
+concept: A FALSE statement contradicts the passage.
+solution:
+The passage says dark matter is "dark" **because** it doesn't interact via the electromagnetic, weak or strong forces. If it did interact via the strong force, the epithet would **not** be justified, so (d) is false.
+
+=== 2023 9
+topic: GA
+pattern: Comparing logarithms
+type: MCQ
+marks: 2
+ans: A
+concept: $\log_xy=\frac{\ln y}{\ln x}$. With $a<b<c$ (all $>1$), logs of a smaller number to a bigger base are below 1.
+solution:
+$\log_ca<\log_ba<1<\log_ab<\log_ac$. Option (a).
+
+=== 2023 10
+topic: GA
+pattern: Mensuration: shaded area with arcs
+type: MCQ
+marks: 2
+ans: A
+concept: Find the white regions and subtract them, or rearrange the pieces.
+solution:
+Top half: $8-2\pi$ (square half minus semicircle of radius 2). Bottom: two quarter circles of radius 2, total $2\pi$. Sum $=8$.
+shortcut: The bottom black quarter-circles exactly fill the white semicircle on top. Shaded = half the square's area = 8.
+
+=== 2024 1
+topic: GA
+pattern: Vocabulary: degree of intensity
+type: MCQ
+marks: 1
+ans: C
+concept: Order by intensity: bothered → fazed → daunted.
+solution:
+**Fazed** (disturbed). Phased, phrased and fused are unrelated or homophone traps.
+
+=== 2024 2
+topic: GA
+pattern: Permutations
+type: MCQ
+marks: 1
+ans: A
+concept: Orders of 4 distinct items: $4!$.
+solution:
+$4!=24$ attempts each, since they work independently.
+
+=== 2024 3
+topic: GA
+pattern: Sets: inclusion–exclusion
+type: MCQ
+marks: 1
+ans: A
+concept: $|C\cup O|=|C|+|O|-|C\cap O|$.
+solution:
+$|C\cup O|=10000-1500=8500$ and $O=4C$: $C+4C-500=8500$, so $C=1800$.
+
+=== 2024 4
+topic: GA
+pattern: AM–GM equality
+type: MCQ
+marks: 1
+ans: C
+concept: $\ln\frac{x+y}2=\ln\sqrt{xy}$ means AM = GM, which happens iff $x=y$.
+solution:
+$\frac xy+\frac yx=2$.
+
+=== 2024 5
+topic: GA
+pattern: Number series
+type: MCQ
+marks: 1
+ans: B
+concept: Look at the differences.
+solution:
+The differences are 3, 5, 7, 9, 11: $14+7=21$ and $21+9=30$ ✓.
+
+=== 2024 6
+topic: GA
+pattern: Sentence ordering
+type: MCQ
+marks: 2
+ans: C
+concept: Find the opening (time setting), then follow cause → effect → conclusion ("Thus").
+solution:
+S (collision, "many millennia ago") → P (this event made heat and uplift) → R (cooling changed the atmosphere) → Q ("Thus…"). **SPRQ**.
+
+=== 2024 7
+topic: GA
+pattern: Profit and loss at same selling price
+type: MCQ
+marks: 2
+ans: C
+concept: Equal SP with $x\%$ gain and $x\%$ loss always gives a net **loss** of $\frac{x^2}{100}\%$.
+solution:
+$\frac{10^2}{100}=1\%$ loss.
+
+=== 2024 8
+topic: GA
+pattern: Data interpretation: pie chart
+type: MCQ
+marks: 2
+ans: D
+concept: Percentage change $=\frac{\text{new}-\text{old}}{\text{old}}$.
+solution:
+2007 renewables: $30+5+5=40$. 2023: $35+20+10=65$. Increase $=\frac{25}{40}=62.5\%$.
+
+=== 2024 9
+topic: GA
+pattern: Spatial reasoning: cutting a cube
+type: MCQ
+marks: 2
+ans: A
+concept: Each straight full cut along an axis doubles the pieces.
+solution:
+One cut along each of the three axes through the centre gives $2^3=8$ equal cubes. **3** cuts.
+
+=== 2024 10
+topic: GA
+pattern: Grid neighbour counting
+type: MCQ
+marks: 2
+ans: A
+concept: Count the non-X cells among the 8 neighbours (including diagonals) of each bottom-row cell.
+solution:
+Row 3 is 3, X, 6, X.
+- Cell 1: neighbours (3,1), (4,2), so 2.
+- Cell 2: (3,1), (3,3), (4,1), (4,3), so 4.
+- Cell 3: (3,3), (4,2), (4,4), so 3.
+- Cell 4: (3,3), (4,3), so 2.
+Sum $=11$.
+
+=== 2025 1
+topic: GA
+pattern: Vocabulary: phrasal verbs
+type: MCQ
+marks: 1
+ans: D
+concept: "Back out" means to withdraw from a commitment.
+solution:
+"I had to **back out** at the last moment."
+
+=== 2025 2
+topic: GA
+pattern: Grammar: subject–verb agreement
+type: MCQ
+marks: 1
+ans: B
+concept: A subject followed by "along with …" keeps its own number. "The President" is singular.
+solution:
+"The President … **wishes** to visit."
+
+=== 2025 3
+topic: GA
+pattern: Energy cost and percentage increase
+type: MCQ
+marks: 1
+ans: B
+concept: Energy (kWh) $=$ kW $\times$ hours.
+solution:
+$0.04\times10\times180=72$ kWh, and $72\times7=₹504$. 12 hours instead of 10 is a $20\%$ increase.
+
+=== 2025 4
+topic: GA
+pattern: Letter–number coding grid
+type: MCQ
+marks: 1
+ans: C
+concept: In each block, the number under a letter is the alphabet position of its partner letter.
+solution:
+1. N(14), U(21) have numbers 21 and 14. F(6), (i) have 9 and 6, so (i) = I(9).
+2. H(8), L(12) have 12 and (iv), so (iv) = 8.
+3. (ii), O(15) have 15 and (iii). Option (c): (ii) = J and (iii) = 10 ✓. Answer: I, J, 10, 8.
+
+=== 2025 5
+topic: GA
+pattern: Linear equations → pie chart
+type: MCQ
+marks: 1
+ans: A
+concept: Solve the system, then convert to percentages.
+solution:
+From (i) and (iv): $Y+2V=V+2R$, so $Y=2R-V$. With (iii): $2R-V+R=50$. With (iv): $V=50-2R$. So $5R=100$, giving $R=20$, $V=10$, $Y=30$, $G=40$. That is pie (a).
+
+=== 2025 6
+topic: GA
+pattern: Passage inference
+type: MCQ
+marks: 2
+ans: A
+concept: Look for clues in the passage itself (the title "A Funeral", "fatal illness").
+solution:
+"Courted his fatal illness" and "A Funeral" mean the man is dead (a). (b) inverts the meaning, and (c), (d) misread metaphors.
+
+=== 2025 7
+topic: GA
+pattern: Letter-position pattern on a circle
+type: MCQ
+marks: 2
+ans: B
+concept: Number the clock letters O = 0, P = 1, …, Z = 11 and find the step pattern.
+solution:
+O*: 0, 2, 4, 11, 1, 3, 5. That is $s$, $s{+}2$, $s{+}4$, $s{-}1$, $s{+}1$, $s{+}3$, $s{+}5$. X* fits the same pattern.
+For P ($s=1$): 1, 3, 5, 0, 2, 4, 6 = **P R T O Q S U**.
+
+=== 2025 8
+topic: GA
+pattern: Ordering puzzle with inequalities
+type: MCQ
+marks: 2
+ans: C
+concept: Chain the inequalities.
+solution:
+$R<T<P<S$ and $P<Q$. So P is above R and T, and below S and Q. With digits 1–5, P is the middle value, **3**.
+
+=== 2025 9
+topic: GA
+pattern: Mixture / alligation with profit
+type: MCQ
+marks: 2
+ans: A
+concept: Alligation: the ratio of quantities is the inverse ratio of distances from the mean price.
+solution:
+1. Cost prices: P = ₹160/kg and Q = ₹200/kg. Mean CP $=\frac{192}{1.08}=177.78$.
+2. P : Q $=(200-177.78):(177.78-160)=22.22:17.78=5:4$.
+
+=== 2025 10
+topic: GA
+pattern: Mensuration: altitude via Heron's formula
+type: MCQ
+marks: 2
+ans: C
+concept: The shortest road is the perpendicular (altitude) from P to QR. Area by Heron's formula.
+solution:
+The 13-14-15 triangle has $s=21$ and area $\sqrt{21\cdot8\cdot7\cdot6}=84$. Altitude $=\frac{2\cdot84}{14}=12$ km.
