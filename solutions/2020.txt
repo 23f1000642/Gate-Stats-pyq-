@@ -1,0 +1,604 @@
+=== 2020 11
+topic: LA
+pattern: Properties of idempotent matrices
+type: MCQ
+ans: D
+concept: For an idempotent matrix ($M^2=M$), the eigenvalues are 0 or 1, $\text{rank}(M)=\text{trace}(M)$, and $I-M$ is also idempotent.
+solution:
+- (b) is true: rank = trace for every idempotent matrix.
+- (c) is true: $(I-M)^2=I-2M+M^2=I-M$.
+- (d): try $(I+M)(I-2M)=I-2M+M-2M^2=I-3M\neq I$, so (d) is **false**. The correct inverse is $(I+M)^{-1}=I-\tfrac12M$, because $(I+M)(I-\tfrac12M)=I-\tfrac12M+M-\tfrac12M=I$.
+- (a) is "eigenvalues are 0 and 1". It is only literally false in the special case $M=I$, where only 1 occurs. The statement that is false for **every** such $M$ is (d), which is the key.
+shortcut: For idempotent $M$, $(I+cM)^{-1}=I-\frac{c}{1+c}M$, since $M$ behaves like a scalar that is 0 or 1. With $c=1$ this gives $I-\frac12M$.
+
+=== 2020 12
+topic: LA
+pattern: Basis of a real vector space of complex vectors
+type: MCQ
+ans: A
+concept: Solve the defining conditions, then count real parameters. Over $\mathbb R$, a complex number $a$ contributes two real parameters, $a=1$ and $a=i$.
+solution:
+1. $a+\bar b=0$ gives $b=-\bar a$. $b+\bar c=0$ gives $\bar c=-b=\bar a$, so $c=a$.
+2. Every vector has the form $(a,-\bar a,a)$, with $a\in\mathbb C$ free. That is 2 real dimensions.
+3. $a=1$ gives $(1,-1,1)$. $a=i$ gives $(i,-\bar i,i)=(i,i,i)$.
+4. So the basis is $\{(1,-1,1),(i,i,i)\}$, option (a).
+shortcut: Plug each option's vectors into $a+\bar b=0$ and $b+\bar c=0$. Only (a) passes both.
+
+=== 2020 13
+topic: CAL
+pattern: Extrema on a curve (substitute the constraint)
+type: MCQ
+ans: D
+concept: Use the constraint to eliminate a variable, then optimise a one-variable function over the allowed range.
+solution:
+1. On $S$, $y^2=x^2-4$, with $|x|\ge2$.
+2. $f=6x+x^2-4=(x+3)^2-13$.
+3. $x=-3$ is allowed ($|-3|\ge2$), so the minimum is $-13$, at $(-3,\pm\sqrt5)$.
+4. As $x\to\infty$, $f\to\infty$, so $f$ is unbounded with no maximum. Answer (d).
+trap: Check that the vertex $x=-3$ lies in the allowed region. If it didn't, the minimum would be at the boundary $x=\pm2$.
+
+=== 2020 14
+topic: CAL
+pattern: Continuity: removable singularity by rationalising
+type: MCQ
+ans: D
+concept: Rationalise the $\sqrt{\;}-8$ denominator to remove the $0/0$ form.
+solution:
+Let $u=4x^2+9y^2\to0$. Then
+$$\frac{u}{\sqrt{u+64}-8}=\frac{u(\sqrt{u+64}+8)}{u+64-64}=\sqrt{u+64}+8\to16.$$
+So $f$ is continuous at the origin iff $c=16$.
+shortcut: $\frac{u}{\sqrt{u+a^2}-a}\to2a$.
+
+=== 2020 15
+topic: RV
+pattern: Read a discrete distribution off its MGF
+type: MCQ
+ans: D
+concept: $M_X(t)=\sum_k p_ke^{tk}$. The coefficient of $e^{kt}$ is $P(X=k)$.
+solution:
+$P(X=0)=\frac16$, $P(1)=\frac13$, $P(2)=\frac13$, $P(3)=\frac16$. So $P(X\le2)=1-\frac16=\frac56$.
+
+=== 2020 16
+topic: DOE
+pattern: Error d.f. in two-way ANOVA + CI for σ²
+type: MCQ
+ans: D
+concept: In two-way additive ANOVA with $r$ observations per cell, error d.f. $=N-a-b+1$ and $\frac{SSE}{\sigma^2}\sim\chi^2_{\text{df}}$.
+solution:
+1. $a=2$, $b=3$, $r=3$, so $N=18$. Error d.f. $=18-2-3+1=14$.
+2. One-sided 95% interval: $P\left(\frac{SSE}{\sigma^2}\ge\chi^2_{14,0.95}\right)=0.95$, where $\chi^2_{14,0.95}$ is the lower 5% point (its upper tail is 0.95).
+3. This rearranges to $\sigma^2\le\frac{SSE}{\chi^2_{14,0.95}}$. The interval is $\left(0,\frac{SSE}{\chi^2_{14,0.95}}\right)$, option (d).
+trap: Note the notation: $\chi^2_{v,\alpha}$ here is the $(1-\alpha)$ quantile (upper-$\alpha$ point). Read the subscript convention in every question.
+
+=== 2020 17
+topic: RV
+pattern: Laplace → exponential → chi-square
+type: MCQ
+ans: D
+concept: If $X$ is Laplace with scale $b$, then $|X-\mu|\sim\text{Exp}(\text{mean } b)$. Also $\text{Exp}(\text{mean }2)=\chi^2_2$.
+solution:
+1. $|X_i-2|\sim\text{Exp}(\text{mean }3)$, so $\frac23|X_i-2|\sim\text{Exp}(\text{mean }2)=\chi^2_2$.
+2. The sum of 20 independent $\chi^2_2$ variables is $\chi^2_{40}$.
+shortcut: Rescale any exponential to mean 2 to get $\chi^2_2$: if $Y\sim\text{Exp}(\text{mean }\beta)$, then $\frac{2Y}{\beta}\sim\chi^2_2$.
+
+=== 2020 18
+topic: CI
+pattern: Pivot for Weibull / exponential via chi-square
+type: MCQ
+ans: A
+concept: If $f=3\theta x^2e^{-\theta x^3}$, then $Y=X^3\sim\text{Exp}(\text{rate }\theta)$, so $2\theta\sum Y_i\sim\chi^2_{2n}$ is a pivot.
+solution:
+1. $2\theta\sum_{1}^{10}X_i^3\sim\chi^2_{20}$.
+2. $P\left(\chi^2_{20,0.95}\le2\theta\sum X_i^3\le\chi^2_{20,0.05}\right)=0.90$.
+3. Divide by $2\sum X_i^3$: $\left(\frac{\chi^2_{20,0.95}}{2\sum X_i^3},\frac{\chi^2_{20,0.05}}{2\sum X_i^3}\right)$, option (a).
+shortcut: For any $f$ that can be written as $\theta\,g'(x)e^{-\theta g(x)}$, $g(X)\sim\text{Exp}(\theta)$ and the pivot is $2\theta\sum g(X_i)\sim\chi^2_{2n}$.
+
+=== 2020 19
+topic: EST
+pattern: Minimal sufficient statistic for uniform families
+type: MCQ
+ans: C
+concept: For $U(-\theta,\theta)$, $L(\theta)=(2\theta)^{-n}\mathbb 1\{\max|X_i|\le\theta\}$. By factorisation, the statistic is $\max|X_i|$.
+solution:
+The likelihood depends on the data only through $\max|X_i|$, so $\max_i|X_i|$ is minimal sufficient.
+shortcut: $U(0,\theta)$ gives $X_{(n)}$. $U(-\theta,\theta)$ gives $\max|X_i|$. $U(\theta,\theta+1)$ gives $(X_{(1)},X_{(n)})$. $U(\theta,2\theta)$ gives $(X_{(1)},X_{(n)})$. $U(-\theta,2\theta)$ gives $\max(-X_{(1)},X_{(n)}/2)$.
+
+=== 2020 20
+topic: EST
+pattern: Sufficiency/completeness when mean & variance share θ
+type: MCQ
+ans: C
+concept: $N(\theta,2\theta^2)$ is a curved exponential family. $(\sum X,\sum X^2)$ is minimal sufficient but **not complete**, so unbiased estimators that are functions of it need not be unique.
+solution:
+1. $E\left[(\sum X_i)^2\right]=\operatorname{Var}+(\text{mean})^2=2n\theta^2+n^2\theta^2=n(n+2)\theta^2$, so $T_1=\frac{(\sum X)^2}{n(n+2)}$ is unbiased.
+2. $E(X^2)=2\theta^2+\theta^2=3\theta^2$, so $T_2=\frac{\sum X^2}{3n}$ is also unbiased.
+3. Every $\lambda T_1+(1-\lambda)T_2$ is unbiased too, so there are infinitely many. (c) ✓
+4. (a) is false (not unique). (b) has the wrong constant. (d) is false: $\bar X+T_2$ is unbiased for $\theta+\theta^2$.
+shortcut: Whenever mean and variance are tied together ($N(\theta,\theta^2)$, $N(\theta,\theta)$ and similar), suspect "minimal sufficient but not complete".
+
+=== 2020 21
+topic: SP
+pattern: Poisson process: arrival time given N(t)=1 is uniform
+type: MCQ
+ans: B
+concept: Given $N(t)=n$, the arrival times are distributed as the order statistics of $n$ i.i.d. $U(0,t)$ variables.
+solution:
+Given $N(3)=1$, the arrival time $T_1\sim U(0,3)$. So $E(T_1\mid N(3)=1)=\frac32$. The rate $\lambda=2$ doesn't matter.
+shortcut: Given $N(t)=n$, $E(T_k)=\frac{kt}{n+1}$.
+
+=== 2020 22
+topic: REG
+pattern: OLS slope with transformed regressor
+type: MCQ
+ans: B
+concept: The model is linear in the parameters. Set $z_i=x_i^2$ and use the usual slope formula.
+solution:
+$$\hat\beta_1=\frac{n\sum z_iy_i-\sum z_i\sum y_i}{n\sum z_i^2-(\sum z_i)^2}=\frac{n\sum x_i^2y_i-\sum x_i^2\sum y_i}{n\sum x_i^4-(\sum x_i^2)^2}.$$
+shortcut: $\hat\beta=\frac{S_{zy}}{S_{zz}}$ with $S_{zy}=\sum zy-\frac{\sum z\sum y}{n}$. Multiply top and bottom by $n$ to get the form in the options.
+
+=== 2020 23
+topic: MV
+pattern: Hotelling T² distribution
+type: MCQ
+ans: C
+concept: One-sample **Hotelling $T^2$**: $T^2=n\bar X^TS^{-1}\bar X\sim\frac{p(n-1)}{n-p}F_{p,\,n-p}$ under $\mu=0$.
+solution:
+This is the standard result. Equivalently, $\frac{n-p}{p(n-1)}T^2\sim F_{p,n-p}$. Answer (c).
+shortcut: Sanity check with $p=1$: $T^2=t^2\sim F_{1,n-1}$, and the formula gives $\frac{1(n-1)}{n-1}F_{1,n-1}$ ✓.
+
+=== 2020 24
+topic: DOE
+pattern: Error d.f. in two-way ANOVA, one observation per cell
+type: MCQ
+ans: C
+concept: Two-way additive model with one observation per cell: error d.f. $=(a-1)(b-1)$.
+solution:
+"5 factors and 4 columns" means 5 rows and 4 columns. Error d.f. $=(5-1)(4-1)=12$.
+shortcut: Total $ab-1=19$ = rows $4$ + columns $3$ + error $12$.
+
+=== 2020 25
+topic: TH
+pattern: Simple vs simple: LRT equals NP test
+type: MCQ
+ans: A
+concept: For a simple null against a simple alternative, the LRT and the Neyman–Pearson MP test both reject for large $\frac{f_1}{f_0}$. They have the same critical region at the same level.
+solution:
+1. $\frac{f_1}{f_0}=\frac{2^{-n}e^{-\sum x/2}}{e^{-\sum x}}=2^{-n}e^{\sum x/2}$, which increases in $\sum x$.
+2. Reject for **large** $\sum x$: $\sum x>\frac12\chi^2_{2n,\alpha}$ (upper point), since $2\sum X\sim\chi^2_{2n}$ under $H_0$.
+3. (b) has the wrong direction. (c) and (d) are false. Answer (a).
+
+=== 2020 26
+topic: RV
+pattern: Identify distribution from characteristic function (uniform)
+type: NAT
+ans: 0.75
+concept: $U(-a,a)$ has characteristic function $\frac{\sin at}{at}$.
+solution:
+$\frac{\sin t\cos t}{t}=\frac{\sin2t}{2t}$, which is the c.f. of $X\sim U(-2,2)$.
+$P(|X|\le1.5)=\frac{3}{4}=0.75$.
+shortcut: Memorise these c.f.s: $U(-a,a)$: $\frac{\sin at}{at}$. $N(\mu,\sigma^2)$: $e^{i\mu t-\sigma^2t^2/2}$. Cauchy: $e^{-|t|}$. Laplace: $\frac1{1+t^2}$. $\text{Exp}(\lambda)$: $\frac{\lambda}{\lambda-it}$.
+
+=== 2020 27
+topic: MV
+pattern: Probability for a normal linear combination via symmetry
+type: NAT
+ans: 0.5
+concept: Any linear combination of a mean-zero multivariate normal is $N(0,\sigma^2)$, and $P(>0)=\frac12$.
+solution:
+The intended event (as in the original GATE paper) is $X_1+X_2+X_3+X_4>0$. That is a mean-zero normal, so the probability is $\frac12=0.5$.
+**About the printed version:** taken literally, "$X_1+X_2+X_3+4>0$" gives $\operatorname{Var}(X_1+X_2+X_3)=3+2(0.7+0.6+0.5)=6.6$ and $P=\Phi(4/\sqrt{6.6})=\Phi(1.56)\approx0.94$. The "+4" is a typesetting slip for $X_4$, so use 0.5.
+shortcut: With mean zero, $P(\text{combination}>0)=0.5$ regardless of $\Sigma$, as long as the variance is positive.
+
+=== 2020 28
+topic: SP
+pattern: Distribution at step n: π_n = π_0 Pⁿ
+type: NAT
+ans: 16.25
+concept: $\pi_{n}=\pi_0P^n$, and $E(X_2)=P(X_2=1)$ for a 0/1 chain.
+solution:
+1. $\pi_0=(\frac13,\frac23)$.
+2. $\pi_1$: $P(X_1=1)=\frac13\cdot\frac12+\frac23\cdot\frac23=\frac16+\frac49=\frac{11}{18}$, so $\pi_1=(\frac7{18},\frac{11}{18})$.
+3. $P(X_2=1)=\frac7{18}\cdot\frac12+\frac{11}{18}\cdot\frac23=\frac{7}{36}+\frac{22}{54}=\frac{65}{108}$.
+4. $27\times\frac{65}{108}=\frac{65}{4}=16.25$.
+
+=== 2020 29
+topic: PROB
+pattern: At least k of n independent events
+type: NAT
+ans: 3.5
+concept: $P(\text{at least two of }E,F,G)=P(EF)+P(EG)+P(FG)-2P(EFG)$.
+solution:
+$=\frac16+\frac18+\frac1{12}-2\cdot\frac1{24}=\frac{4+3+2-2}{24}=\frac7{24}$. So $12p=3.5$.
+shortcut: Or add the exact cases: "exactly two" $\frac{1}{2}\frac13\frac34+\frac12\frac23\frac14+\frac12\frac13\frac14=\frac{3+2+1}{24}$, plus "all three" $\frac1{24}$, giving $\frac7{24}$.
+
+=== 2020 30
+topic: JD
+pattern: Multinomial: variance of a sum of cell counts
+type: NAT
+ans: 2.1
+concept: In a multinomial, merging cells gives a binomial. $Y+Z\sim\text{Bin}(n,p_Y+p_Z)$.
+solution:
+$Y+Z\sim\text{Bin}(10,0.7)$, so $\operatorname{Var}=10(0.7)(0.3)=2.1$.
+shortcut: Or directly: $\operatorname{Var}Y+\operatorname{Var}Z+2\operatorname{Cov}=2.1+2.4-2(10)(0.3)(0.4)=2.1$, using $\operatorname{Cov}(X_i,X_j)=-np_ip_j$.
+
+=== 2020 31
+topic: DOE
+pattern: Number of standard Latin squares
+type: NAT
+ans: 4
+concept: A **standard (reduced)** Latin square has its first row and first column in natural order.
+solution:
+For order 4 there are exactly 4 standard Latin squares (576 in total $=4!\cdot3!\cdot4$).
+shortcut: Standard Latin squares: order 2 and 3 have 1 each, order 4 has 4, order 5 has 56. Total = (standard) $\times\,n!\,(n-1)!$.
+
+=== 2020 32
+topic: MV
+pattern: PCA on equicorrelation matrix
+type: NAT
+ans: 0.75
+concept: Equicorrelation $\Sigma=(1-\rho)I+\rho J$ has eigenvalues $1+(p-1)\rho$ (once) and $1-\rho$ ($p-1$ times).
+solution:
+$p=4$, $\rho=0.5$: the eigenvalues are $2.5,0.5,0.5,0.5$ (sum $=4=$ trace).
+First two PCs: $\frac{2.5+0.5}{4}=0.75$.
+shortcut: Proportion explained by the first $k$ PCs $=\frac{\lambda_1+\dots+\lambda_k}{\text{tr}\,\Sigma}$.
+
+=== 2020 33
+topic: EST
+pattern: Basu's theorem for location family
+type: NAT
+ans: 2
+concept: For the shifted exponential $e^{-(x-2\theta)}$, $X_{(1)}$ is complete sufficient, and $X_1-X_2$ is ancillary (location-invariant). By Basu they are independent.
+solution:
+1. Independence lets you drop the conditioning: $E\left[\frac1\theta\left(X_{(1)}-\frac1n\right)\Big|X_1-X_2=2\right]=\frac1\theta E\left[X_{(1)}-\frac1n\right]$.
+2. $X_{(1)}-2\theta\sim\text{Exp}(\text{rate }n)$, so $E X_{(1)}=2\theta+\frac1n$.
+3. The result is $\frac1\theta\cdot2\theta=2$.
+
+=== 2020 34
+topic: REG
+pattern: Correlation of intercept and slope estimators
+type: NAT
+ans: 0
+concept: $\operatorname{Cov}(\hat\alpha,\hat\beta)=-\frac{\bar x\sigma^2}{S_{xx}}$.
+solution:
+$\sum x_i=0$ means $\bar x=0$, so the correlation is $0$. The other sums are distractors.
+trap: Same idea as 2019 Q61. GATE repeats it with extra data so you'll compute unnecessarily.
+
+=== 2020 35
+topic: EST
+pattern: MLE under restricted parameter space
+type: NAT
+ans: 2
+concept: For $N(\theta,\sigma^2)$ with $\theta\in[a,\infty)$, the MLE is $\max(\bar X,a)$.
+solution:
+$\bar x=\frac{0+1+2+3}{4}=1.5<2$. The likelihood is maximised at the boundary, so $\hat\theta=2$.
+trap: Don't answer 1.5. Always check whether $\bar x$ lies inside the allowed range.
+
+=== 2020 36
+topic: CAL
+pattern: Classify critical points (Hessian test)
+type: MCQ
+ans: C
+concept: At a critical point, $D=f_{xx}f_{yy}-f_{xy}^2$. If $D<0$ it is a saddle. If $D>0$, it is a min when $f_{xx}>0$ and a max when $f_{xx}<0$.
+solution:
+1. $f_y=-2x^3+16=0$ gives $x=2$. $f_x=4x^3-6x^2y=0$ then gives $32-24y=0$, so $y=\frac43$.
+2. $f_{xx}=12x^2-12xy=48-32=16$, $f_{yy}=0$, $f_{xy}=-6x^2=-24$.
+3. $D=0-576<0$, so it is a **saddle point**.
+shortcut: If $f_{yy}=0$ and $f_{xy}\neq0$, then $D<0$ automatically: a saddle.
+
+=== 2020 37
+topic: LA
+pattern: Rotation matrix: eigenvalues & diagonalizability over C
+type: MCQ
+ans: C
+concept: The map fixes the $x$-axis and rotates the $(y,z)$-plane by $30^\circ$. Eigenvalues: $1,e^{\pm i\pi/6}$.
+solution:
+1. There are three distinct eigenvalues over $\mathbb C$, so $T$ is diagonalizable. (c) ✓
+2. (a): $-1$ is not an eigenvalue. (b): the only real eigenvalue is $1$. (d): $T^2$ is rotation by $60^\circ\neq I$.
+shortcut: Rotation by $\theta$ has eigenvalues $e^{\pm i\theta}$, which are real only for $\theta=0,\pi$.
+
+=== 2020 38
+topic: LA
+pattern: Parametric matrix: rank, eigenvectors, idempotence
+type: MCQ
+ans: C
+concept: Look at column structure first. Column 2 $=c\times$ column 1 forces rank $\le2$.
+solution:
+1. Expand along column 3: the characteristic polynomial is $(1-\lambda)\lambda(\lambda-(a+c))$. The eigenvalues are $0,1,a+c$.
+2. (a) is false: rank $\le2$.
+3. (b): if $a+c=0$, eigenvalue 0 is repeated, but the rank is 2, so nullity is $1<2$. Not diagonalizable, so false.
+4. (c): $Me_3=e_3$ (eigenvalue 1), and $M(c,-1,0)^T=c\,\text{col}_1-\text{col}_2=0$ (eigenvalue 0). $(c,-1,0)\cdot(0,0,1)=0$, orthogonal for **every** $a,b,c$. True.
+5. (d): with $b=0$ and $a+c=1$, the top block $\begin{pmatrix}a&ac\\1&c\end{pmatrix}$ is rank 1 with trace 1, so it is idempotent and $M^2=M$. The statement says "NOT idempotent", so it is false.
+shortcut: A rank-1 matrix $uv^T$ satisfies $A^2=(v^Tu)A=(\text{tr}A)A$. With trace 1 it is idempotent.
+
+=== 2020 39
+topic: LA
+pattern: Minimal polynomial → multiplicities, trace
+type: MCQ
+ans: B
+concept: For a $4\times4$ matrix with a degree-4 minimal polynomial, the characteristic polynomial equals the minimal polynomial.
+solution:
+The characteristic polynomial is $(x-1)^2(x-3)^2$. The eigenvalues are $1,1,3,3$, so the algebraic multiplicity of 1 is **2**, not 3. (b) is false.
+The others are true: it is not diagonalizable (repeated root in the minimal polynomial), and trace $=8$.
+shortcut: Diagonalizable iff the minimal polynomial has distinct linear factors.
+
+=== 2020 40
+topic: CAL
+pattern: Differentiability of |y−2|√|x−1| type functions
+type: MCQ
+ans: A
+concept: $f$ is differentiable at $p$ iff $\frac{f(p+h)-f(p)-\nabla f\cdot h}{\|h\|}\to0$.
+solution:
+1. $f(1,2)=0$. Along the lines $x=1$ or $y=2$, $f\equiv0$, so $f_x=f_y=0$.
+2. Write $h=x-1$, $k=y-2$, $r=\sqrt{h^2+k^2}$. Then $|f|=|k|\,|h|^{1/2}\le r\cdot r^{1/2}$, so $\frac{|f|}{r}\le r^{1/2}\to0$.
+3. So $f$ is differentiable at $(1,2)$ with gradient $0$. (a) ✓
+4. The directional derivative is $0\neq1$, so (d) is false.
+shortcut: A product of factors whose total degree of vanishing is $>1$ (here $1+\frac12=\frac32$) makes the function differentiable with zero gradient. Compare $\sqrt{|xy|}$, with total degree exactly 1, which is **not** differentiable at the origin.
+
+=== 2020 41
+topic: CAL
+pattern: Uniform continuity
+type: MCQ
+ans: C
+concept: A function with a bounded derivative (Lipschitz) is uniformly continuous. Unbounded growth such as $e^{x^2}$ or $x^2$ on $\mathbb R$, or blow-up such as $1/x$ near 0, breaks it.
+solution:
+- $f_1=e^{x^2}$: derivative unbounded, not UC.
+- $f_2$: $1/x$ blows up near 0 (and is discontinuous at 0), not UC.
+- $f_3$: $x^2$ on $[-1,1]$ (compact) and $\frac2{1+x^2}$ outside. Continuous at $\pm1$ (both pieces equal 1), with bounded derivative. **UC** ✓
+- $f_4$: $x^2$ for $|x|>1$, not UC.
+shortcut: Continuous on a compact set means UC. Continuous with finite limits at $\pm\infty$ also means UC.
+
+=== 2020 42
+topic: JD
+pattern: Pairwise but not mutually independent (continuous)
+type: MCQ
+ans: B
+concept: Integrating out one variable kills the $\sin x_1\sin x_2\sin x_3$ term, because $\int_0^{2\pi}\sin x\,dx=0$.
+solution:
+1. Any 2-dimensional marginal is $\frac{1}{4\pi^2}$, uniform, so every pair is independent.
+2. The joint density is not $\frac1{8\pi^3}$, i.e. not the product of the marginals. So they are **not** mutually independent, and $(X_1,X_2)$ is not independent of $X_3$.
+3. $\operatorname{Var}(X_1+X_2)=2\cdot\frac{(2\pi)^2}{12}=\frac{2\pi^2}{3}\neq\pi^2$.
+shortcut: The pattern "$1+\prod g(x_i)$ with $\int g=0$" is the classic pairwise-independent but not mutually independent example.
+
+=== 2020 43
+topic: MV
+pattern: LDA with non-identity covariance
+type: MCQ
+ans: B
+concept: Equal priors and costs: assign $z$ to $P_1$ iff $(\mu_1-\mu_2)^T\Sigma^{-1}\left(z-\frac{\mu_1+\mu_2}2\right)\ge0$.
+solution:
+1. $\mu_1-\mu_2=(-1,-1)$. $\Sigma^{-1}=\frac{1}{0.75}\begin{pmatrix}1&-0.5\\-0.5&1\end{pmatrix}$, so $a=\Sigma^{-1}(\mu_1-\mu_2)=(-\frac23,-\frac23)$.
+2. The midpoint is $(0.5,0.5)$.
+3. $z_1$: $a\cdot(0.25,0.25)=-\frac13<0$, so $P_2$. $z_2$: $a\cdot(-0.25,-0.25)=+\frac13>0$, so $P_1$. Answer (b).
+shortcut: Along the line through both means, nearest-mean logic works whatever $\Sigma$ is. $z_1$ lies past the midpoint toward $\mu_2$.
+
+=== 2020 44
+topic: EST
+pattern: Minimal sufficient statistic for two-parameter-type exponential
+type: MCQ
+ans: D
+concept: $f=\frac1\theta e^{-(x-\theta)/\theta}$, $x>\theta$. $\theta$ is both location and scale. Factorise: $L=\theta^{-n}e^{-(\sum x_i-n\theta)/\theta}\,\mathbb 1\{x_{(1)}>\theta\}$.
+solution:
+The likelihood depends on $\sum X_i$ and $X_{(1)}$, so $\left(X_{(1)},\sum X_i\right)$, equivalently $(X_{(1)},\bar X)$, is minimal sufficient. (d)
+That is a 2-dimensional statistic for a 1-dimensional parameter, so it is not complete, and (c) is false.
+
+=== 2020 45
+topic: MV
+pattern: E[max(X,Y)] for bivariate normal
+type: MCQ
+ans: B
+concept: $\max(X,Y)=\frac{X+Y}2+\frac{|X-Y|}2$. If $W\sim N(0,\sigma^2)$, then $E|W|=\sigma\sqrt{2/\pi}$.
+solution:
+$X-Y\sim N(0,2-2\rho)$. So $E\max=0+\frac12\sqrt{2(1-\rho)}\sqrt{\frac2\pi}=\sqrt{\frac{1-\rho}{\pi}}$.
+shortcut: For i.i.d. $N(0,1)$ ($\rho=0$), $E\max=\frac1{\sqrt\pi}$. Remember that.
+
+=== 2020 46
+topic: MV
+pattern: Quadratic form in normal vectors: idempotent → chi-square
+type: MCQ
+ans: C
+concept: If $X\sim N_p(0,I)$ and $A$ is symmetric idempotent of rank $r$, then $X^TAX\sim\chi^2_r$.
+solution:
+$A=I_3-\frac13J_3$ is idempotent with rank = trace $=2$. Each $X_i^TAX_i\sim\chi^2_2$, independently. The sum of 10 is $\chi^2_{20}$.
+shortcut: $I-\frac1nJ$ is the centring matrix: $X^TAX=\sum(x_j-\bar x)^2$, with rank $n-1$.
+
+=== 2020 47
+topic: MV
+pattern: Wishart distribution of XᵀX
+type: MCQ
+ans: A
+concept: If the rows $X_i\sim N_p(0,\Sigma)$ i.i.d., $i=1..n$, then $X^TX=\sum X_iX_i^T\sim W_p(n,\Sigma)$. Also $A^TWA\sim W(n,A^T\Sigma A)$.
+solution:
+$X^TX\sim W_4(3,\Sigma)$ ($p=4$, $n=3$). So $\Sigma^{-1/2}X^TX\Sigma^{-1/2}\sim W_4(3,I_4)$. (a)
+(c) is false: $\text{tr}(X\Sigma^{-1}X^T)=\sum X_i^T\Sigma^{-1}X_i\sim\chi^2_{12}$.
+shortcut: Wishart notation $W_p(n,\Sigma)$: $p$ = dimension of each vector, $n$ = number of vectors.
+
+=== 2020 48
+topic: MV
+pattern: Independence in multivariate normal via covariances
+type: MCQ
+ans: C
+concept: Jointly normal linear combinations are independent iff their covariance is 0.
+solution:
+$\operatorname{Cov}(X_1-X_2+X_3,\;X_1+X_2)=\sigma_{11}+\sigma_{12}-\sigma_{21}-\sigma_{22}+0=1+0.5-0.5-1=0$. Independent ✓
+Checks for the others: (a) $\operatorname{Cov}=1-0.5=0.5$. (b) $-1-0.5=-1.5$. (d) $2+0.5-2-2=-1.5$.
+shortcut: Write $\operatorname{Cov}(a^TX,b^TX)=a^T\Sigma b$ and compute it in one line.
+
+=== 2020 49
+topic: DOE
+pattern: One-way ANOVA F test d.f.
+type: MCQ
+ans: A
+concept: One-way ANOVA with $k$ groups and $N$ observations: $F=\frac{MST}{MSE}\sim F_{k-1,\,N-k}$.
+solution:
+$k=3$ and $N=12$, so $F_{2,9}$. The p-value is $P(F_{2,9}>104.45)$.
+
+=== 2020 50
+topic: TH
+pattern: UMP existence for two-sided / interval hypotheses
+type: MCQ
+ans: C
+concept: In a one-parameter exponential family (MLR), UMP tests exist for one-sided problems. For $H_0:\theta_1\le\theta\le\theta_2$ against $H_1:\theta<\theta_1$ or $\theta>\theta_2$ (outside the interval), **no UMP test exists**.
+solution:
+A test most powerful against $\theta<1$ rejects for small $\sum x$. One most powerful against $\theta>2$ rejects for large $\sum x$. No single test does both. (c)
+shortcut: UMP exists for: $\theta\le\theta_0$ vs $>$; $\theta\le\theta_1$ or $\ge\theta_2$ vs $\theta_1<\theta<\theta_2$ (interval **alternative**). UMP does **not** exist for: $\theta=\theta_0$ vs $\neq$; interval **null** vs outside.
+
+=== 2020 51
+topic: SP
+pattern: Pure birth process: time to reach state n
+type: NAT
+ans: 341
+concept: In a pure birth process, the holding time in state $n$ is $\text{Exp}(\lambda_n)$, independent across states.
+solution:
+$T=\sum_{n=0}^{4}E_n$ with $E_n\sim\text{Exp}(2^n)$. $\operatorname{Var}T=\sum\frac1{\lambda_n^2}=1+\frac14+\frac1{16}+\frac1{64}+\frac1{256}=\frac{341}{256}$. So $256\operatorname{Var}T=341$.
+shortcut: $E(T)=\sum1/\lambda_n$ and $\operatorname{Var}(T)=\sum1/\lambda_n^2$.
+
+=== 2020 52
+topic: SP
+pattern: Periodic chain: limit along even steps
+type: NAT
+ans: 0.7
+concept: The chain has period 2: it alternates between $\{1\}$ and $\{0,2\}$.
+solution:
+From 0 or 2 you go to 1, then to 0 (prob 0.3) or 2 (prob 0.7). So $P(X_{2n}=2\mid X_0=2)=0.7$ for every $n\ge1$, and the limit is $0.7$.
+trap: $\lim P^n$ does not exist for a periodic chain. Only the limit along the period works.
+
+=== 2020 53
+topic: JD
+pattern: Conditional mean via Bayes for densities (gamma)
+type: NAT
+ans: 1.5
+concept: $f(y\mid x)\propto f(x\mid y)g(y)$. Recognise the gamma kernel.
+solution:
+$f(x,y)=ye^{-yx}\cdot ye^{-y}=y^2e^{-y(1+x)}$. At $x=1$: $f(y\mid1)\propto y^2e^{-2y}$, which is $\text{Gamma}(\text{shape }3,\text{rate }2)$. Mean $=\frac32=1.5$.
+shortcut: The kernel $y^{a-1}e^{-by}$ is $\text{Gamma}(a,b)$ with mean $a/b$. No integration needed.
+
+=== 2020 54
+topic: JD
+pattern: Read distribution from joint MGF
+type: NAT
+ans: 1.62
+concept: $e^{2s^2+t}=e^{2s^2}\cdot e^{t}$: $X\sim N(0,4)$ and $Y\equiv1$ (degenerate), independent.
+solution:
+1. $X+2Y<1$ means $X<-1$, so $p=\Phi(-\frac12)=1-0.6915=0.3085$.
+2. $2p+1=1.617\approx1.62$.
+Note: the PDF's key prints 0.31, which is $p$ itself. Answer whatever quantity the question asks for. As printed, it asks for $2p+1$.
+shortcut: The MGF $e^{\mu t+\sigma^2t^2/2}$ gives $N(\mu,\sigma^2)$, and $e^{ct}$ gives the constant $c$.
+
+=== 2020 55
+topic: SP
+pattern: Markov chain: probability of hitting A before B (first-step analysis)
+type: NAT
+ans: 4
+concept: First-step analysis: $h_i=\sum_jp_{ij}h_j$ with boundary values $h_0=1$ and $h_3=0$.
+solution:
+1. From state 2 you can only stay at 2 or go to 3, so $h_2=0$.
+2. $h_1=\frac12(1)+\frac14h_1+\frac14h_2$ gives $\frac34h_1=\frac12$, so $h_1=\frac23$.
+3. $6p=4$.
+
+=== 2020 56
+topic: JD
+pattern: Hierarchical: geometric–binomial, law of total variance
+type: NAT
+ans: 1
+concept: Law of total variance: $\operatorname{Var}Y=E[\operatorname{Var}(Y|X)]+\operatorname{Var}(E[Y|X])$.
+solution:
+1. $\sum_y\binom xy=2^x$, so $P(X=x)=2^x4^{-x}=(\frac12)^x$, $x\ge1$: Geometric, $E X=2$, $\operatorname{Var}X=2$.
+2. $Y\mid X\sim\text{Bin}(X,\frac12)$.
+3. $\operatorname{Var}Y=E\frac X4+\operatorname{Var}\frac X2=\frac24+\frac24=1$.
+
+=== 2020 57
+topic: TH
+pattern: NP lemma for discrete pmf (randomised test, power)
+type: NAT
+ans: 0.12
+concept: Neyman–Pearson: order the points by $\lambda(x)=\frac{f_1(x)}{f_0(x)}$ and reject the largest first, randomising at the boundary so the size is exactly $\alpha$.
+solution:
+1. Ratios: $x=1$: 0.5, $x=2$: 0.6, $x=3$: 0.8, $x=4$: 0.9, $x=5$: 1.2. The largest is $x=5$.
+2. $f_0(5)=0.6>0.1$, so reject at $x=5$ with probability $\gamma=\frac{0.1}{0.6}=\frac16$.
+3. Power $=\frac16\times0.72=0.12$.
+trap: Don't reject $\{x=1\}$ just because $f_0=0.1$ fits exactly. NP orders points by the likelihood ratio, not by convenience.
+
+=== 2020 58
+topic: MV
+pattern: Partial correlation formula
+type: NAT
+ans: 0.25
+concept: $\rho_{23\cdot1}=\dfrac{\rho_{23}-\rho_{21}\rho_{31}}{\sqrt{(1-\rho_{21}^2)(1-\rho_{31}^2)}}$.
+solution:
+All correlations are $\frac13$: $\rho_{23\cdot1}=\frac{\frac13-\frac19}{1-\frac19}=\frac{2/9}{8/9}=0.25$.
+shortcut: Equicorrelation $\rho$: partial correlation $=\frac{\rho}{1+\rho}$. Here $\frac{1/3}{4/3}=\frac14$.
+
+=== 2020 59
+topic: NP
+pattern: Wilcoxon signed-rank null distribution by enumeration
+type: NAT
+ans: 18
+concept: Under $H_0$, each of the $2^n$ subsets of ranks $\{1..n\}$ is equally likely to be the "positive" set. $T^+$ is the sum of that subset.
+solution:
+$n=4$, 16 subsets. Count those with sum $\le5$: sum 0: $\{\}$; 1: $\{1\}$; 2: $\{2\}$; 3: $\{3\},\{1,2\}$; 4: $\{4\},\{1,3\}$; 5: $\{1,4\},\{2,3\}$. That is 9 subsets.
+$P=\frac9{16}$, so $32P=18$.
+shortcut: $E T^+=\frac{n(n+1)}4$ and $\operatorname{Var}T^+=\frac{n(n+1)(2n+1)}{24}$. The distribution is symmetric about the mean.
+
+=== 2020 60
+topic: REG
+pattern: Fit simple linear regression and predict
+type: NAT
+ans: 16
+concept: $\hat y=\bar y+\hat\beta(x-\bar x)$ with $\hat\beta=\frac{S_{xy}}{S_{xx}}$.
+solution:
+$\bar x=0$, $\bar y=7$, $S_{xx}=10$, $S_{xy}=\sum xy=-6-5+0+9+20=18$, so $\hat\beta=1.8$.
+$\hat y(5)=7+1.8(5)=16$.
+
+=== 2020 61
+topic: CAL
+pattern: Triple integral over the standard simplex
+type: NAT
+ans: 7
+concept: Dirichlet integral: $\int_{\text{simplex}}x^{a}y^{b}z^{c}=\frac{a!\,b!\,c!}{(a+b+c+3)!}$.
+solution:
+$\iiint x=\frac{1!}{4!}=\frac1{24}$. By symmetry, $\iiint(x+y)=\frac2{24}=\frac1{12}$. So $84I=7$.
+shortcut: Simplex volume $=\frac16$ and centroid $=(\frac14,\frac14,\frac14)$, so $\iiint x=\frac16\cdot\frac14$.
+
+=== 2020 62
+topic: JD
+pattern: Read marginals from a joint CDF (mixed)
+type: NAT
+ans: 22
+concept: $F(x,y)=F_X(x)F_Y(y)$ means independence. Read off each marginal.
+solution:
+For $0\le y<1$, $F=\frac14(1-e^{-x})$. For $y\ge1$, $F=1-e^{-x}$. So $X\sim\text{Exp}(1)$ and $Y\in\{0,1\}$ with $P(Y=0)=\frac14$, independent.
+$\operatorname{Var}X=1$ and $\operatorname{Var}Y=\frac14\cdot\frac34=\frac3{16}$. $16(1)+32\cdot\frac3{16}=22$.
+
+=== 2020 63
+topic: LT
+pattern: CLT + Slutsky with sample second moment
+type: NAT
+ans: 1.5
+concept: CLT: $\sqrt n(Y_n-1)\to N(0,\operatorname{Var}X^2)$. Slutsky: $Y_n\to1$ can be replaced by 1.
+solution:
+1. $\operatorname{Var}(X^2)=EX^4-(EX^2)^2=3-1=2$, so $\frac{\sqrt n(Y_n-1)}{\sqrt3}\to N(0,\frac23)$.
+2. The event becomes $1+W\le2$ with $W\sim N(0,\frac23)$: $P=\Phi\left(\frac1{\sqrt{2/3}}\right)=\Phi(\sqrt{1.5})$.
+3. $c^2=1.5$.
+trap: The $\sqrt3$ is not the standard deviation (that is $\sqrt2$). Compute the actual limiting variance $\frac23$.
+
+=== 2020 64
+topic: RV
+pattern: Recognise joint density of order statistics
+type: NAT
+ans: 1.8
+concept: The joint density of the order statistics of $n$ i.i.d. variables from $g$ is $n!\prod g(x_i)$ on $x_1<\dots<x_n$.
+solution:
+1. $\frac{81}{4}x_1^2x_2^2x_3^2=3!\left(\frac32x_1^2\right)\left(\frac32x_2^2\right)\left(\frac32x_3^2\right)$, the order statistics of i.i.d. $g(x)=\frac32x^2$ on $[-1,1]$.
+2. $X_1+X_2+X_3$ equals the sum of the unordered i.i.d. sample.
+3. $EX=0$ and $EX^2=\int_{-1}^1\frac32x^4dx=\frac35$, so $\operatorname{Var}=3\times\frac35=1.8$.
+shortcut: Sums and symmetric functions of order statistics equal those of the original sample, so ordering doesn't matter.
+
+=== 2020 65
+topic: NP
+pattern: Sign test: size from binomial
+type: NAT
+ans: 0.5
+concept: Under $H_0$ (median $=0$), the number of positive observations is $\text{Bin}(n,\frac12)$.
+solution:
+Size $=P(\text{Bin}(5,\frac12)\le2)=\frac{\binom50+\binom51+\binom52}{32}=\frac{16}{32}=0.5$.
+shortcut: For odd $n$, $P(\text{Bin}(n,\frac12)\le\frac{n-1}2)=\frac12$ by symmetry.
