@@ -1,0 +1,567 @@
+=== 2024 11
+topic: CAL
+pattern: Double integral over region between line and parabola
+type: MCQ
+ans: A
+concept: Find the intersection points, then integrate in vertical strips: $\int_a^b\int_{g(x)}^{h(x)}x\,dy\,dx$.
+solution:
+1. $x=4x-x^2$ gives $x=0,3$. On $(0,3)$ the parabola lies above the line.
+2. $\iint x\,dA=\int_0^3x(4x-x^2-x)\,dx=\int_0^3(3x^2-x^3)\,dx=27-\frac{81}4=\frac{27}4$.
+shortcut: $\iint x\,dA=\bar x\cdot\text{Area}$. Area $=\frac{3^3}6=4.5$, and by symmetry of the parabolic segment $\bar x=1.5$, giving $6.75=\frac{27}4$.
+
+=== 2024 12
+topic: CAL
+pattern: Recursive sequence: monotone + bounded
+type: MCQ
+ans: A
+concept: Monotone convergence theorem. The limit solves the fixed-point equation $L=\sqrt{6+L}$.
+solution:
+1. $L^2=6+L$ gives $L=3$ (positive root).
+2. $a_1=\sqrt6\approx2.45<3$. By induction, $a_n<3$ implies $a_{n+1}=\sqrt{6+a_n}>a_n$ (because $a^2-a-6<0$ for $a<3$). So the sequence is increasing.
+3. The limit is $3$, not 2. (I) only.
+
+=== 2024 13
+topic: LA
+pattern: Invertibility equivalences (RREF, eigenvalue 0, Ax=b)
+type: MCQ
+ans: C
+concept: For a square $A$, these are all equivalent: invertible, RREF $=I$, 0 is not an eigenvalue, $Ax=b$ solvable for every $b$.
+solution:
+(c) fails: three distinct eigenvalues can include 0, e.g. $\text{diag}(0,1,2)$. Its RREF is not $I$.
+
+=== 2024 14
+topic: LA
+pattern: Dimension formula for sum and intersection of subspaces
+type: MCQ
+ans: D
+concept: $\dim(U+V)=\dim U+\dim V-\dim(U\cap V)$.
+solution:
+- (I) $\dim(U+V)=3+\dim V-2\le4$ allows $\dim V=3$, i.e. $v_1,v_2,v_3$ independent. Not forced to be dependent. False.
+- (II) $\dim U=\dim V=2$ with $U\cap V=\{0\}$ gives $U+V=\mathbb R^4$, while both triples are dependent. False.
+Neither.
+
+=== 2024 15
+topic: LA
+pattern: Solve for a vector from inner products
+type: MCQ
+ans: D
+concept: Two inner-product conditions give two linear equations in $(a,b)$.
+solution:
+1. $a+2b=2$ and $4a-2b=-1$. Adding: $5a=1$, so $a=\frac15$ and $b=\frac9{10}$.
+2. (d): $-\frac a2+b=-\frac1{10}+\frac9{10}=\frac45$ ✓
+
+=== 2024 16
+topic: LA
+pattern: Null space of a rank-1 matrix
+type: MCQ
+ans: C
+concept: Rank 1 with both rows non-zero means the rows are proportional, $b=ka$. So they define the same plane.
+solution:
+$W_1=W_2$ (same normal direction), and $W=W_1\cap W_2=W_1$. Both (I) and (II) are true.
+
+=== 2024 17
+topic: RV
+pattern: Moments of a two-point distribution from MGF
+type: MCQ
+ans: A
+concept: $M^{(k)}(0)=E X^k$.
+solution:
+$E X=1\cdot p_1+2p_2=\frac{10}7$ with $p_1+p_2=1$, so $p_2=\frac37$ and $p_1=\frac47$.
+$E X^4=\frac47+16\cdot\frac37=\frac{52}7$.
+
+=== 2024 18
+topic: PROB
+pattern: Independence of events on two dice
+type: MCQ
+ans: B
+concept: Check $P(A\cap B)=P(A)P(B)$ by counting outcomes out of 36.
+solution:
+1. $P(A)=\frac13$.
+2. Sum 7: $P(B)=\frac16$, and $A\cap B=\{(5,2),(6,1)\}$ has probability $\frac2{36}=\frac13\cdot\frac16$. Independent ✓
+3. Sum 8: $P(C)=\frac5{36}$, and $A\cap C=\{(5,3),(6,2)\}$ has $\frac2{36}\ne\frac5{108}$. Not independent.
+shortcut: "Sum = 7" is independent of the value of either die, because every red value has exactly one blue partner.
+
+=== 2024 19
+topic: RV
+pattern: Beta moments → parameters
+type: MCQ
+ans: A
+concept: Beta($\alpha,\beta$): $EX=\frac\alpha{\alpha+\beta}$ and $EX^2=\frac{\alpha(\alpha+1)}{(\alpha+\beta)(\alpha+\beta+1)}$.
+solution:
+1. Let $s=\alpha+\beta$, so $\alpha=\frac s3$. Then $\frac{(s/3)(s/3+1)}{s(s+1)}=\frac16$ gives $\frac{s+3}{9(s+1)}=\frac16$, so $s=3$.
+2. $\alpha=1$, $\beta=2$, and $\alpha+3\beta=7$.
+
+=== 2024 20
+topic: JD
+pattern: Independence of functions vs original variables
+type: MCQ
+ans: D
+concept: Functions of independent variables are independent. The converse fails for non-invertible functions such as squaring.
+solution:
+(d) fails. Let $X=Z_1$ and $Y=\text{sign}(Z_1)|Z_2|$. Then $X^2$ and $Y^2=Z_2^2$ are independent, but $X$ and $Y$ share a sign.
+(a), (b) are true: take $Y$ an independent copy of $X$, or $Y=-X$ for symmetric $X$.
+
+=== 2024 21
+topic: LT
+pattern: Pointwise limit of CDFs that is not a CDF
+type: MCQ
+ans: B
+concept: A limit of CDFs must still tend to 0 and 1 at $\mp\infty$ to be a CDF. Mass can escape to infinity.
+solution:
+For fixed $x$ and large $n$, $F_n(x)=\frac{x+n}{2n}\to\frac12$. The limit is the constant $\frac12$, which is not a CDF. Uniform on $(-n,n)$ spreads out to infinity.
+
+=== 2024 22
+topic: SP
+pattern: Brownian motion basics
+type: MCQ
+ans: B
+concept: $E[W(s)W(t)]=\min(s,t)$, and $E[W(t)\mid W(s)]=W(s)$ for $t>s$ (martingale).
+solution:
+(b): $E[W(5)W(9)]=5\ne7$. **Not true.** The others hold: $E W=0$, $2W(1)\sim N(0,4)$, $E[W_5\mid W_3=3]=3$.
+
+=== 2024 23
+topic: EST
+pattern: Sufficiency: conditional distribution free of parameter
+type: MCQ
+ans: C
+concept: $T$ is sufficient iff the distribution of the data (or any statistic) given $T$ is free of the parameter.
+solution:
+- (I) $T_2=(X_1+X_2)+X_3$ is a function of $T_1$, so given $T_1$ it is degenerate and free of $p$ ✓
+- (II) $T_2$ is sufficient for $p$, so the conditional distribution of $T_1$ given $T_2$ is free of $p$ ✓
+
+=== 2024 24
+topic: EST
+pattern: MLE for f = θx^(θ−1) (Beta(θ,1))
+type: MCQ
+ans: B
+concept: The log-likelihood is $n\ln\theta+(\theta-1)S$, which gives $\hat\theta=-\frac nS$.
+solution:
+$S=\sum_{x_i\le1/2}\ln2x_i+\sum_{x_i>1/2}\ln(2-2x_i)$, which is negative. $\hat\theta=-n/S$, option (b).
+shortcut: Same as 2019 Q18, with $\ln x$ replaced by the log of the "folded" variable. $Y=\min(2X,2-2X)$ has density $\theta y^{\theta-1}$.
+
+=== 2024 25
+topic: TH
+pattern: Definitions of Type-I / Type-II errors
+type: MCQ
+ans: B
+concept: Type I error: reject a true $H_0$. Type II error: accept a false $H_0$.
+solution:
+(b) is the correct definition. (c) describes a correct decision. $\alpha$ and $\beta$ need not add to 1, and there is no fixed ordering between them.
+
+=== 2024 26
+topic: TH
+pattern: Chi-square goodness of fit d.f.
+type: MCQ
+ans: A
+concept: Pearson $\chi^2=\sum\frac{(O-E)^2}E$, with d.f. $k-1$ when nothing is estimated.
+solution:
+$E=10$ for each category. $\chi^2=\frac{25+4+4+25}{10}=5.8$, d.f. $=3$.
+
+=== 2024 27
+topic: NP
+pattern: Sign test p-value
+type: MCQ
+ans: A
+concept: Under $H_0$ (median 10), $T\sim\text{Bin}(n,\frac12)$. For a right-tailed test, the p-value is $P(T\ge t_0)$.
+solution:
+$\sum_{i=t_0}^n\binom ni(0.5)^n$, option (a).
+
+=== 2024 28
+topic: REG
+pattern: Cov(ȳ, β̂₁) = 0
+type: MCQ
+ans: C
+concept: $\hat\beta_1=\sum c_iy_i$ with $c_i=\frac{x_i-\bar x}{S_{xx}}$ and $\sum c_i=0$.
+solution:
+$\operatorname{Cov}(\bar y,\hat\beta_1)=\frac{\sigma^2}n\sum c_i=0$.
+
+=== 2024 29
+topic: REG
+pattern: Unbiased estimate of σ² in linear regression (RSS / (n−p))
+type: MCQ
+ans: B
+concept: $E(SSE)=(n-2)\sigma^2$ and $E(SSR)=\sigma^2+\beta_1^2S_{xx}$.
+solution:
+$T_1=\frac{SSE}{n-2}$ is unbiased. $T_2=SSR$ is not (unless $\beta_1=0$). Option (b).
+
+=== 2024 30
+topic: CAL
+pattern: Radius of convergence (root test with mixed coefficients)
+type: NAT
+ans: 2
+concept: $\frac1R=\limsup|a_n|^{1/n}$ (Cauchy–Hadamard).
+solution:
+For odd $n$, $|a_n|^{1/n}=\frac12$. For even $n$, $\frac13$. The limsup is $\frac12$, so $R=2$.
+trap: The ratio test fails here because the ratios oscillate. Use the root test.
+
+=== 2024 31
+topic: RV
+pattern: Poisson: parameter from pmf ratio; mode
+type: NAT
+ans: 2
+concept: $\frac{P(X=k+1)}{P(X=k)}=\frac\lambda{k+1}$. The mode is $\lfloor\lambda\rfloor$ for non-integer $\lambda$.
+solution:
+$\frac{P(5)}{P(4)}=\frac\lambda5=\frac12$ gives $\lambda=2.5$. The mode is $\lfloor2.5\rfloor=2$.
+
+=== 2024 32
+topic: RV
+pattern: P(min ≥ c) for i.i.d. sample
+type: NAT
+ans: 0.17
+concept: $P(\min\ge c)=P(X\ge c)^n$.
+solution:
+$EX=\frac23$ and $P(X\ge\frac23)=1-\frac49=\frac59$. So $P=(\frac59)^3=\frac{125}{729}=0.1715\approx0.17$.
+
+=== 2024 33
+topic: MV
+pattern: Bivariate normal conditional means and variances
+type: NAT
+ans: 4
+concept: $E(Y|X=x)=\rho\frac{\sigma_Y}{\sigma_X}x$ and $\operatorname{Var}(Y|X)=\sigma_Y^2(1-\rho^2)$.
+solution:
+1. $\frac{E(Y|X=2)}{E(X|Y=1)}=\frac{2\rho\sigma_Y/\sigma_X}{\rho\sigma_X/\sigma_Y}=2\frac{\sigma_Y^2}{\sigma_X^2}=8$, so $\frac{\sigma_Y^2}{\sigma_X^2}=4$.
+2. $\frac{\operatorname{Var}(Y|X)}{\operatorname{Var}(X|Y)}=\frac{\sigma_Y^2}{\sigma_X^2}=4$.
+
+=== 2024 34
+topic: TH
+pattern: NP test for normal variance: find the constant c
+type: NAT
+ans: 1.85
+concept: $\lambda(x)$ is increasing in $x^2$, so $\lambda>c\iff x^2>k$ with $P_{H_0}(X^2>k)=0.05$.
+solution:
+1. $\lambda(x)=\frac1{\sqrt2}e^{x^2/4}$.
+2. Under $H_0$, $X^2\sim\chi^2_1$, so $k=3.841$.
+3. $c=\frac1{\sqrt2}e^{3.841/4}=0.7071\times2.6124=1.847\approx1.85$.
+trap: The question asks for $c$ on the **likelihood-ratio** scale, not $k$.
+
+=== 2024 35
+topic: REG
+pattern: Regression through the origin
+type: NAT
+ans: 1.71
+concept: No intercept: $\hat\beta=\frac{\sum x_iy_i}{\sum x_i^2}$.
+solution:
+$\sum xy=10+6+12+6+24=58$ and $\sum x^2=4+1+9+4+16=34$. $\hat\beta=1.706\approx1.71$.
+
+=== 2024 36
+topic: CAL
+pattern: Classify critical points (Hessian test)
+type: MCQ
+ans: B
+concept: Factor $f=2xy(54-x-y)$ and find all critical points. $D=f_{xx}f_{yy}-f_{xy}^2$.
+solution:
+1. $f_x=2y(54-2x-y)$ and $f_y=2x(54-x-2y)$. Critical points: $(0,0)$, $(54,0)$, $(0,54)$, $(18,18)$. That is four ✓
+2. At $(0,0)$: $f_{xx}=f_{yy}=0$ and $f_{xy}=108$, so $D<0$: a saddle. **(b) is not true.**
+3. At $(18,18)$: $f_{xx}=f_{yy}=-72$, $f_{xy}=-36$, $D>0$: a max ✓. $(54,0)$ and $(0,54)$ are saddles, so there are 3 saddles ✓.
+shortcut: A product of three linear factors ($x$, $y$, $54-x-y$) is zero on three lines bounding a triangle. Each pairwise intersection (a vertex) is a saddle, and the extremum sits inside the triangle.
+
+=== 2024 37
+topic: CAL
+pattern: Partial derivatives and their continuity at the origin
+type: MCQ
+ans: C
+concept: Compute $f_x(0,0)$ and $f_y(0,0)$ from the definition, then test continuity of $f_x$ along different paths.
+solution:
+1. $|f|\le|x|+|y|$, so $f$ is continuous ✓
+2. $f_x(0,0)=\lim\frac{h^3/h^2}h=1$ and $f_y(0,0)=-1$, so (b) ✓
+3. $f_x(x,0)=1$, but $f_x(0,y)=0$ for $y\ne0$, so $f_x$ is **not** continuous at 0. (c) is false.
+4. Similarly $f_y$ is discontinuous at 0, so (d) is true.
+
+=== 2024 38
+topic: RV
+pattern: Probability for a function via the event in X
+type: MCQ
+ans: A
+concept: Convert the event: $Y\le\frac34\iff X^2\ge\frac14\iff|X|\ge\frac12$.
+solution:
+$P(|X|<\frac12)=\frac18\left[(x+1)^3\right]_{-1/2}^{1/2}=\frac18\left(\frac{27}8-\frac18\right)=\frac{13}{32}$. So the answer is $1-\frac{13}{32}=\frac{19}{32}$.
+
+=== 2024 39
+topic: RV
+pattern: Density constants; existence of moments
+type: MCQ
+ans: B
+concept: Use total probability and the given probability to solve for two constants. Then check tail integrability.
+solution:
+1. $2C_1+C_2=1$ and $C_1+\frac34C_2=\frac58$ give $C_1=\frac14$ and $C_2=\frac12$.
+2. (I) $P(3\le X\le5)=\frac12\left(\frac13-\frac15\right)=\frac1{15}\neq\frac1{12}$ ✗
+3. (II) $EX\propto\int^\infty\frac1x=\infty$ and $E\frac1X\propto\int_0x^{-3/2}=\infty$ ✓
+Only (II).
+
+=== 2024 40
+topic: SP
+pattern: Memoryless waiting time: sum of exponentials (gamma tail)
+type: MCQ
+ans: A
+concept: Memoryless: the remaining service is Exp(mean 10), whatever has elapsed. The total is a sum of 2 i.i.d. exponentials, Gamma(2).
+solution:
+$P(\text{Gamma}(2,\text{mean }10)>15)=e^{-1.5}(1+1.5)=\frac52e^{-3/2}$.
+shortcut: $P(\text{Gamma}(k,\lambda)>t)=P(\text{Poisson}(\lambda t)<k)$.
+
+=== 2024 41
+topic: PROB
+pattern: Conditional expectation for discrete uniform with exclusion
+type: MCQ
+ans: A
+concept: Conditional on a subset, the distribution is uniform on that subset.
+solution:
+1. Odd numbers 1..99: 50 of them, sum $=2500$.
+2. Odd multiples of 15 up to 99: 15, 45, 75 (sum 135).
+3. Remaining: 47 numbers with sum 2365, so $E=\frac{2365}{47}$.
+
+=== 2024 42
+topic: RV
+pattern: Standardising weighted sums; −log U is exponential
+type: MCQ
+ans: C
+concept: $\sum i(X_i-\mu)\sim N\left(0,\sigma^2\sum i^2\right)$. Also $\Phi(Z)\sim U(0,1)$, so $-\ln\Phi(Z)\sim\text{Exp}(1)$ with $E Y^3=3!$.
+solution:
+1. (I): need $\frac{5}{(2n+1)^2}=\frac{6}{n(n+1)(2n+1)}$, i.e. $5n(n+1)=6(2n+1)$, i.e. $5n^2-7n-6=0$, so $n=2$ ✓
+2. (II): $E[(-\ln U)^3]=\Gamma(4)=6$ ✓
+Both.
+
+=== 2024 43
+topic: LT
+pattern: WLLN for shifted exponential; E[min]
+type: MCQ
+ans: B
+concept: Shifted exponential: $EX=\theta+1$ and $X_{(1)}-\theta\sim\text{Exp}(n)$.
+solution:
+(I) $\bar X\to\theta+1$, not $\frac{\theta+1}2$ ✗. (II) $EX_{(1)}=\theta+\frac1n\to\theta$ ✓. Only (II).
+
+=== 2024 44
+topic: EST
+pattern: Consistency with non-identically distributed observations
+type: MCQ
+ans: B
+concept: $\hat\theta$ is consistent if bias $\to0$ and variance $\to0$.
+solution:
+1. $E\bar X=\lambda+\frac{1-2^{-n}}n$: biased, but the bias $\to0$.
+2. $\operatorname{Var}\bar X=\frac1{n^2}\sum\lambda_i\approx\frac\lambda n\to0$. Consistent ✓
+3. (a), (d) are biased. (c) $\sum X_i$ grows without bound.
+
+=== 2024 45
+topic: MV
+pattern: Linear transform of Wishart
+type: MCQ
+ans: C
+concept: If $W\sim W_p(m,\Sigma)$ and $B$ is $q\times p$ of rank $q$, then $BWB^T\sim W_q(m,B\Sigma B^T)$.
+solution:
+$24S\sim W_3(24,\Sigma)$ and $B$ is $2\times3$, so $24BSB^T\sim W_2(24,B\Sigma B^T)$. Order 2, d.f. 24.
+
+=== 2024 46
+topic: REG
+pattern: Joint confidence region for regression coefficients
+type: MCQ
+ans: A
+concept: The joint region is $\{\beta:(\hat\beta-\beta)^TX^TX(\hat\beta-\beta)\le2s^2F_{2,n-2,\alpha}\}$, an ellipse.
+solution:
+(I) ✓. (II) $\operatorname{Cov}(\hat\beta_0,\hat\beta_1)=-\frac{\bar x\sigma^2}{S_{xx}}$ involves $\sigma^2$ ✗. Only (I).
+
+=== 2024 47
+topic: CAL
+pattern: Continuous functions: FTC, IVT, boundedness, limits
+type: MSQ
+ans: A;B;C
+concept: FTC: $F'=f$ for continuous $f$. The intermediate value theorem and extreme value theorem hold on compact intervals.
+solution:
+- (a) ✓ FTC.
+- (b) ✓ The average lies between min and max, and IVT gives $x_0$.
+- (c) ✓ Continuous on a closed interval is bounded.
+- (d) ✗ The limit is $f'(0)\left(1+\frac12+\dots+\frac1{10}\right)\neq10f'(0)$.
+
+=== 2024 48
+topic: LA
+pattern: PSD, skew-symmetric, singular values
+type: MSQ
+ans: A;B;D
+concept: Singular values are the square roots of the eigenvalues of $A^TA$. All singular values equal to 1 means $A^TA=I$.
+solution:
+- (a) ✓ PSD is a closed condition: let $\epsilon\to0$.
+- (b) ✓ $\det(K)=\det(K^T)=(-1)^n\det K$, so the determinant is 0 for odd $n$.
+- (c) ✗ $-I$ has all singular values 1 but is not PD.
+- (d) ✓ $A^TA=I$ means $A$ is orthogonal.
+
+=== 2024 49
+topic: LA
+pattern: Diagonalizability criteria
+type: MSQ
+ans: A;C
+concept: Distinct eigenvalues imply diagonalizable. A nilpotent diagonalizable matrix is 0.
+solution:
+- (a) ✓
+- (b) ✗ A non-zero $A$ with $A^2=0$: then $A^2=0$ is diagonalizable but $A$ is not.
+- (c) ✓ The matrix is nilpotent, so diagonalizable forces it to be 0.
+- (d) ✗ $\begin{pmatrix}1&1\\0&2\end{pmatrix}$ is diagonalizable but not normal.
+
+=== 2024 50
+topic: PROB
+pattern: Geometric distribution: limits of interval probabilities
+type: MSQ
+ans: A;B
+concept: For an integer-valued $X$, $P(X\in I)$ depends only on which integers lie in $I$.
+solution:
+- (a) ✓ $2^{-20}<10^{-6}$.
+- (b) ✓ For $n\ge2$, $\{X\ge4+\frac1n\}=\{X\ge5\}$, with probability $\frac1{16}$.
+- (c) ✗ For large $n$, no integer lies in $[4+\frac1{n^2},5-\frac1n)$, so the limit is 0.
+- (d) ✗ The probability alternates between $P(X\le3)=\frac78$ and $P(X\le2)=\frac34$, so there is no limit.
+
+=== 2024 51
+topic: JD
+pattern: Uncorrelated but dependent (symmetric region)
+type: MSQ
+ans: A;B;C
+concept: Symmetry about $x=0$ gives $E X=0$ and $E XY=0$, so the correlation is 0 even though the region couples $X$ and $Y$.
+solution:
+- (a) ✓ The region is symmetric in $x$.
+- (b) ✓ At $x=0$, $Y\sim U(0,1)$, so the mean is $\frac12$.
+- (c) ✓ Correlation 0.
+- (d) ✗ The support is not a rectangle, so they are dependent.
+
+=== 2024 52
+topic: LT
+pattern: Convergence of exponentials with shrinking mean
+type: MSQ
+ans: A;B
+concept: $\lambda_n=10-10(1-2^{-n})=10\cdot2^{-n}\to0$. An exponential with mean $\to0$ converges to 0.
+solution:
+$P(X_n>\epsilon)=e^{-\epsilon/\lambda_n}\to0$, so $X_n\to0$ in probability and in distribution. (a), (b).
+
+=== 2024 53
+topic: SP
+pattern: Markov chain: classify states (transient / recurrent / absorbing)
+type: MSQ
+ans: A;B;C
+concept: A closed class is recurrent. A state that leaks into a closed class it can't return from is transient. One closed class means a unique stationary distribution.
+solution:
+$\{0,1\}$ is closed (recurrent). 2 leaks out and is transient. Unique $\pi=(\frac12,\frac12,0)$. The chain is **not** irreducible.
+
+=== 2024 54
+topic: EST
+pattern: Unbiasedness of S vs S² (Jensen)
+type: MSQ
+ans: A;C;D
+concept: For Poisson, mean $=$ variance $=\lambda$. So $\bar X$ and $S^2$ are both unbiased for $\lambda$, but $S$ is biased for $\sqrt\lambda$ (Jensen).
+solution:
+- (a) ✓
+- (b) ✗ $E S<\sqrt{E S^2}=\sqrt\lambda$
+- (c) ✓
+- (d) ✓ Any statistic is technically an "estimator" of any parameter. Quality is not part of the definition.
+Note: the PDF ticks (b) instead of (c), but $E(S^2)=\lambda$ makes (c) true and Jensen makes (b) false.
+
+=== 2024 55
+topic: EST
+pattern: Unbiased estimators of p² for Bernoulli; exchangeability
+type: MSQ
+ans: A;B;D
+concept: For i.i.d. data, permuting the arguments doesn't change the **distribution** of a statistic, but it can change its **value**.
+solution:
+1. $E T_1=p-p(1-p)=p^2$ and $E T_2=\frac12(p^2+p^2)=p^2$.
+2. (a) ✓ Same distribution. For $x=(1,0,0)$: $T_1=1$ but $T_1(x_2,x_3,x_1)=0$.
+3. (b) ✓ Both unbiased.
+4. (c) ✗ The values differ (see above).
+5. (d) ✓ $\frac{x_1x_2+x_2x_3}2$ is symmetric under swapping $x_1\leftrightarrow x_3$.
+
+=== 2024 56
+topic: TH
+pattern: UMP test via MLR, chi-square calibration
+type: MSQ
+ans: A
+concept: The exponential mean has MLR in $T_1=\sum X$. UMP for $\lambda>\lambda_0$ rejects for large $T_1$, with $\frac{2T_1}{\lambda_0}\sim\chi^2_{2n}$.
+solution:
+Reject if $\frac2{\lambda_0}T_1>\chi^2_{2n,\alpha}$ (the $(1-\alpha)$ quantile). (a) only. (b) uses the wrong quantile. (c), (d) reject for small $T_1$, the wrong direction or wrong calibration.
+
+=== 2024 57
+topic: NP
+pattern: Mann–Whitney U statistic with ties
+type: MSQ
+ans: A
+concept: $U=\#\{(x,y):x<y\}$. Reject at level $\alpha$ if $U$ exceeds the tabulated cut-off.
+solution:
+1. For $x=1,6,5,3$, count $y\in\{11,7,15,4\}$ above it: $4+3+3+4=14$.
+2. $14>12$, so reject at 0.10 ✓. $14\not>14$, so do not reject at 0.05, 0.025 or 0.01.
+Only (a).
+
+=== 2024 58
+topic: MV
+pattern: Independence in multivariate normal via covariances
+type: MSQ
+ans: A;D
+concept: Jointly normal: independent iff covariance is 0.
+solution:
+$\operatorname{Cov}(X_2,X_2-a_1X_1-a_2X_2)=\sigma_{22}-a_1\sigma_{12}-a_2\sigma_{22}=4+2a_1-4a_2$.
+- (a) $(0,1)$: $0$ ✓
+- (b) $(-1,-1)$: $6$ ✗
+- (c) $(0,2)$: $-4$ ✗
+- (d) $(2,2)$: $0$ ✓
+
+=== 2024 59
+topic: LA
+pattern: Characteristic polynomial of (A+I)⁻¹ from eigenvalues
+type: NAT
+ans: 7
+concept: The eigenvalues of $f(A)$ are $f(\lambda)$.
+solution:
+1. $\lambda^2-5\lambda+6=0$ gives $\lambda=2,3$. $(A+I)^{-1}$ has eigenvalues $\frac13,\frac14$.
+2. $b=\frac13+\frac14=\frac7{12}$ and $c=\frac1{12}$, so $\frac bc=7$.
+
+=== 2024 60
+topic: SP
+pattern: Distribution at step n: π_n = π_0 Pⁿ
+type: NAT
+ans: 33
+concept: $\pi_2=\pi_0P^2$.
+solution:
+1. $\pi_0=(\frac14,\frac14,\frac12)$.
+2. $\pi_1=(\frac38,\frac5{16},\frac5{16})$ and $\pi_2=(\frac5{16},\frac{11}{32},\frac{11}{32})$.
+3. $E X_2=\frac{11}{32}+2\cdot\frac{11}{32}=\frac{33}{32}$, so $32E(X_2)=33$.
+shortcut: Rows 1 and 2 of $P$ are identical, so you can merge states 1 and 2 into a 2-state chain.
+
+=== 2024 61
+topic: JD
+pattern: Read distribution from joint MGF
+type: NAT
+ans: 1.5
+concept: $e^{u^2/2}(1-2v)^{-3}$: $X\sim N(0,1)$ independent of $Y\sim\chi^2_6$ (Gamma(3, scale 2)).
+solution:
+$E\frac{6X^2}Y=6\cdot E X^2\cdot E\frac1Y=6\cdot1\cdot\frac1{6-2}=1.5$.
+shortcut: For $\chi^2_k$, $E\frac1Y=\frac1{k-2}$.
+
+=== 2024 62
+topic: SP
+pattern: Poisson process: estimate rate from arrival data
+type: NAT
+ans: 1.55
+concept: Inter-arrival gaps are i.i.d. Exp($\lambda$) with mean $\frac1\lambda$. The method of moments sets the mean gap equal to $\frac1\lambda$.
+solution:
+15 arrivals by 9.7 km gives a mean gap of $\frac{9.7}{15}$. $\hat\lambda=\frac{15}{9.7}=1.546\approx1.55$.
+
+=== 2024 63
+topic: TH
+pattern: Size of a test based on the sample maximum (uniform)
+type: NAT
+ans: 0.81
+concept: For $U(0,\theta)$, $P(X_{(n)}<c)=(c/\theta)^n$.
+solution:
+$p=0.3^4=0.0081$, so $100p=0.81$.
+
+=== 2024 64
+topic: TH
+pattern: Power of two-sided z-test
+type: NAT
+ans: 0.061
+concept: Reject if $|\bar X|>\frac{1.96}{\sqrt n}$. Power at $\mu$ $=P(\bar X>c)+P(\bar X<-c)$ with $\bar X\sim N(\mu,1/n)$.
+solution:
+1. $n=4$: $c=0.98$, and under $\mu=0.16$, $\bar X\sim N(0.16,0.25)$.
+2. $P(\bar X>0.98)=1-\Phi(1.64)=0.05$ and $P(\bar X<-0.98)=\Phi(-2.28)=0.011$.
+3. Power $=0.061$.
+
+=== 2024 65
+topic: REG
+pattern: F test and R² relationship
+type: NAT
+ans: 0.24
+concept: $F=\frac{R^2/k}{(1-R^2)/(n-k-1)}$. Reject if $F>F_{\alpha}$. Solve for $R^2$.
+solution:
+$11\frac{R^2}{1-R^2}>3.44$ gives $\frac{R^2}{1-R^2}>0.3127$, so $R^2>\frac{0.3127}{1.3127}=0.2382$.
+Rounded to two decimals this is 0.24. The PDF writes 0.23, which truncates. GATE accepts a small range around 0.238.
