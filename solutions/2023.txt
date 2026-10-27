@@ -1,0 +1,565 @@
+=== 2023 11
+topic: CAL
+pattern: Area between a parabola and a line
+type: MCQ
+ans: C
+concept: When the curve is given as $x=g(y)$, integrate with respect to $y$: Area $=\int(x_{\text{right}}-x_{\text{left}})\,dy$.
+solution:
+1. Intersection: $x=y-2$ and $x=-y^2$ give $y^2+y-2=0$, so $y=1,-2$.
+2. On $(-2,1)$, the parabola $x=-y^2$ is to the right of the line $x=y-2$.
+3. Area $=\int_{-2}^1(-y^2-y+2)\,dy=\left[-\frac{y^3}3-\frac{y^2}2+2y\right]_{-2}^1=\frac76+\frac{10}3=\frac92$.
+shortcut: The area between a parabola and a chord is $\frac{|a|(\beta-\alpha)^3}{6}$, where $\alpha,\beta$ are the roots of the difference. Here $a=1$ and $\beta-\alpha=3$: $\frac{27}6=\frac92$.
+
+=== 2023 12
+topic: LA
+pattern: Polynomial in a matrix: annihilating polynomial from eigenvalues
+type: MCQ
+ans: A
+concept: If $A$ is diagonalizable (distinct eigenvalues), then $p(A)$ is diagonalizable with eigenvalues $p(\lambda)$, and its minimal polynomial is $\prod(x-p(\lambda_i))$ over distinct values.
+solution:
+1. $B=(A+I)^2$ has eigenvalues $(1+1)^2=4$, $(0+1)^2=1$, $(-1+1)^2=0$.
+2. So $B(B-I)(B-4I)=0$, i.e. $B^3-5B^2+4B=0$.
+
+=== 2023 13
+topic: LA
+pattern: Rank under invertible multiplication; surjectivity
+type: MCQ
+ans: C
+concept: Multiplying by an invertible matrix preserves rank. For square matrices, onto iff invertible.
+solution:
+- (I) $\text{rank}(BA)=\text{rank}(A)$ when $B$ is invertible ✓
+- (II) $A^2$ onto means $A^2$ is invertible, so $A$ is invertible ($\det A^2=(\det A)^2\ne0$), so $Ax=b$ is always solvable ✓
+Both are true.
+
+=== 2023 14
+topic: PROB
+pattern: Measurability w.r.t. a small σ-field
+type: MCQ
+ans: A
+concept: $X$ is a random variable w.r.t. $\mathcal G$ iff every set $\{X\le x\}$ (equivalently $\{X=x\}$ for simple $X$) lies in $\mathcal G$.
+solution:
+- $X$: $\{X=1\}=[0,1]$ and $\{X=2\}=(1,2]$, both in $\mathcal G$ ✓
+- $Y$: $\{Y=2\}=[0,1.5]\notin\mathcal G$ ✗
+So $X$ is a random variable and $Y$ is not.
+shortcut: A $\mathcal G$-measurable function must be constant on each atom of $\mathcal G$, here $[0,1]$ and $(1,2]$. $Y$ changes value inside $(1,2]$.
+
+=== 2023 15
+topic: RV
+pattern: Mixed distribution: jump in CDF
+type: MCQ
+ans: A
+concept: $P(X\le a)=F(a)$, $P(X<a)=F(a^-)$, $P(X=a)=F(a)-F(a^-)$.
+solution:
+$F(-1)=\Phi(0)=\frac12$, so $P(X\le-1)=\frac12$ ✓.
+For the others: $P(X<-1)=\Phi(-1)\approx0.159$, $P(X=-1)\approx0.341$, $P(X\le0)=\Phi(1)\approx0.841$.
+
+=== 2023 16
+topic: RV
+pattern: Weibull quantiles → parameters
+type: MCQ
+ans: A
+concept: Weibull CDF: $F(x)=1-e^{-\lambda x^\alpha}$. A quantile $q_p$ satisfies $\lambda q_p^\alpha=-\ln(1-p)$.
+solution:
+1. Median 1: $\lambda=\ln2$.
+2. Third quartile 2: $\lambda2^\alpha=\ln4=2\ln2$, so $2^\alpha=2$ and $\alpha=1$.
+3. $(\alpha,\lambda)=(1,\ln2)$.
+
+=== 2023 17
+topic: RV
+pattern: Poisson: E[1/(X+1)] and truncation at zero
+type: MCQ
+ans: A
+concept: $E\frac1{X+1}=\sum\frac{e^{-\lambda}\lambda^k}{(k+1)!}=\frac{1-e^{-\lambda}}\lambda$. Conditioning on $X>0$: remove the $k=0$ term and divide by $P(X>0)$.
+solution:
+$E\left[\frac1{X+1};X>0\right]=\frac{1-e^{-\lambda}}\lambda-e^{-\lambda}=\frac{1-e^{-\lambda}-\lambda e^{-\lambda}}\lambda$.
+Dividing by $1-e^{-\lambda}$ gives (a).
+shortcut: $E\frac{1}{X+1}$ for Poisson: shift the index, $\frac{\lambda^k}{(k+1)!}=\frac1\lambda\frac{\lambda^{k+1}}{(k+1)!}$.
+
+=== 2023 18
+topic: RV
+pattern: Existence of moments for gamma
+type: MCQ
+ans: C
+concept: For Gamma($\alpha,\lambda$), $E X^r$ exists iff $r>-\alpha$, because near 0 the integrand is $x^{r+\alpha-1}$.
+solution:
+$E\frac1X$ needs $\alpha>1$. It fails for $\alpha\le1$, so (c) is NOT true. $E(X)$, $\operatorname{Var}(X)$ and $E\ln(1+X)$ always exist.
+
+=== 2023 19
+topic: JD
+pattern: Conditional mean from joint density on triangle
+type: MCQ
+ans: A
+concept: $f(x\mid y)=\frac{f(x,y)}{f_Y(y)}$, then integrate.
+solution:
+$f_Y(y)=\int_0^y8xy\,dx=4y^3$, so $f(x|y)=\frac{2x}{y^2}$ on $(0,y)$ and $E(X|Y=y)=\frac{2y}3$. Setting $\frac{2y}3=\frac12$ gives $y_0=\frac34$.
+
+=== 2023 20
+topic: JD
+pattern: Multinomial probability
+type: MCQ
+ans: A
+concept: Multinomial: $\frac{n!}{x_1!x_2!x_3!}p_1^{x_1}p_2^{x_2}p_3^{x_3}$.
+solution:
+Per box: blue $\frac12$, red $\frac16$, black $\frac13$. For 2 blue, 1 red, 2 black: $\frac{5!}{2!1!2!}\cdot\frac14\cdot\frac16\cdot\frac19=\frac{30}{216}=\frac5{36}$.
+
+=== 2023 21
+topic: LT
+pattern: Relations among modes of convergence
+type: MCQ
+ans: A
+concept: Convergence in distribution to a **constant** implies convergence in probability. Most other implications fail without extra conditions.
+solution:
+- (a) True.
+- (b) False: in probability does not imply in $r$-th mean without uniform integrability.
+- (c) False: needs joint convergence (or one limit a constant).
+- (d) False: $EX_n\to EX$ doesn't give $L^1$ convergence.
+
+=== 2023 22
+topic: EST
+pattern: Method of moments with transformed data
+type: MCQ
+ans: A
+concept: For $X\sim\text{Exp}(\text{mean }\lambda)$, $E X^2=2\lambda^2$.
+solution:
+$E Y=2\lambda^2$. Setting $\bar Y=2\lambda^2$ gives $\hat\lambda=\sqrt{\bar Y/2}$.
+
+=== 2023 23
+topic: EST
+pattern: MLE after a transformation to exponential
+type: MCQ
+ans: A
+concept: Transform to a recognisable family. Here $T=(\ln X)^2\sim\text{Exp}(\text{mean }\theta)$.
+solution:
+1. With $T=(\ln X)^2$, $|dt/dx|=\frac{2(-\ln x)}x$, so $f_T(t)=\frac1\theta e^{-t/\theta}$.
+2. The MLE of an exponential mean is the sample mean: $\hat\theta=\frac1n\sum(\ln X_i)^2$.
+shortcut: Spot $g'(x)e^{-g(x)/\theta}$ in the density: then $g(X)$ is exponential.
+
+=== 2023 24
+topic: EST
+pattern: Unbiased estimator from maximum of uniform(a, θ)
+type: MCQ
+ans: A
+concept: For $U(a,\theta)$, $E X_{(n)}=a+\frac{n}{n+1}(\theta-a)$.
+solution:
+$E\left[\frac{n+1}n\left(Y-\frac13\right)\right]=\theta-\frac13$. Adding $\frac13$ gives $\theta$. Option (a).
+
+=== 2023 25
+topic: MV
+pattern: Quadratic forms in multivariate normal → chi-square
+type: MCQ
+ans: A
+concept: $Z\sim N_p(0,\Sigma)$ gives $Z^T\Sigma^{-1}Z\sim\chi^2_p$.
+solution:
+- (a) $\bar X-\mu\sim N_p(0,\Sigma/n)$, so $n(\bar X-\mu)^T\Sigma^{-1}(\bar X-\mu)\sim\chi^2_p$ with $c=n$ ✓
+- (b) $\bar X-\bar Y\sim N_p(0,2\Sigma/n)$ gives $\chi^2_p$, not $\chi^2_{p-1}$ ✗
+- (c) The sum over $i$ is $\chi^2_{p(n-1)}$ ✗
+- (d) Also $\chi^2_{p(n-1)}$ ✗
+
+=== 2023 26
+topic: REG
+pattern: LS vs MLE (LAD) with Laplace errors
+type: MCQ
+ans: C
+concept: OLS exists and is unique iff the design matrix has full column rank. With Laplace errors, the MLE minimises $\sum|e_k|$ (LAD). It always exists but may be non-unique.
+solution:
+$x_k=\ln k$ takes at least 2 distinct values, so $X$ has full rank and the LSE of $\alpha_0$ (and $\alpha_1$) exists and is **unique**. (c) ✓
+(a), (b): the MLE exists. (d): the LSE is unique.
+
+=== 2023 27
+topic: NP
+pattern: Sign test properties
+type: MCQ
+ans: C
+concept: Under $H_0$ (median $\theta_0$), $S\sim\text{Bin}(n,\frac12)$ whatever $f$ is (distribution-free). Under $H_1$, $S\sim\text{Bin}(n,P_\theta(X>\theta_0))$, which depends on $f$ and $\theta$.
+solution:
+- (a) False: the null distribution is free of $f$.
+- (b) False: it depends on $f$ under $H_1$.
+- (c) True: the power depends on $\theta$.
+
+=== 2023 28
+topic: TH
+pattern: NP lemma: normal vs Laplace
+type: MCQ
+ans: C
+concept: The MP test rejects for large $\frac{f_1(x)}{f_0(x)}$.
+solution:
+$\frac{f_1}{f_0}\propto\exp\left(\frac{x^2}2-|x|\right)=\exp\left(\frac{(|x|-1)^2-1}2\right)$, which increases in $\big||x|-1\big|$. Reject if $\big||x|-1\big|>c$.
+shortcut: Complete the square in $|x|$.
+
+=== 2023 29
+topic: CAL
+pattern: Maximum of xy on an ellipse (AM–GM / Lagrange)
+type: NAT
+ans: 0.35
+concept: AM–GM: $x^2+2y^2\ge2\sqrt2|xy|$.
+solution:
+$1\ge2\sqrt2\,xy$ gives $xy\le\frac1{2\sqrt2}=0.3536\approx0.35$, with equality at $x^2=2y^2=\frac12$.
+shortcut: On $ax^2+by^2=1$, the max of $xy$ is $\frac1{2\sqrt{ab}}$.
+
+=== 2023 30
+topic: LA
+pattern: Matrices commuting with everything are scalar
+type: NAT
+ans: 6.25
+concept: The centre of $M_n(\mathbb R)$ is $\{cI\}$.
+solution:
+$A=cI$ with $2c=5$, so $c=2.5$ and $\det A=c^2=6.25$.
+
+=== 2023 31
+topic: PROB
+pattern: Sequential testing (sampling without replacement)
+type: NAT
+ans: 0.3
+concept: You stop as soon as both defectives are identified: either the 2nd defective appears, or all remaining bulbs must be defective.
+solution:
+$X=3$ happens if:
+1. The 2nd defective is the 3rd bulb tested: $\frac{\binom21\binom31}{\binom52}\cdot\frac13=0.6\cdot\frac13=0.2$.
+2. The first 3 tested are all good (so the last 2 must be defective): $\frac{\binom33}{\binom53}=0.1$.
+Total $=0.3$.
+trap: Don't forget case 2. You can "find" the defectives by elimination.
+
+=== 2023 32
+topic: LT
+pattern: Variance of sample mean → limit
+type: NAT
+ans: 0
+concept: $\operatorname{Var}\bar X_n=\frac{\sigma^2}n$.
+solution:
+$E\left[\left(\frac{Y_n-4}{\sqrt n}\right)^2\right]=\frac{\operatorname{Var}Y_n}n=\frac9{n^2}\to0$.
+
+=== 2023 33
+topic: SP
+pattern: Brownian motion conditional moments
+type: NAT
+ans: 6
+concept: $W_4=W_2+(W_4-W_2)$, and the increment is independent $N(0,2)$.
+solution:
+$E[W_4^2\mid W_2=2]=2^2+\operatorname{Var}(W_4-W_2)=4+2=6$.
+
+=== 2023 34
+topic: SP
+pattern: Markov chain: conditional on past and future (bridge)
+type: NAT
+ans: 0.38
+concept: $P(X_2=j\mid X_1=i,X_3=k)=\frac{p_{ij}p_{jk}}{\sum_m p_{im}p_{mk}}$.
+solution:
+Numerator: $p_{11}p_{12}=\frac12\cdot\frac14=\frac18$.
+Denominator: $\frac18+p_{12}p_{22}+p_{13}p_{32}=\frac18+\frac14\cdot\frac13+\frac14\cdot\frac12=\frac13$.
+Ratio $=\frac38=0.375\approx0.38$.
+
+=== 2023 35
+topic: MV
+pattern: Linear combination of MVN → chi-square probability
+type: NAT
+ans: 0.38
+concept: $W=a^TX\sim N(0,a^T\Sigma a)$.
+solution:
+1. $a=(1,-2,2)$: $\Sigma a=(0,-6,1)$, so $a^T\Sigma a=0+12+2=14$.
+2. $P(W^2<3.5)=P(|Z|<\sqrt{3.5/14})=P(|Z|<0.5)=1-2(0.3085)=0.383\approx0.38$.
+
+=== 2023 36
+topic: LA
+pattern: Shifting to positive definite; PD square root
+type: MCQ
+ans: C
+concept: Symmetric $A$ has real eigenvalues $\lambda_i$, and $A+cI$ has eigenvalues $\lambda_i+c$. A PD matrix $A=Q\Lambda Q^T$ has the PD root $Q\Lambda^{1/2}Q^T$.
+solution:
+(I) Pick $c>\max(0,-\lambda_{\min})$ ✓. (II) True by the spectral theorem ✓.
+
+=== 2023 37
+topic: RV
+pattern: Pareto → exponential via log
+type: MCQ
+ans: A
+concept: If $X$ is Pareto with $P(X>x)=x^{-1}$ for $x\ge1$, then $Y=\ln X\sim\text{Exp}(1)$.
+solution:
+$P(Y<1\mid Y<2)=\frac{1-e^{-1}}{1-e^{-2}}=\frac1{1+e^{-1}}=\frac e{1+e}$.
+
+=== 2023 38
+topic: SP
+pattern: Poisson process: conditional binomial & arrival times
+type: MCQ
+ans: C
+concept: Given $N(t)=n$, $N(s)\sim\text{Bin}(n,s/t)$. After time $t$, the process restarts.
+solution:
+- (I) $N(3)\mid N(5)=5\sim\text{Bin}(5,\frac35)$ ✓
+- (II) Given $N(5)=3$, two more arrivals are needed after $t=5$, each taking Exp(1). $E S_5=5+2=7$ ✓
+
+=== 2023 39
+topic: EST
+pattern: MLE of a function (median) for shifted exponential; its distribution
+type: MCQ
+ans: A
+concept: Shifted exponential: $\hat\mu=X_{(1)}$, with $X_{(1)}-\mu\sim\text{Exp}(n)$. Median $=\mu+\ln2$, so $\hat M=X_{(1)}+\ln2$ by invariance.
+solution:
+$P(\hat M\le m)=P(X_{(1)}\le m-\ln2)=1-e^{-n(m-\ln2-\mu)}$. At $\mu=1$, $m=2$: $1-e^{-n(1-\ln2)}$, option (a).
+
+=== 2023 40
+topic: EST
+pattern: Minimum-MSE multiple of an estimator
+type: MCQ
+ans: A
+concept: $\text{MSE}(cT)=c^2\operatorname{Var}T+(c-1)^2\theta^4$ (for $E T=\theta^2$). Minimise over $c$.
+solution:
+1. $\frac{10T}{\theta^2}\sim\chi^2_{10}$, so $ET=\theta^2$ and $\operatorname{Var}T=\frac{2\theta^4}{10}$.
+2. $\text{MSE}=\theta^4\left[\frac{c^2}5+(c-1)^2\right]$. Derivative: $\frac{2c}5+2(c-1)=0$, so $c=\frac56$.
+shortcut: In general $c^*=\frac{(ET)^2}{ET^2}=\frac{1}{1+\text{CV}^2}$. Here $\text{CV}^2=\frac15$, so $c^*=\frac56$. For a $\chi^2_k$-based variance estimator, the best divisor is $n+2$.
+
+=== 2023 41
+topic: MV
+pattern: Distribution of a function of Mahalanobis distance
+type: MCQ
+ans: A
+concept: $n(\bar X-\mu)^T\Sigma^{-1}(\bar X-\mu)\sim\chi^2_p$, and $\chi^2_2$ is $\text{Exp}(\text{mean }2)$.
+solution:
+$U\le\frac12\iff(\bar X-\mu)^T\Sigma^{-1}(\bar X-\mu)\ge1\iff Q=10(\cdot)\ge10$, with $Q\sim\chi^2_2$. $P=e^{-10/2}=e^{-5}$, so $\log P=-5$.
+
+=== 2023 42
+topic: TH
+pattern: LRT direction for binomial count
+type: MCQ
+ans: A
+concept: $M\sim\text{Bin}(n,2\theta)$. A simple-vs-simple LRT rejects for large $\frac{L_1}{L_0}$, which is monotone in $m$.
+solution:
+$p_0=\frac12$ and $p_1=\frac23>p_0$. The ratio $\left(\frac{p_1}{p_0}\right)^m\left(\frac{1-p_1}{1-p_0}\right)^{n-m}$ increases in $m$, so reject if $m>c$.
+
+=== 2023 43
+topic: CAL
+pattern: Monotonicity from convexity of f (g(x)=f(x)+f(2−x))
+type: MCQ
+ans: C
+concept: $g'(x)=f'(x)-f'(2-x)$. The sign comes from comparing $f'$ at $x$ and $2-x$.
+solution:
+- (a) $g(0)=g(2)$, so Rolle gives a $c$ ✓
+- (b) $f''>0$ means $f'$ is increasing. On $(0,1)$, $x<2-x$, so $g'<0$: decreasing ✓
+- (c) $f''<0$ means $f'$ is decreasing. On $(1,2)$, $x>2-x$, so $f'(x)<f'(2-x)$ and $g'<0$: decreasing, **not** increasing ✗
+- (d) $f$ linear gives $g$ constant ✓
+
+=== 2023 44
+topic: LA
+pattern: Span properties
+type: MCQ
+ans: A
+concept: $L(T)\subseteq L(\delta)$ when $T\subseteq\delta$, but the inclusion need not be proper.
+solution:
+(a) fails: take $\delta=T\cup\{t_1+t_2\}$. Then $L(\delta)=L(T)$. The other statements are standard true facts. For (d), $\alpha=-2\beta-3\gamma$, so both spans equal $L\{\beta,\gamma\}$.
+
+=== 2023 45
+topic: CAL
+pattern: Continuous functions on [0,1]: properties
+type: MCQ
+ans: C
+concept: Continuity on a compact set gives boundedness and the intermediate value theorem. It does not let you invert convergence.
+solution:
+(c) fails: for a constant $f$, $f(x_n)$ always converges even if $x_n$ oscillates. (a): bounded $f$ and $\sum\frac1{n^2}<\infty$. (b): $|f|\equiv1$ and continuous forces $f\equiv\pm1$. (d): IVT.
+
+=== 2023 46
+topic: RV
+pattern: Probabilities from a mixed CDF with limits
+type: MCQ
+ans: B
+concept: $\lim P(a_n<X<b_n)$ where $a_n\downarrow a$ and $b_n\downarrow b$ gives $P(a<X\le b)$. Watch which endpoints get included.
+solution:
+1. Jump at 0: $F(0)-F(0^-)=\frac34-\frac14=\frac12$.
+2. (b): $(-\frac12-\frac1n,\frac1n)\downarrow[-\frac12,0]$, so the limit is $F(0)-F(-\frac12^-)=\frac34-\frac18=\frac58$ ✓
+3. (a): the limit is $P(-\frac12<X<0)=\frac14-\frac18=\frac18$. (c): 0. (d): $\frac12$.
+
+=== 2023 47
+topic: JD
+pattern: Normalising a joint pmf; independence
+type: MCQ
+ans: C
+concept: Sum over the support, then subtract the diagonal.
+solution:
+$\sum_{x\ne y}\frac{c}{2^{x+y+2}}=\frac c4\left[\left(\sum2^{-x}\right)^2-\sum4^{-x}\right]=\frac c4\left[4-\frac43\right]=\frac{2c}3=1$, so $c=\frac32>1$.
+They are not independent because the support $x\neq y$ is not a product set.
+
+=== 2023 48
+topic: MV
+pattern: Hotelling T² and Wishart additivity
+type: MCQ
+ans: D
+concept: $T^2=n(\bar X-\mu)^TS^{-1}(\bar X-\mu)\sim\frac{p(n-1)}{n-p}F_{p,n-p}$, and $(n-1)S\sim W_p(n-1,\Sigma)$.
+solution:
+1. $n=5$, $p=3$: $T^2\sim6F_{3,2}$, so $\frac{T^2}6=\frac56(\cdot)\sim F_{3,2}$ ✓ (a). Its reciprocal is $F_{2,3}$ ✓ (b).
+2. $4S_1$ and $4S_2$ are independent $W_3(4,\Sigma)$, so the sum is $W_3(8,\Sigma)$ ✓ (c).
+3. (d) The scaling and d.f. are wrong ✗.
+
+=== 2023 49
+topic: CAL
+pattern: Countable vs uncountable sets
+type: MSQ
+ans: A;C;D
+concept: Finite products and countable unions of countable sets are countable. $\{0,1\}^{\mathbb N}$ is uncountable (Cantor).
+solution:
+- (a) $\mathbb Q^{10}$: countable ✓
+- (b) $\{0,1\}^{\mathbb N}$: uncountable ✗
+- (c) Finitely supported integer sequences: countable union of $\mathbb Z^k$ ✓
+- (d) Integer sequences converging to 1 are eventually 1: countable ✓
+
+=== 2023 50
+topic: CAL
+pattern: Positive and negative parts of sequences
+type: MSQ
+ans: A;B;C
+concept: $a\mapsto a^\pm$ is continuous, and $a=a^+-a^-$.
+solution:
+(a), (b) by continuity ✓. (c) $x_n=x_n^+-x_n^-$ ✓. (d) fails: $x_n=(-1)^n$ has $x_n^2=1$, but $x_n^+$ alternates.
+
+=== 2023 51
+topic: LA
+pattern: Find A from its action on a basis
+type: MSQ
+ans: B;D
+concept: Linearity: add and subtract the given equations to get $Ae_1,Ae_2,Ae_3$.
+solution:
+1. Adding all three: $2A(1,1,1)^T=(4,4,4)$, so $A(1,1,1)^T=(2,2,2)$.
+2. $Ae_1=(2,2,2)-(4,0,0)=(-2,2,2)$, $Ae_2=(2,-2,2)$, $Ae_3=(2,2,-2)$.
+3. (b) $Ae_2=(2,-2,2)$ ✓. (d) $A(1,2,3)^T=(-2,2,2)+2(2,-2,2)+3(2,2,-2)=(8,4,0)$ ✓. (a) and (c) fail.
+
+=== 2023 52
+topic: RV
+pattern: Floor of a random variable: stochastic comparison
+type: MSQ
+ans: B;D
+concept: $Y=[X]\le X$, so $\{Y\ge\mu\}\subseteq\{X\ge\mu\}$ and $\{X\le\mu\}\subseteq\{Y\le\mu\}$.
+solution:
+- (a) has the wrong direction: $P(Y\le\mu)\ge P(X\le\mu)$ ✗
+- (b) ✓
+- (d) $X-Y\in[0,1)$ and is $>0$ with positive probability (continuous $X$), so $E X>E Y$ ✓
+
+=== 2023 53
+topic: RV
+pattern: Probability integral transform for exponential
+type: MSQ
+ans: C;D
+concept: $F(X)=1-e^{-X}\sim U(0,1)$, and so $e^{-X}\sim U(0,1)$.
+solution:
+- (a) $e^{-X}\sim U(0,1)$, not $U(-1,0)$ ✗
+- (b) $U(0,1)$, not $U(0,2)$ ✗
+- (c) $2U-1\sim U(-1,1)$ ✓
+- (d) $P([X]=k)=e^{-k}-e^{-k-1}=(1-e^{-1})e^{-k}$, a geometric distribution ✓
+
+=== 2023 54
+topic: RV
+pattern: Mixture of point mass and Poisson
+type: MSQ
+ans: B;D
+concept: Recognise $X\sim\frac12\delta_0+\frac12\text{Poisson}(1)$.
+solution:
+1. $EX=\frac12\cdot1=\frac12<1$ ✓ (b)
+2. $P(X>0)=\frac12(1-e^{-1})$, so $E(X\mid X>0)=\frac{1/2}{(1-e^{-1})/2}=\frac1{1-e^{-1}}\approx1.58>\frac12$ ✓ (d)
+
+=== 2023 55
+topic: RV
+pattern: Gamma scale family: what depends on λ
+type: MSQ
+ans: A;C
+concept: In a scale family, $U=V'/\lambda$, so ratios are scale-free while products and differences scale.
+solution:
+- (a) $U-V$ is symmetric about 0 because $U,V$ are i.i.d. ✓
+- (b) $UV$ scales with $\lambda^{-2}$ ✗
+- (c) $U/V$ is free of $\lambda$ ✓
+- (d) $U/V>0$ and is not symmetric about 1. It is "log-symmetric" ($U/V\overset d=V/U$) ✗
+
+=== 2023 56
+topic: JD
+pattern: Recognise a joint pmf as Poisson + independent Poisson
+type: MSQ
+ans: A;B;D
+concept: $\frac{e^{-2}}{x!(y-x)!}=\frac{e^{-1}}{x!}\cdot\frac{e^{-1}}{(y-x)!}$: $X\sim\text{Poi}(1)$ and $Z=Y-X\sim\text{Poi}(1)$, independent. So $Y\sim\text{Poi}(2)$.
+solution:
+- (a) $X\mid Y=4\sim\text{Bin}(4,\frac12)$, so $E=2$ ✓
+- (b) $M_Y(v)=e^{2(e^v-1)}$ ✓
+- (c) $EX=1$, not 2 ✗
+- (d) $E e^{uX+vY}=E e^{(u+v)X}E e^{vZ}=e^{e^{u+v}-1}e^{e^v-1}=e^{-2+(1+e^u)e^v}$ ✓
+Note: the PDF also ticks (c), but $E X=1$.
+
+=== 2023 57
+topic: LT
+pattern: CLT for products of independent pairs
+type: MSQ
+ans: A;B;C
+concept: $Z_k=X_{2k-1}X_{2k}$ are i.i.d. with mean 0 and variance 1.
+solution:
+- (a) CLT: $\sqrt nY_n\to N(0,1)$ ✓
+- (b) $EY_n^2=\frac1n\to0$ ✓
+- (c) Follows from (b) ✓
+- (d) A non-degenerate i.i.d. sequence does not converge a.s. ✗
+
+=== 2023 58
+topic: REG
+pattern: Identifiability / estimability with non-zero error mean
+type: MSQ
+ans: A;B
+concept: A parameter has an unbiased estimator iff it is identifiable, i.e. a linear function of $E(y)$.
+solution:
+$E y_t=(\alpha_0+\mu)+\alpha_1t+\alpha_2t^2$. Only $\alpha_0+\mu$ is identifiable, not $\alpha_0$ or $\mu$ separately. $\alpha_1$ and $\alpha_2$ are estimable. (a), (b).
+
+=== 2023 59
+topic: LA
+pattern: Parseval: norm from coordinates in orthonormal basis
+type: NAT
+ans: 14
+concept: With an orthonormal basis, $u=\sum\langle u,v_i\rangle v_i$ and $\|u\|^2=\sum\langle u,v_i\rangle^2$.
+solution:
+$1^2+2^2+3^2=14$.
+
+=== 2023 60
+topic: PROB
+pattern: Probability on a generated σ-field via a random variable
+type: NAT
+ans: 0.5
+concept: The atoms of $\mathcal G$ are $\{1\},\{2,3\},\{4\}$. $X$ is constant on each.
+solution:
+$P(X\le2)=P\{1,2,3\}=\frac34$, so $P\{4\}=\frac14$. Then $P\{1,4\}=\frac14+\frac14=0.5$.
+
+=== 2023 61
+topic: LT
+pattern: Delta method
+type: NAT
+ans: 0.14
+concept: Delta method with $g(y)=e^{-y}$.
+solution:
+1. $Y_n=|X_{2n}-X_{2n-1}|\sim\text{Exp}(1)$, since the difference of i.i.d. Exp(1) is Laplace. Mean 1, variance 1.
+2. $\sigma^2=[g'(1)]^2\cdot1=e^{-2}=0.1353\approx0.14$.
+
+=== 2023 62
+topic: SP
+pattern: Birth–death stationary distribution (detailed balance)
+type: NAT
+ans: 2.8
+concept: Detailed balance: $\pi_{n+1}=\pi_n\frac{\lambda_n}{\mu_{n+1}}$.
+solution:
+1. $\pi_1=\pi_0$, $\pi_2=\pi_1$, $\pi_3=2\pi_2$. Normalising: $\pi=(0.2,0.2,0.2,0.4)$.
+2. $0.2+0.4+0.6+1.6=2.8$.
+
+=== 2023 63
+topic: EST
+pattern: Efficient (CRLB-attaining) estimator of σ² with known mean
+type: NAT
+ans: 2.75
+concept: With $\mu$ known, $T=\frac1n\sum(X_i-\mu)^2$ is unbiased and attains the CRLB $\frac{2\sigma^4}n$.
+solution:
+Deviations from $\frac12$: $-1.5,-1,0.5,2,2.5$. Squares sum to $2.25+1+0.25+4+6.25=13.75$. $T=\frac{13.75}5=2.75$.
+trap: Don't use $\bar x$ or divide by $n-1$. The mean is **known**.
+
+=== 2023 64
+topic: TH
+pattern: Size + power from a given CDF family
+type: NAT
+ans: 1.25
+concept: $\alpha=P_{H_0}(X<0.5)$ and $\beta=P_{H_1}(X<0.5)$ (here "power").
+solution:
+$F(0.5)=1-0.5^\theta$. $\theta=1$: $\alpha=0.5$. $\theta=2$: power $=0.75$. Sum $=1.25$.
+
+=== 2023 65
+topic: NP
+pattern: Kolmogorov–Smirnov statistic computation
+type: NAT
+ans: 1.37
+concept: $D=\max_i\max\left(\frac in-u_{(i)},\;u_{(i)}-\frac{i-1}n\right)$ for $F_0$ uniform.
+solution:
+1. Sorted: $0.12,0.13,0.51,0.78$, with steps at $0.25,0.5,0.75,1$.
+2. Gaps: $0.25-0.12=0.13$; $0.5-0.13=\mathbf{0.37}$; $0.75-0.51=0.24$; $1-0.78=0.22$ (the others are smaller).
+3. $D=0.37<0.669$, so accept $H_0$ and $\psi=1$. $D+\psi=1.37$.
