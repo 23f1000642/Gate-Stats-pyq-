@@ -1,0 +1,603 @@
+=== 2021 11
+topic: LT
+pattern: Jensen + Markov inequalities
+type: MCQ
+ans: A
+concept: **Jensen:** for convex $g$, $E g(X)\ge g(EX)$, with strict inequality if $X$ is non-constant and $g$ strictly convex. **Markov:** $P(X\ge a)\le\frac{EX}{a}$ for $X\ge0$.
+solution:
+1. $g(x)=\frac1{x+1}$ is strictly convex for $x>0$, so $E\frac1{X+1}>\frac1{EX+1}=\frac1{10}=0.1$.
+2. Markov: $P(X\ge10)\le\frac9{10}=0.9$.
+3. Both together give option (a).
+shortcut: Convex: $\frac1x$, $x^2$, $e^x$, $-\log x$. Concave: $\log x$, $\sqrt x$. Jensen's direction follows the curvature.
+
+=== 2021 12
+topic: SP
+pattern: Brownian motion moments via independent increments
+type: MCQ
+ans: C
+concept: Write $W(2)=W(1)+B$ with $B=W(2)-W(1)\sim N(0,1)$ independent of $W(1)$.
+solution:
+1. $W(1)W(2)=W(1)^2+W(1)B$, so $E=1$.
+2. $E[W(1)^2W(2)^2]=E[W_1^2(W_1+B)^2]=EW_1^4+2EW_1^3EB+EW_1^2EB^2=3+0+1=4$.
+3. $\operatorname{Var}=4-1^2=3$.
+shortcut: For jointly normal mean-zero $X,Y$: $\operatorname{Var}(XY)=\sigma_X^2\sigma_Y^2+\sigma_{XY}^2$. Here $1\cdot2+1^2=3$.
+
+=== 2021 13
+topic: EST
+pattern: Method of moments estimator
+type: MCQ
+ans: A
+concept: Method of moments: match $EX$ to $\bar X$.
+solution:
+$X-\theta\sim\text{Exp}(\text{mean }\theta)$, so $EX=2\theta$. Setting $\bar X=2\theta$ gives $\hat\theta=\frac{\bar X}2=\frac1{2n}\sum X_i$.
+
+=== 2021 14
+topic: CI
+pattern: Non-uniqueness of confidence intervals
+type: MCQ
+ans: B
+concept: A $100(1-\alpha)\%$ CI is not unique. Any split $\alpha_1+\alpha_2=\alpha$ of the tail probabilities gives a valid interval. The symmetric one is just the shortest.
+solution:
+- P: with $\sigma$ known, $\left(\bar x-z_{\alpha_2}\frac\sigma{\sqrt n},\bar x+z_{\alpha_1}\frac\sigma{\sqrt n}\right)$ is a 95% CI for every split. Not unique, so P is false.
+- Q: with $\sigma$ unknown, the same argument with $t$. Not unique, so Q is true.
+Answer: Q only.
+
+=== 2021 15
+topic: TH
+pattern: MLR family: UMP test for normal variance
+type: MCQ
+ans: A
+concept: $N(0,\sigma^2)$: $f_\sigma\propto\sigma^{-n}e^{-T_1/2\sigma^2}$, with $T_1=\sum X_i^2$. The ratio $f_{\sigma_2}/f_{\sigma_1}$ ($\sigma_2>\sigma_1$) increases in $T_1$, so the family has MLR in $T_1$.
+solution:
+1. The UMP test for $H_1:\sigma>1$ rejects for large $T_1$.
+2. Under $H_0$, $T_1\sim\chi^2_n$, so reject if $T_1>\chi^2_{n,\alpha}$ (the $(1-\alpha)$ quantile). Option (a).
+trap: $T_2=\bar X^2$ is not sufficient for $\sigma^2$ when the mean is known, so it can't carry the MLR.
+
+=== 2021 16
+topic: TH
+pattern: Chi-square test of independence in 2×2 table
+type: MCQ
+ans: A
+concept: $\chi^2=\sum\frac{(O-E)^2}{E}$ with $E_{ij}=\frac{R_iC_j}{N}$, and d.f. $=(r-1)(c-1)=1$ for a $2\times2$ table.
+solution:
+1. All row and column totals are 30 and $N=60$, so every $E_{ij}=15$.
+2. $\chi^2=\frac{(10-15)^2+(20-15)^2+(20-15)^2+(10-15)^2}{15}=\frac{100}{15}=\frac{20}3$.
+shortcut: For $2\times2$: $\chi^2=\frac{N(ad-bc)^2}{R_1R_2C_1C_2}=\frac{60(100-400)^2}{30^4}=\frac{20}{3}$.
+
+=== 2021 17
+topic: MV
+pattern: Kendall's tau for bivariate normal
+type: MCQ
+ans: A
+concept: For a bivariate normal, $P(X\le0,Y\le0)=\frac14+\frac{\sin^{-1}\rho}{2\pi}$ (Sheppard) and $\tau=\frac2\pi\sin^{-1}\rho$.
+solution:
+$4\Phi_\rho(0,0)-1=1+\frac{2\sin^{-1}\rho}{\pi}-1=\frac2\pi\sin^{-1}\rho=\tau$.
+shortcut: Also $\tau=4P(\text{concordant pair})-1$ in general. Spearman's $\rho_s=\frac6\pi\sin^{-1}\frac\rho2$.
+
+=== 2021 18
+topic: REG
+pattern: Variance of OLS intercept
+type: MCQ
+ans: B
+concept: $\operatorname{Var}(\hat\beta_0)=\sigma^2\left(\frac1n+\frac{\bar x^2}{S_{xx}}\right)$. Adding a constant changes nothing.
+solution:
+$S_1=\sum(x_i-\bar x)^2=S_{xx}$, so $\operatorname{Var}(\hat\beta_0+c)=\sigma^2\left(\frac1n+\frac{\bar x^2}{S_1}\right)$.
+trap: $S_2=\sum y_i(x_i-\bar x)=S_{xy}$ is random. It cannot appear in a variance.
+
+=== 2021 19
+topic: MV
+pattern: Wishart: additive property & standardisation
+type: MCQ
+ans: A
+concept: $\sum_{i=1}^nX_iX_i^T\sim W_p(n,\Sigma)$, standardising gives $W_p(n,I)$, and independent Wisharts with the same scale add their d.f.
+solution:
+$\Sigma_1^{-1/2}XX^T\Sigma_1^{-1/2}\sim W_4(3,I_4)$ and $\Sigma_2^{-1/2}YY^T\Sigma_2^{-1/2}\sim W_4(4,I_4)$, independent. The sum is $W_4(7,I_4)$.
+
+=== 2021 20
+topic: CAL
+pattern: Limits of n-th roots (squeeze)
+type: NAT
+ans: 2
+concept: $\left(2^n\cdot g_n\right)^{1/(nc_n)}$ with $1\le g_n\le1+n$ and $c_n\to1$ tends to $2$, since $(1+n)^{1/n}\to1$.
+solution:
+1. Base: $2^n\left(1+n\sin^2\frac n2\right)$, with $1\le1+n\sin^2\frac n2\le1+n$.
+2. Exponent: $\frac1{n(2-\cos\frac1n)}$, and $2-\cos\frac1n\to1$.
+3. $(2^n)^{1/(n(2-\cos(1/n)))}=2^{1/(2-\cos(1/n))}\to2$, and the bracket raised to that power lies between $1$ and $(1+n)^{\approx1/n}\to1$.
+4. The limit is $2$.
+
+=== 2021 21
+topic: CAL
+pattern: Double integral by polar change of variables
+type: NAT
+ans: 33.97
+concept: Switch to polar when the integrand has $\sqrt{x^2+y^2}$: $dy\,dx=r\,dr\,d\theta$.
+solution:
+1. Region: $\frac1{\sqrt2}\le x\le1$, $\sqrt{1-x^2}\le y\le x$. That is outside the unit circle, below $y=x$, left of $x=1$, so $0\le\theta\le\frac\pi4$ and $1\le r\le\sec\theta$.
+2. Integrand: $\frac1r\cdot r=1$. So $I=4\int_0^{\pi/4}(\sec\theta-1)\,d\theta=4\ln(\sqrt2+1)-\pi$.
+3. $e^{I+\pi}=(1+\sqrt2)^4=17+12\sqrt2\approx33.97$.
+shortcut: $\int_0^{\pi/4}\sec\theta\,d\theta=\ln(1+\sqrt2)$.
+
+=== 2021 22
+topic: LA
+pattern: Nullity via eigenvalues of a polynomial in A
+type: NAT
+ans: 2
+concept: Eigenvalues of $p(A)$ are $p(\lambda)$. $A$ is a cyclic permutation matrix with $A^3=I$ and eigenvalues $1,\omega,\omega^2$.
+solution:
+1. $I+A+A^2$ has eigenvalues $1+\lambda+\lambda^2$: $3$ for $\lambda=1$, and $0$ for $\lambda=\omega,\omega^2$.
+2. $A$ is diagonalizable, so $\text{rank}(I+A+A^2)=1$. $5A$ is invertible, so the nullity of the product is $3-1=2$.
+shortcut: $I+A+A^2=J$ (all-ones matrix) for this permutation matrix, and $J$ has rank 1.
+
+=== 2021 23
+topic: LA
+pattern: Matrix from eigen-decomposition; powers of a reflection
+type: NAT
+ans: 1.73
+concept: Orthonormal eigenvectors with eigenvalues $\pm1$ make $A$ a reflection: $A=v_1v_1^T-v_2v_2^T$ and $A^2=I$.
+solution:
+1. $A^{2021}=A$ because $2021$ is odd.
+2. $A=\begin{pmatrix}3/4&\sqrt3/4\\\sqrt3/4&1/4\end{pmatrix}-\begin{pmatrix}1/4&-\sqrt3/4\\-\sqrt3/4&3/4\end{pmatrix}=\begin{pmatrix}1/2&\sqrt3/2\\\sqrt3/2&-1/2\end{pmatrix}$.
+3. $a+b+c+d=\sqrt3\approx1.73$.
+shortcut: Sum of all entries $=\mathbf 1^TA\mathbf 1$.
+
+=== 2021 24
+topic: PROB
+pattern: Independence and complements
+type: NAT
+ans: 0.33
+concept: If $A,B$ are independent, so are $A,B^c$.
+solution:
+$P(A\cup B^c)=P(A)+P(B^c)-P(A)P(B^c)=P(A)+\frac14-\frac{P(A)}4=\frac12$, so $\frac34P(A)=\frac14$ and $P(A)=\frac13\approx0.33$.
+
+=== 2021 25
+topic: PROB
+pattern: Conditional expectation for dice by enumeration
+type: NAT
+ans: 7
+concept: Condition on the event, list the equally likely outcomes, and average.
+solution:
+$|X-Y|=1$: $(1,2),(2,1),\dots,(5,6),(6,5)$, 10 outcomes. Sums: $3,3,5,5,7,7,9,9,11,11$. Mean $=7$.
+shortcut: The event is symmetric under $(x,y)\to(7-x,7-y)$, which maps sum $s$ to $14-s$. So $E(X+Y\mid\cdot)=7$.
+
+=== 2021 26
+topic: RV
+pattern: CDF with unknown constants; probability on open intervals
+type: NAT
+ans: 0.33
+concept: The jumps of $F$ are the probabilities. Use $P(X\le1)$ and $EX$ to find the constants.
+solution:
+1. $P(X\le1)=\frac a2=\frac12$, so $a=1$ and $P(X=1)=\frac12$.
+2. $P(X=2)=\frac c6-\frac12$, $P(X=3)=1-\frac c6$.
+3. $EX=\frac12+2\left(\frac c6-\frac12\right)+3\left(1-\frac c6\right)=\frac52-\frac c6=\frac53$, so $c=5$.
+4. $A=\bigcup[1+\frac1n,3-\frac1n]=(1,3)$, an open interval. $P(X\in A)=P(X=2)=\frac13\approx0.33$.
+trap: The union of closed intervals here is **open**. 1 and 3 are never included.
+
+=== 2021 27
+topic: RV
+pattern: Density of the k-th order statistic
+type: NAT
+ans: 7
+concept: $f_{(k)}(x)=\frac{n!}{(k-1)!(n-k)!}F^{k-1}(1-F)^{n-k}f$.
+solution:
+For $U(0,2)$, $F=\frac x2$. The kernel $x^{k-1}(2-x)^{n-k}$ must match $x^6(2-x)^1$, so $k-1=6$ and $k=7$. Check the constant: $\frac{8!}{6!1!}\cdot\frac1{2^8}=\frac{56}{256}=\frac7{32}$ ✓.
+
+=== 2021 28
+topic: LT
+pattern: Borel–Cantelli for almost sure convergence
+type: NAT
+ans: 0.5
+concept: For **independent** events, $\sum P(A_n)<\infty$ iff $P(A_n\text{ i.o.})=0$ (both Borel–Cantelli lemmas).
+solution:
+$X_n\to0$ a.s. iff $X_n=1$ only finitely often, iff $\sum n^{-2\alpha}<\infty$, iff $2\alpha>1$. So $S=(\frac12,\infty)$ and $\inf S=0.5$.
+trap: For convergence in probability you only need $P(X_n=1)\to0$, true for every $\alpha>0$. Almost sure convergence needs summability.
+
+=== 2021 29
+topic: LT
+pattern: SLLN for log of product (geometric mean)
+type: NAT
+ans: 0.31
+concept: $-\frac1n\log\prod Y_i=-\frac1n\sum\log Y_i\to-E\log Y$ a.s.
+solution:
+$Y=2-X\sim U(0,2)$, and $E\log Y=\frac12\int_0^2\ln u\,du=\frac12(2\ln2-2)=\ln2-1$.
+So $Z_n\to1-\ln2=0.3069\approx0.31$.
+
+=== 2021 30
+topic: SP
+pattern: Stationary initial distribution → constant marginals
+type: NAT
+ans: 50
+concept: If $\pi_0$ is stationary, every $X_n$ has distribution $\pi_0$.
+solution:
+$P$ is doubly stochastic, so the uniform $(0.5,0.5)$ is stationary. Since $X\in\{0,1\}$, $X^{2k}=X$, and $E[X_{2k}^{2k}]=P(X_{2k}=1)=0.5$. The sum over 100 terms is $50$.
+
+=== 2021 31
+topic: TH
+pattern: Likelihood ratio statistic value
+type: NAT
+ans: 1
+concept: $\Lambda=\dfrac{\sup_{H_0}L}{\sup_\Theta L}$.
+solution:
+The data give 2 successes in 4 Bernoulli trials, so the unrestricted MLE is $\hat p=\frac12$, which is exactly the null value. Both suprema are equal and $\Lambda=1.00$.
+shortcut: If the MLE falls inside $H_0$, $\Lambda=1$ (and $-2\ln\Lambda=0$).
+
+=== 2021 32
+topic: RV
+pattern: Expectation of a polynomial under a given density
+type: NAT
+ans: 8.67
+concept: $E[g(X)]=\int g(x)f(x)\,dx$. Expand and use the moments.
+solution:
+1. $f(x)=\frac3{13}(9-10x+x^2)$ on $(0,1)$.
+2. Moments, using $\int_0^1x^k\,dx=\frac1{k+1}$:
+ - $EX=\frac3{13}\left(\frac92-\frac{10}3+\frac14\right)=\frac{17}{52}$
+ - $EX^2=\frac3{13}\left(3-\frac{10}4+\frac15\right)=\frac{21}{130}$
+ - $EX^3=\frac3{13}\left(\frac94-2+\frac16\right)=\frac{5}{52}$
+3. $E[X^3-15X^2+27X]=\frac5{52}-\frac{315}{130}+\frac{459}{52}=\frac{5-126+459}{52}=\frac{338}{52}=6.5$.
+4. $\frac43\times6.5=\frac{26}3\approx8.67$.
+shortcut: For a polynomial times a polynomial density, multiply out and use $\int_0^1x^k=\frac1{k+1}$. Bookkeeping is the only risk.
+
+=== 2021 33
+topic: MV
+pattern: Multiple correlation coefficient
+type: NAT
+ans: 0.16
+concept: $R^2_{Y\cdot X}=\dfrac{\sigma_{YX}^T\Sigma_{XX}^{-1}\sigma_{XY}}{\sigma_{YY}}$.
+solution:
+1. $\sigma_{YX}=(0.5,-0.5)$, $\Sigma_{XX}=\begin{pmatrix}7&1.5\\1.5&2\end{pmatrix}$, $\det=11.75$.
+2. $\sigma^T\operatorname{adj}(\Sigma)\sigma=(0.5,-0.5)\begin{pmatrix}2&-1.5\\-1.5&7\end{pmatrix}(0.5,-0.5)^T=3$.
+3. $R^2=\frac{3/11.75}{10}=0.0255$, so $R=0.16$.
+trap: The question asks for $R$, not $R^2$.
+
+=== 2021 34
+topic: MV
+pattern: Hotelling T² test p-value
+type: NAT
+ans: 1
+concept: The LRT for $\mu=0$ (with $\Sigma$ unknown) is Hotelling's $T^2=n\bar x^TS^{-1}\bar x$.
+solution:
+$\bar x=\left(\frac{1+4-5}3,\frac{2-2+0}3\right)=(0,0)$, so $T^2=0$. p-value $=P(T^2\ge0)=1$.
+shortcut: Always compute $\bar x$ first. GATE often makes it exactly the null value.
+
+=== 2021 35
+topic: REG
+pattern: OLS with nearly collinear data (exact fit)
+type: NAT
+ans: 6.33
+concept: Check whether the points are exactly collinear before doing heavy arithmetic.
+solution:
+$y-x$ equals $8.62-3.29=5.33$, $26.86-21.53=5.33$, $54.02-48.69=5.33$, all the same. So $y=x+5.33$ exactly: $\hat\beta=1$, $\hat\alpha=5.33$, sum $=6.33$.
+shortcut: Messy decimals in a regression NAT usually hide a pattern. Try $y-x$ or $y/x$ first.
+
+=== 2021 36
+topic: CAL
+pattern: Differentiability of Thomae-type functions at 0
+type: MCQ
+ans: C
+concept: Bound $|f(x)-f(0)|$ by $|x|^{1+\epsilon}$ to show $f'(0)=0$.
+solution:
+1. Irrational $x$: $|f(x)|=|x^3\sin x|\le|x|^4$.
+2. Rational $x=\frac pq$, $p\ne0$: $|x|\ge\frac1q$, so $\frac1{q^3}\le|x|^3$.
+3. So $\left|\frac{f(x)}x\right|\le|x|^2\to0$, and $f'(0)=0$.
+
+=== 2021 37
+topic: CAL
+pattern: Uniform continuity
+type: MCQ
+ans: D
+concept: Continuous on $[0,\infty)$ with a finite limit at $\infty$ implies uniformly continuous.
+solution:
+- (a) is false: $\sin(x^2)$ is bounded and continuous but not UC.
+- (b) is false: $f(x)=x$ is UC with no limit.
+- (c) is false: $x\sin x$ is not UC.
+- (d) is true: past some $M$, $f$ stays within $\epsilon$ of its limit, and $[0,M+1]$ is compact.
+
+=== 2021 38
+topic: CAL
+pattern: Integrating factor argument for differential inequality
+type: MCQ
+ans: A
+concept: $f'+2f>0$ means $\left(e^{2x}f\right)'=e^{2x}(f'+2f)>0$.
+solution:
+$g(x)=e^{2x}f(x)$ is strictly increasing with $g(0)=0$. So $g>0$ for $x>0$ and $g<0$ for $x<0$. $f$ has the same sign as $g$, giving (a).
+
+=== 2021 39
+topic: LA
+pattern: Matrix equation for positive definite matrices
+type: MCQ
+ans: B
+concept: A positive definite matrix is invertible and its eigenvalues are positive.
+solution:
+$A^{48}(A^2-\frac14I)=0$. $A^{48}$ is invertible, so $A^2=\frac14I$, and each eigenvalue satisfies $\lambda^2=\frac14$. Positive definite forces $\lambda=\frac12$ for all three. A symmetric matrix with all eigenvalues $\frac12$ is $\frac12I$. Exactly **1** element.
+
+=== 2021 40
+topic: LA
+pattern: Cayley transform (skew ↔ orthogonal)
+type: MCQ
+ans: C
+concept: The **Cayley transform** $B=(I+A)^{-1}(I-A)$ is its own inverse: $A=(I+B)^{-1}(I-B)$. It maps skew-symmetric matrices to orthogonal ones (without eigenvalue $-1$) and back.
+solution:
+- (c) is true: if $B$ is skew-symmetric, $A=(I+B)^{-1}(I-B)$, and $A^TA=(I+B)(I-B)^{-1}(I+B)^{-1}(I-B)=I$ because these factors commute. So $A$ is orthogonal.
+- (a) is false: $A=0$ gives $B=I$, orthogonal, but $A$ is singular.
+- (b) is false: $B$ orthogonal forces the eigenvalues of $A$ to be purely imaginary (or 0), not real in general.
+- (d) is false: a Cayley image of a skew matrix has determinant $+1$.
+Note: the PDF marks (a), but $A=0$ is a direct counterexample to (a).
+
+=== 2021 41
+topic: RV
+pattern: Poisson identities: moments, mode, P(even)
+type: MCQ
+ans: B
+concept: Poisson($\lambda$): $EX^2=\lambda+\lambda^2$, $P(\text{even})=\frac{1+e^{-2\lambda}}2$, and $\frac{P(k+1)}{P(k)}=\frac{\lambda}{k+1}$.
+solution:
+1. $\lambda+\lambda^2=110$ gives $\lambda=10$.
+2. (a) $E[X^n]=\lambda E[(X+1)^{n-1}]$ is a true identity.
+3. (b) the correct value is $\frac12(1+e^{-20})$, not $\frac14(\cdot)$. **Not true.**
+4. (c) $P(k)<P(k+1)$ iff $k+1<10$, i.e. $k\le8$: true. (d) $P(k)>P(k+1)$ iff $k\ge10$: true.
+shortcut: $P(\text{even})=\frac{1+G(-1)}2$, where $G$ is the PGF. Poisson: $G(-1)=e^{-2\lambda}$.
+
+=== 2021 42
+topic: RV
+pattern: Transformations of uniform: Cauchy, exponential, chi-square
+type: MCQ
+ans: D
+concept: If $X\sim U(-\frac\pi2,\frac\pi2)$, then $\tan X$ is Cauchy, $U=\frac12+\frac X\pi\sim U(0,1)$, $-\ln U\sim\text{Exp}(1)$, and $-2\ln U\sim\chi^2_2$.
+solution:
+- (a) $\cot X=1/\tan X$, and the reciprocal of a standard Cauchy is standard Cauchy. True.
+- (b) True.
+- (c) $-\ln U\sim\text{Exp}(1)$ with MGF $\frac1{1-t}$. True.
+- (d) $-2\ln U\sim\chi^2_{\mathbf 2}$, not $\chi^2_1$. **Not true.**
+
+=== 2021 43
+topic: PROB
+pattern: Countable sample space: properties of probability sequences
+type: MCQ
+ans: B
+concept: $\sum\alpha_n=1$ forces $\alpha_n\to0$, but says nothing about $\sum\sqrt{\alpha_n}$.
+solution:
+- (a) True.
+- (b) is false in general: $\alpha_n=\frac{6}{\pi^2n^2}$ gives $\sum\sqrt{\alpha_n}\propto\sum\frac1n=\infty$.
+- (c) True: take $k$ singletons far in the tail.
+- (d) True: take $A_i=\{N,\dots,N+i\}$ with tail probability $<0.001$.
+Note: the PDF marks (a), but (a) is always true.
+
+=== 2021 44
+topic: JD
+pattern: Sum of two variables: pdf, tail, mean, conditional mean
+type: MCQ
+ans: C
+concept: Convolution for $Z=X+Y$: $f_Z(z)=\int f(x,z-x)\,dx$. Check whether $E Z$ converges.
+solution:
+1. $f_Z(z)=\int_1^{z-1}\frac4{z^3}dx=\frac{4(z-2)}{z^3}$ for $z>2$. (a) is true.
+2. $P(Z>4)=4\int_4^\infty(z^{-2}-2z^{-3})dz=4(\frac14-\frac1{16})=\frac34$. (b) is true.
+3. $EZ=\int_2^\infty\frac{4(z-2)}{z^2}dz$ behaves like $\int\frac4z=\infty$. (c) is **not true**.
+4. $f_X(x)=\frac2{(x+1)^2}$, so $f(y\mid2)=\frac{18}{(2+y)^3}$, and $E(Y\mid X=2)=18\int_3^\infty\frac{u-2}{u^3}du=18(\frac13-\frac19)=4$. (d) is true.
+
+=== 2021 45
+topic: MV
+pattern: Covariance of linear transforms; trace = sum of eigenvalues
+type: MCQ
+ans: C
+concept: $\operatorname{Cov}(AX)=A\Sigma A^T=\sigma^2AA^T$, and the sum of eigenvalues is the trace.
+solution:
+1. $A=I+J$, so $AA^T=A^2=I+5J$: diagonal $6$, off-diagonal $5$.
+2. Trace $=18\sigma^2$, so P is true.
+3. All off-diagonal entries are equal and all variances are equal, so all pairwise correlations are equal ($\frac56$). Q is true.
+Answer: both.
+
+=== 2021 46
+topic: SP
+pattern: Markov chain theory: existence of stationary distribution
+type: MCQ
+ans: B
+concept: Stationary distributions exist iff there is a positive recurrent class. They are unique iff there is exactly one such class.
+solution:
+- (a) is false: a transient random walk on $\mathbb Z$ has no recurrent state.
+- (b) is true: point mass at the absorbing state is stationary.
+- (c) is false: two closed classes give infinitely many stationary distributions.
+- (d) is false: $\begin{pmatrix}0&1\\1&0\end{pmatrix}$ is periodic, so the limit doesn't exist.
+
+=== 2021 47
+topic: SP
+pattern: Thinning of Poisson process; conditional uniformity
+type: MCQ
+ans: B
+concept: Thinning: males and females are independent Poisson processes with rate 5 each. Given $M(1)=1$, the arrival time is $U(0,1)$.
+solution:
+- (a) The second female arrival $S_2\sim\text{Gamma}(2,5)$ with density $25se^{-5s}$. True.
+- (b) $P(M(\frac13)=0\mid M(1)=1)=P(U>\frac13)=\frac23$, not $\frac13$. **Not true.**
+- (c) $EN(t)^2=\lambda t+\lambda^2t^2=10t+100t^2$. True.
+- (d) $E[N(t)N(2t)]=EN(t)^2+EN(t)\,E[N(2t)-N(t)]=10t+100t^2+100t^2$. True.
+Note: the PDF's key here is wrong. (b) is the false statement.
+shortcut: $\operatorname{Cov}(N(s),N(t))=\lambda\min(s,t)$.
+
+=== 2021 48
+topic: EST
+pattern: Order statistics of uniform: unbiasedness; Rao–Blackwell variance
+type: MCQ
+ans: C
+concept: For $U(0,\theta)$, $E X_{(k)}=\frac{k\theta}{n+1}$. Rao–Blackwell / total variance: $\operatorname{Var}(E[T\mid S])\le\operatorname{Var}(T)$.
+solution:
+- P: $E X_{(2)}=\frac{2\theta}6=\frac\theta3$, so $3X_{(2)}$ is unbiased. True.
+- Q: $\operatorname{Var}(T)=E\operatorname{Var}(T|S)+\operatorname{Var}(E[T|S])\ge\operatorname{Var}(E[T|S])$. True.
+Both.
+
+=== 2021 49
+topic: EST
+pattern: E[X(1)|T] via Lehmann–Scheffé
+type: MCQ
+ans: A
+concept: If $h$ is unbiased for $g(\theta)$ and $T$ is complete sufficient, then $E[h\mid T]$ is **the** UMVUE of $g(\theta)$.
+solution:
+1. $X_{(1)}\sim\text{Exp}(\text{mean }\theta/n)$, so $nX_{(1)}$ is unbiased for $\theta$.
+2. The UMVUE of $\theta$ is $\bar X=T/n$. So $E[nX_{(1)}\mid T]=\frac Tn$, and $E[X_{(1)}\mid T]=\frac{T}{n^2}$.
+shortcut: Trick: "$E[\text{unbiased}\mid\text{complete sufficient}]$ = the UMVUE you already know."
+
+=== 2021 50
+topic: EST
+pattern: Completeness and ancillarity for U(−θ, θ)
+type: MCQ
+ans: D
+concept: A scale family has ratio-type ancillaries, not differences. A statistic of higher dimension than the minimal sufficient one is not complete.
+solution:
+- P: $E[X_{(1)}+X_{(n)}]=0$ for all $\theta$, but $X_{(1)}+X_{(n)}\ne0$. So $(X_{(1)},X_{(n)})$ is **not complete**.
+- Q: $X_{(n)}-X_{(1)}=\theta(U_{(n)}-U_{(1)})$ has a distribution that depends on $\theta$. **Not ancillary.**
+Neither.
+
+=== 2021 51
+topic: NP
+pattern: Empirical distribution function properties
+type: MCQ
+ans: C
+concept: $nS_n(x)\sim\text{Bin}(n,F(x))$, and $\operatorname{Cov}(S_n(x),S_n(y))=\frac1n\left[F(\min(x,y))-F(x)F(y)\right]$.
+solution:
+- (a) Glivenko–Cantelli. True.
+- (c) The correct covariance for $x\le y$ is $\frac1nF(x)(1-F(y))$, but for $x>y$ it is $\frac1nF(y)(1-F(x))$. Claiming it for all $x,y$ is **not true**. This is the key.
+- (b) CLT plus Slutsky for a fixed $x$ (intended without the absolute value). (d) is the classical Smirnov result for the one-sided statistic. Both are intended to be true.
+trap: Covariance of the EDF at two points always uses the **smaller** point in the first $F$.
+
+=== 2021 52
+topic: MV
+pattern: Quadratic forms / ratios of normals (Cauchy)
+type: MCQ
+ans: D
+concept: The ratio of two independent mean-zero normals is Cauchy, so $E|\cdot|=\infty$ but $E|\cdot|^{1/2}<\infty$. A quadratic form gives a central $\chi^2$ only when it has mean zero and the components are independent.
+solution:
+1. $(X_1,X_2)$ is independent of $(X_3,X_4)$. $U=X_1+X_2-1$ and $V=X_3+X_4-1$ are independent $N(0,3.4)$.
+2. (a): $X_1+X_2$ has mean 1, not 0, so the sum is non-central. False.
+3. (b): $X_1+X_3$ and $X_2+X_4$ have covariance $0.2+0.2\ne0$. False.
+4. (c): $\sqrt{|U/V|}$, with $U/V$ Cauchy, has a finite mean. "NOT finite" is false.
+5. (d): numerator $U+V$ and denominator $U-V$ are independent (equal variances), so the ratio is Cauchy and $E|\cdot|=\infty$. True.
+
+=== 2021 53
+topic: MV
+pattern: Cochran / independence of quadratic forms
+type: MCQ
+ans: C
+concept: For $Y\sim N(0,I)$: $Y^TAY\sim\chi^2_r$ iff $A$ is idempotent of rank $r$. $Y^TAY$ and $Y^TBY$ are independent iff $AB=0$ (Craig's theorem).
+solution:
+Both P and Q are necessary consequences.
+
+=== 2021 54
+topic: MV
+pattern: Read covariance from bivariate normal density (precision matrix)
+type: NAT
+ans: 3
+concept: The exponent of $N_2(0,\Sigma)$ is $-\frac12x^T\Sigma^{-1}x$. Read the precision matrix off the exponent and invert it.
+solution:
+1. Exponent $=-\frac12\left[\frac{25}{16}x^2-3xy+4y^2\right]$, so $\Sigma^{-1}=\begin{pmatrix}25/16&-3/2\\-3/2&4\end{pmatrix}$ with $\det=\frac{25}4-\frac94=4$.
+2. $\Sigma=\frac14\begin{pmatrix}4&3/2\\3/2&25/16\end{pmatrix}$, so $\operatorname{Cov}(X,Y)=\frac38$.
+3. $8E(XY)=3$.
+shortcut: Check: the constant $\frac1{2\pi\sqrt{\det\Sigma}}=\frac1{2\pi\cdot\frac12}=\frac1\pi$ ✓. The off-diagonal of $\Sigma^{-1}$ is $-\frac12\times$ the $xy$ coefficient in the bracket.
+
+=== 2021 55
+topic: CAL
+pattern: Extrema on a circle by substitution
+type: NAT
+ans: 10.125
+concept: On $x^2+y^2=1$, substitute $x^2=1-y^2$ and optimise over $y\in[-1,1]$.
+solution:
+$g(y)=8-8y^2-2y$. Vertex at $y=-\frac18$: $g=8+\frac18=8.125$. Endpoints: $g(1)=-2$, $g(-1)=2$. So $M-m=8.125-(-2)=10.125$.
+
+=== 2021 56
+topic: LA
+pattern: Determinant multilinearity & column permutations
+type: NAT
+ans: 72
+concept: The determinant is linear in each column and changes sign under a swap. A $k$-cycle has sign $(-1)^{k-1}$.
+solution:
+1. $\det(A+B)=\det[a+b,2u_1,2u_2,2u_3]=8(\det A+\det B)=8\cdot8=64$.
+2. $C=[u_2,u_3,u_1,a+b]$. Reordering to $[a+b,u_1,u_2,u_3]$ takes an odd permutation (5 inversions), so $\det C=-8$.
+3. $64-(-8)=72$.
+trap: $\det(A+B)\ne\det A+\det B$ in general. Here only the first column differs, which is why linearity applies.
+
+=== 2021 57
+topic: RV
+pattern: MGF product → sum of independent variables
+type: NAT
+ans: 0.632
+concept: $\frac{e^t-1}t$ is the MGF of $U(0,1)$ and $\frac1{1-t}$ is the MGF of $\text{Exp}(1)$. A product of MGFs means a sum of independent variables.
+solution:
+$X=U+E$. $P(X\le1)=\int_0^1P(E\le1-u)\,du=\int_0^1(1-e^{u-1})\,du=e^{-1}$. So $P(X>1)=1-e^{-1}=0.632$.
+
+=== 2021 58
+topic: RV
+pattern: Random number of variables: max via PGF
+type: NAT
+ans: 0.23
+concept: Condition on $Y$: $P(\max\le1\mid Y=k)=\left(\frac13\right)^k$, then take the expectation: $E[s^Y]$ at $s=\frac13$.
+solution:
+$\sum_{k\ge1}\frac{(1/3)^k}{(e-1)k!}=\frac{e^{1/3}-1}{e-1}=\frac{0.3956}{1.7183}=0.2302\approx0.23$.
+
+=== 2021 59
+topic: LT
+pattern: Extreme value (Gumbel) limit of exponential maximum
+type: NAT
+ans: 0.37
+concept: For i.i.d. Exp(1), $P(X_{(n)}-\ln n\le z)=(1-e^{-z}/n)^n\to e^{-e^{-z}}$ (Gumbel).
+solution:
+Median: $e^{-e^{-z}}=\frac12$, so $e^{-z}=\ln2$ and $z=-\ln\ln2=0.3665\approx0.37$.
+
+=== 2021 60
+topic: SP
+pattern: Competing exponentials (race of Poisson clocks)
+type: NAT
+ans: 143
+concept: With independent exponential clocks, $P(\text{clock A rings first})=\frac{\lambda_A}{\lambda_A+\lambda_B}$, and the memoryless property restarts the race after each event.
+solution:
+1. With 10 visitors, the departure rate is 10 and the arrival rate is 1. $P(\text{arrival first})=\frac1{11}$.
+2. With 11 visitors, $P(\text{arrival first})=\frac1{12}$.
+3. With 12 visitors, $P(\text{departure first})=\frac{12}{13}$.
+4. $p=\frac1{11}\cdot\frac1{12}\cdot\frac{12}{13}=\frac1{143}$, so $\frac1p=143$.
+
+=== 2021 61
+topic: EST
+pattern: MLE with restricted parameter space (boundary)
+type: NAT
+ans: 0.5
+concept: Reparametrise to a familiar family, find the unrestricted MLE, then project onto the allowed range.
+solution:
+1. Let $\beta=\frac\theta{1-\theta}$. Then $f=\beta x^{\beta-1}$, and $\theta\in[0.5,1)$ means $\beta\ge1$.
+2. The unrestricted MLE is $\hat\beta=\frac{-n}{\sum\ln x_i}=\frac{4}{5.455}=0.733<1$.
+3. The log-likelihood is concave in $\beta$, so the restricted MLE is $\beta=1$, i.e. $\hat\theta=0.5$.
+
+=== 2021 62
+topic: TH
+pattern: p-value for two-sided z-test
+type: NAT
+ans: 0.05
+concept: The UMPU test for a normal mean with known variance is the two-sided z-test. p-value $=2(1-\Phi(|z|))$.
+solution:
+$z=\frac{5.608-5.02}{3/\sqrt{100}}=\frac{0.588}{0.3}=1.96$, so p $=2(0.025)=0.050$.
+
+=== 2021 63
+topic: TH
+pattern: NP lemma for discrete pmf (randomised test, power)
+type: NAT
+ans: 0.21
+concept: Rank the points by $\frac{p_1}{p_0}$ and fill the size budget from the top.
+solution:
+Ratios: $x=7$: 0.77, $x=8$: 2, $x=9$: 4, $x=10$: 5. Take $x=10$ ($p_0=0.01$) and $x=9$ ($0.04$): size $=0.05$ exactly. Power $=0.05+0.16=0.21$.
+
+=== 2021 64
+topic: NP
+pattern: Wilcoxon signed-rank null distribution by enumeration
+type: NAT
+ans: 31.69
+concept: Under $H_0$, $T^+$ is symmetric about $\frac{n(n+1)}4$ on $\{0,\dots,\frac{n(n+1)}2\}$, with each of the $2^n$ subsets equally likely.
+solution:
+1. $n=10$, max $=55$. $P(T^+\ge50)=P(T^+\le5)$ by symmetry.
+2. Subsets with sum $\le5$: $\{\}$, $\{1\}$, $\{2\}$, $\{3\},\{1,2\}$, $\{4\},\{1,3\}$, $\{5\},\{1,4\},\{2,3\}$. That is 10.
+3. $\eta=1-\frac{10}{1024}=\frac{1014}{1024}$, so $32\eta=31.6875\approx31.69$.
+Note: the PDF prints 31.648, an arithmetic slip.
+
+=== 2021 65
+topic: REG
+pattern: Adjusted R²
+type: NAT
+ans: 57.17
+concept: $R^2_{adj}=1-(1-R^2)\frac{n-1}{n-k-1}$, with $k$ = number of predictors (excluding the intercept).
+solution:
+1. $R^2=\frac{338.92}{522.30}=0.6489$.
+2. $n=123$, $k=22$: $\frac{n-1}{n-k-1}=\frac{122}{100}$.
+3. $R^2_{adj}=1-0.3511\times1.22=0.57166$, so $100R^2_{adj}\approx57.17$.
+shortcut: Equivalently $1-\frac{SSE/(n-k-1)}{SST/(n-1)}$.
