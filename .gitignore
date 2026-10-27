@@ -1,0 +1,6 @@
+# Source PDF and everything derived from it (copyrighted question images)
+source/
+build/
+*.pdf
+npm/
+__pycache__/

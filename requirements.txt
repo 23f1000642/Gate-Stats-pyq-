@@ -1,0 +1,5 @@
+pikepdf
+pillow
+numpy
+scipy
+playwright
