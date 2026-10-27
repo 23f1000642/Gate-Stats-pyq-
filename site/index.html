@@ -1,0 +1,360 @@
+<title>GATE Statistics PYQ Guide</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<script>
+window.MathJax = { tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] }, svg: { fontCache: 'global' }, startup: { typeset: false } };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.3.0/marked.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js" async></script>
+<style>
+/* Layout: a revision binder. Topic rail on the left, one topic open at a time; each question is an exam-paper strip with the worked answer folded underneath. */
+:root{
+  --bg:#f2f4f3; --surface:#ffffff; --sunk:#e6eae8; --line:#cfd6d3; --fg:#18211e; --muted:#5a6863;
+  --accent:#0d6b5c; --accent-ink:#ffffff; --accent-soft:#d9eee9;
+  --key:#9a3f12; --key-soft:#f8e6da; --tip:#5b4a9e; --tip-soft:#ebe7f8; --warn:#9b2c2c; --warn-soft:#f9e1e1; --ok:#1d7a3e;
+  --paper-filter:none;
+  --f-display:"Familjen Grotesk","Segoe UI",system-ui,sans-serif;
+  --f-body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --r:10px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#101614; --surface:#18201d; --sunk:#1f2925; --line:#2e3a36; --fg:#e4ebe8; --muted:#97a7a1;
+  --accent:#4cc2ac; --accent-ink:#06201b; --accent-soft:#16352f;
+  --key:#f0a274; --key-soft:#3a2418; --tip:#b6a6f2; --tip-soft:#2a2445; --warn:#f19a9a; --warn-soft:#3b1f22; --ok:#6fd393;
+  --paper-filter:invert(.88) hue-rotate(180deg); color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#101614; --surface:#18201d; --sunk:#1f2925; --line:#2e3a36; --fg:#e4ebe8; --muted:#97a7a1;
+  --accent:#4cc2ac; --accent-ink:#06201b; --accent-soft:#16352f;
+  --key:#f0a274; --key-soft:#3a2418; --tip:#b6a6f2; --tip-soft:#2a2445; --warn:#f19a9a; --warn-soft:#3b1f22; --ok:#6fd393;
+  --paper-filter:invert(.88) hue-rotate(180deg); color-scheme:dark }
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 70px)}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:17px;line-height:1.55}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+h1,h2,h3,h4{font-family:var(--f-display);margin:0;line-height:1.15;text-wrap:balance}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.muted{color:var(--muted)}
+.lbl{font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--muted)}
+
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:6;background:var(--surface);border-bottom:1px solid var(--line)}
+.top .in{display:flex;gap:12px;align-items:center;padding-block:10px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));max-width:1320px;margin:0 auto}
+.brand{background:none;border:0;padding:0;display:flex;gap:10px;align-items:baseline}
+.brand b{font-family:var(--f-display);font-size:20px;font-weight:700;letter-spacing:-.01em}
+.brand span{font-family:var(--f-mono);font-size:12px;color:var(--muted)}
+.top .sp{flex:1}
+.ghost{border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:6px 10px;font-size:14px}
+.menu-btn{display:none}
+@media (max-width:900px){.menu-btn{display:inline-block}}
+
+.shell{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:270px minmax(0,1fr);gap:24px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:18px 60px}
+@media (max-width:900px){.shell{grid-template-columns:minmax(0,1fr)}}
+.rail{position:sticky;top:calc(env(safe-area-inset-top,0px) + 66px);align-self:start;max-height:calc(100vh - 90px);overflow:auto;display:grid;gap:2px;padding-right:4px}
+@media (max-width:900px){.rail{position:fixed;inset:0 auto 0 0;width:min(300px,86vw);max-height:none;z-index:20;background:var(--surface);padding:calc(16px + env(safe-area-inset-top,0px)) 12px 16px max(12px,env(safe-area-inset-left,0px));transform:translateX(-105%);transition:transform .2s;box-shadow:8px 0 30px rgba(0,0,0,.25)}
+  .rail.open{transform:none}}
+.scrim{position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:19}
+.rail a{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center;padding:8px 10px;border-radius:8px;color:inherit;text-decoration:none;font-size:15px}
+.rail a:hover{background:var(--sunk)}
+.rail a[aria-current=page]{background:var(--accent-soft);color:var(--accent);font-weight:700}
+.rail a .c{font-family:var(--f-mono);font-size:12px;color:var(--muted)}
+.rail .grp{margin:12px 10px 4px}
+.prog{height:3px;background:var(--sunk);border-radius:2px;grid-column:1/-1;overflow:hidden}
+.prog i{display:block;height:100%;background:var(--ok)}
+
+/* home */
+.hero{display:grid;gap:10px;padding-block:6px 18px}
+.hero h1{font-size:clamp(28px,4.2vw,42px);font-weight:700;letter-spacing:-.02em}
+.hero p{margin:0;max-width:66ch;color:var(--muted)}
+.stats{display:flex;gap:28px;flex-wrap:wrap}
+.stats div{display:grid}
+.stats .mono{font-size:24px;font-weight:600}
+.how{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:8px 0 22px}
+.how div{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px;font-size:15px}
+.how b{display:block;font-family:var(--f-display);font-size:16px;margin-bottom:2px}
+.tgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px}
+.tcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px;display:grid;gap:10px;text-decoration:none;color:inherit}
+.tcard:hover{border-color:var(--accent)}
+.tcard h3{font-size:18px;font-weight:600}
+.tcard .row{display:flex;justify-content:space-between;font-size:14px;color:var(--muted)}
+.yr{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;align-items:end;height:44px}
+.yr i{display:block;background:var(--accent);opacity:.75;border-radius:2px 2px 0 0;min-height:2px}
+.yr i.z{background:var(--line);opacity:1}
+.yrl{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;font-family:var(--f-mono);font-size:10px;color:var(--muted);text-align:center;margin-top:-6px}
+
+/* topic */
+.thead{display:grid;gap:8px;padding-bottom:12px}
+.thead h1{font-size:clamp(26px,3.6vw,36px);font-weight:700;letter-spacing:-.015em}
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);margin-bottom:16px;overflow-x:auto}
+.tabs button{background:none;border:0;border-bottom:3px solid transparent;padding:10px 14px;font-weight:600;color:var(--muted);white-space:nowrap}
+.tabs button[aria-selected=true]{color:var(--fg);border-bottom-color:var(--accent)}
+.filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:14px}
+.chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:4px 12px;font-size:14px}
+.chip[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:600}
+.filters input[type=search]{flex:1;min-width:160px;padding:7px 12px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--fg);font:inherit;font-size:15px}
+.switch{display:flex;gap:8px;align-items:center;font-size:14px;color:var(--muted)}
+.switch input{width:18px;height:18px;accent-color:var(--accent)}
+.qlist{display:grid;gap:18px}
+.q{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.q.done{border-color:color-mix(in srgb,var(--ok) 50%,var(--line))}
+.qh{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;padding:10px 14px;border-bottom:1px solid var(--line)}
+.qh .id{font-family:var(--f-mono);font-weight:600;font-size:15px}
+.tag{font-size:12px;font-weight:700;padding:2px 8px;border-radius:999px;background:var(--sunk);color:var(--muted);white-space:nowrap}
+.tag.ty{background:var(--accent-soft);color:var(--accent)}
+.qh .pat{font-size:14px;color:var(--muted);flex:1;min-width:180px}
+.paper{background:#fff;padding:12px 14px;overflow-x:auto;border-bottom:1px solid var(--line)}
+.paper img{display:block;width:100%;max-width:820px;height:auto;filter:var(--paper-filter);cursor:zoom-in}
+.paper.zoom img{width:200%;max-width:none;cursor:zoom-out}
+.zhint{display:none;font-size:12px;color:var(--muted);padding:4px 14px 0}
+@media (max-width:640px){.zhint{display:block}.paper{padding:8px}}
+:root[data-theme="dark"] .paper{background:#1d1d1d}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .paper{background:#1d1d1d}}
+.ph{height:120px;display:grid;place-items:center;color:var(--muted);font-size:14px}
+.qa{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:10px 14px}
+.btn{border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:7px 14px;font-weight:600;font-size:15px}
+.btn.pri{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.qa .sp{flex:1}
+.got{display:flex;gap:6px;align-items:center;font-size:14px;color:var(--muted)}
+.got input{width:18px;height:18px;accent-color:var(--ok)}
+.sol{border-top:1px solid var(--line);padding:14px 16px 16px;display:grid;gap:14px;background:var(--bg)}
+.ans{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;background:var(--key-soft);color:var(--key);border-radius:8px;padding:10px 12px;font-weight:700}
+.ans .mono{font-size:18px}
+.blk{display:grid;gap:4px;min-width:0}
+.blk h4{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.blk.tip{background:var(--tip-soft);border-radius:8px;padding:10px 12px}
+.blk.tip h4{color:var(--tip)}
+.blk.trap{background:var(--warn-soft);border-radius:8px;padding:10px 12px}
+.blk.trap h4{color:var(--warn)}
+.md{max-width:78ch;overflow-x:auto;min-width:0}
+.md p{margin:.35em 0}
+.md ol,.md ul{margin:.3em 0;padding-left:1.4em}
+.md li{margin:.2em 0}
+.md table{border-collapse:collapse;font-size:15px;margin:.4em 0}
+.md th,.md td{border:1px solid var(--line);padding:4px 9px;text-align:left}
+.md th{background:var(--sunk)}
+.md code{font-family:var(--f-mono);font-size:.9em;background:var(--sunk);padding:1px 4px;border-radius:4px}
+.md mjx-container[display=true]{overflow-x:auto;overflow-y:hidden;max-width:100%}
+.sim{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:14px}
+.sim a{font-family:var(--f-mono);font-size:13px;border:1px solid var(--line);border-radius:6px;padding:2px 8px;color:var(--accent);text-decoration:none;background:var(--surface)}
+.sim a:hover{border-color:var(--accent)}
+.fs{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px 20px}
+.fs .md{max-width:none}
+.fs h2{font-size:21px;margin:18px 0 6px}
+.fs h2:first-child{margin-top:0}
+.fs h3{font-size:17px;margin:14px 0 4px}
+.pat-tbl{width:100%;border-collapse:collapse;font-size:15px}
+.pat-tbl th{text-align:left;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding:8px;border-bottom:1px solid var(--line)}
+.pat-tbl td{padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+.pat-tbl td:first-child{font-weight:600}
+.pat-tbl .yrs{display:flex;flex-wrap:wrap;gap:4px}
+.pat-tbl .n{font-family:var(--f-mono);text-align:center}
+.tblwrap{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow-x:auto}
+.mx{min-width:760px}
+.mx td.cell{text-align:center;vertical-align:middle}
+.mx td.cell.hit{background:var(--accent-soft)}
+.mx td.cell .sim{justify-content:center}
+.mx td:first-child{min-width:190px}
+.sec-h{font-size:21px;margin:26px 0 6px}
+.fam-h{font-size:16px;margin:18px 0 8px;color:var(--accent)}
+.tag.fam{background:var(--tip-soft);color:var(--tip);white-space:normal}
+@media (max-width:640px){.brand span{display:none}.brand b{font-size:17px}.qh .pat{min-width:0;flex-basis:100%}}
+.filters select{padding:6px 10px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--fg);font:inherit;font-size:14px;max-width:100%}
+.sim .more{font-size:13px;color:var(--muted)}
+.empty{padding:28px;text-align:center;color:var(--muted)}
+.flash{animation:flash 1.6s ease-out}
+@keyframes flash{0%{box-shadow:0 0 0 4px var(--accent)}100%{box-shadow:0 0 0 0 transparent}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<header class="top"><div class="in">
+  <button class="ghost menu-btn" id="menu" type="button" aria-label="Open topic list">Topics</button>
+  <button class="brand" id="home" type="button"><b>GATE Statistics PYQ Guide</b><span>ST 2019–2025</span></button>
+  <span class="sp"></span>
+  <button class="ghost" id="theme" type="button" aria-label="Toggle light or dark theme">Theme</button>
+</div></header>
+<div class="shell">
+  <nav class="rail" id="rail" aria-label="Topics"></nav>
+  <main id="main"><div class="empty">Loading questions…</div></main>
+</div>
+
+<script>
+(() => {
+'use strict';
+const $ = (s, r = document) => r.querySelector(s);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const store = { get(k, d){ try { const v = localStorage.getItem('stg.' + k); return v ? JSON.parse(v) : d; } catch { return d; } },
+                set(k, v){ try { localStorage.setItem('stg.' + k, JSON.stringify(v)); } catch {} } };
+const YEARS = [2019,2020,2021,2022,2023,2024,2025];
+const TYPES = {MCQ:'MCQ', MSQ:'MSQ', NAT:'NAT'};
+let IDX = null, QBY = {}, TBY = {};
+const cache = {};
+let done = store.get('done', {});
+let st = Object.assign({years: [], types: [], hide: false, q: '', fam: ''}, store.get('filters', {}));
+st.q = ''; st.fam = '';
+
+{ const t = store.get('theme', null); if (t) document.documentElement.dataset.theme = t; }
+$('#theme').onclick = () => { const r = document.documentElement; const cur = r.dataset.theme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); r.dataset.theme = cur === 'dark' ? 'light' : 'dark'; store.set('theme', r.dataset.theme); };
+
+// markdown + math
+function md(src){
+  if (!src) return '';
+  const m = [];
+  let s = String(src).replace(/\$\$[\s\S]+?\$\$|\$[^$\n]+?\$/g, x => { m.push(x); return '@@M' + (m.length - 1) + '@@'; });
+  let h = window.marked ? marked.parse(s, {gfm: true, breaks: false, mangle: false, headerIds: false}) : '<p>' + esc(s) + '</p>';
+  return h.replace(/@@M(\d+)@@/g, (_, i) => esc(m[+i]));
+}
+function typeset(el){ if (window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise([el]).catch(() => {}); else setTimeout(() => typeset(el), 500); }
+async function load(t){ if (!cache[t]) cache[t] = fetch('data/' + t + '.json').then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }); return cache[t]; }
+
+// routing via #TOPIC or #TOPIC-YYYY_QQ
+let view = {name: 'home'};
+function parseHash(){
+  const h = location.hash.replace('#', '');
+  if (!h) return {name: 'home'};
+  const [t, qid] = h.split('-');
+  if (TBY[t]) return {name: 'topic', t, tab: 'q', focus: qid || null};
+  return {name: 'home'};
+}
+function go(v, push = true){
+  view = v; closeRail();
+  if (push) { try { history.replaceState(null, '', v.name === 'home' ? location.pathname : '#' + v.t + (v.focus ? '-' + v.focus : '')); } catch {} }
+  render(); if (!v.focus) window.scrollTo(0, 0);
+}
+window.addEventListener('hashchange', () => { view = parseHash(); render(); });
+$('#home').onclick = () => go({name: 'home'});
+$('#menu').onclick = () => { $('#rail').classList.add('open'); const s = document.createElement('div'); s.className = 'scrim'; s.onclick = closeRail; document.body.append(s); };
+function closeRail(){ $('#rail').classList.remove('open'); document.querySelectorAll('.scrim').forEach(x => x.remove()); }
+
+const doneIn = t => IDX.q.filter(q => q.t === t && done[q.id]).length;
+function renderRail(){
+  const groups = [['Mathematics', ['CAL','LA']], ['Probability', ['PROB','RV','JD','LT','SP']], ['Inference', ['EST','CI','TH','NP']], ['Applied', ['REG','MV','DOE']], ['Aptitude', ['GA']]];
+  $('#rail').innerHTML = `<a href="#" data-home ${view.name === 'home' ? 'aria-current="page"' : ''}><span>Overview</span><span class="c">${IDX.q.length}</span></a>` +
+    groups.map(([g, ids]) => `<div class="lbl grp">${g}</div>` + ids.filter(id => TBY[id] && TBY[id].n).map(id => { const t = TBY[id], d = doneIn(id);
+      return `<a href="#${id}" data-t="${id}" ${view.t === id ? 'aria-current="page"' : ''}><span>${esc(t.name)}</span><span class="c">${t.n}</span><span class="prog"><i style="width:${t.n ? d / t.n * 100 : 0}%"></i></span></a>`; }).join('')).join('');
+  $('#rail').querySelectorAll('a[data-t]').forEach(a => a.onclick = e => { e.preventDefault(); go({name: 'topic', t: a.dataset.t, tab: 'q'}); });
+  $('#rail [data-home]').onclick = e => { e.preventDefault(); go({name: 'home'}); };
+}
+function yearBars(t){
+  const c = YEARS.map(y => IDX.q.filter(q => q.t === t && q.y === y).length), mx = Math.max(1, ...IDX.topics.map(tt => Math.max(...YEARS.map(y => IDX.q.filter(q => q.t === tt.id && q.y === y).length))));
+  return `<div class="yr" aria-label="Questions per year">${c.map((n, i) => `<i class="${n ? '' : 'z'}" style="height:${n ? Math.max(8, n / mx * 100) : 4}%" title="${YEARS[i]}: ${n} question${n === 1 ? '' : 's'}"></i>`).join('')}</div><div class="yrl">${YEARS.map(y => `<span>${String(y).slice(2)}</span>`).join('')}</div>`;
+}
+function render(){
+  renderRail();
+  const M = $('#main');
+  if (view.name === 'home') return renderHome(M);
+  return renderTopic(M);
+}
+function renderHome(M){
+  const tot = IDX.q.length, d = Object.keys(done).filter(k => QBY[k]).length;
+  const yrs = [...new Set(IDX.q.map(q => q.y))].sort();
+  M.innerHTML = `<section class="hero"><span class="lbl">GATE ST · Statistics, Maths &amp; General Aptitude · ${yrs[0]}–${yrs[yrs.length - 1]}</span>
+    <h1>Every question from seven GATE Statistics papers, grouped by topic, with the method behind it.</h1>
+    <p>Each question appears exactly as printed in the paper. Open its solution to see the answer, the concept it tests, a full worked solution, the exam shortcut, the usual trap, and the other years where the same pattern was asked. Each topic also has a formula sheet and a pattern table.</p>
+    <div class="stats"><div><span class="mono">${tot}</span><span class="lbl">Questions</span></div><div><span class="mono">${IDX.topics.filter(t => t.n).length}</span><span class="lbl">Topics</span></div><div><span class="mono">${yrs.length}</span><span class="lbl">Papers</span></div><div><span class="mono">${d}</span><span class="lbl">Marked understood</span></div></div></section>
+    <div class="how"><div><b>1. Try first</b>Turn on “Hide solutions” in a topic and attempt the question before opening the worked answer.</div><div><b>2. Learn the pattern</b>The “Same pattern” links show where GATE repeated the idea. Do those back to back.</div><div><b>3. Revise from the sheet</b>Each topic's formula sheet collects the results and shortcuts its questions actually use.</div></div>
+    <div class="lbl" style="margin-bottom:8px">Topics · bars show questions per year, 2019 → 2025</div>
+    <div class="tgrid">${IDX.topics.filter(t => t.n).map(t => `<a class="tcard" href="#${t.id}" data-t="${t.id}"><h3>${esc(t.name)}</h3>${yearBars(t.id)}<span class="row"><span>${t.n} questions · ${t.marks} marks</span><span class="mono">${doneIn(t.id)}/${t.n}</span></span></a>`).join('')}</div>`;
+  M.querySelectorAll('.tcard').forEach(a => a.onclick = e => { e.preventDefault(); go({name: 'topic', t: a.dataset.t, tab: 'q'}); });
+}
+function chipRow(name, vals, sel, lab = v => v){ return vals.map(v => `<button type="button" class="chip" data-f="${name}" data-v="${v}" aria-pressed="${sel.includes(v)}">${lab(v)}</button>`).join(''); }
+function renderTopic(M){
+  const t = TBY[view.t], tab = view.tab || 'q';
+  const qs = IDX.q.filter(q => q.t === t.id);
+  M.innerHTML = `<section class="thead"><span class="lbl">${qs.length} questions · ${t.marks} marks across ${new Set(qs.map(q => q.y)).size} paper${new Set(qs.map(q => q.y)).size === 1 ? '' : 's'}</span><h1>${esc(t.name)}</h1></section>
+    <div class="tabs" role="tablist">${[['q', 'Questions'], ['f', 'Formulas & shortcuts'], ['p', 'Repeated patterns']].map(([k, l]) => `<button type="button" role="tab" data-tab="${k}" aria-selected="${tab === k}">${l}</button>`).join('')}</div>
+    <div id="tabbody"></div>`;
+  M.querySelectorAll('[data-tab]').forEach(b => b.onclick = () => { view.tab = b.dataset.tab; view.focus = null; renderTopic(M); });
+  const B = $('#tabbody');
+  if (tab === 'f') { B.innerHTML = t.f ? `<div class="fs"><div class="md">${md(t.f)}</div></div>` : '<div class="empty">The formula sheet for this topic is being written.</div>'; typeset(B); return; }
+  if (tab === 'p') return renderPatterns(B, t, qs);
+  renderQuestions(B, t, qs);
+}
+function renderPatterns(B, t, qs){
+  const fams = (t.fams || []).filter(f => qs.some(q => q.f === f));
+  const link = q => `<a href="#${t.id}-${q.id}" data-j="${q.id}" title="${esc(q.p)}">Q${q.q}</a>`;
+  const matrix = `<div class="tblwrap"><table class="pat-tbl mx"><thead><tr><th>Question family</th>${YEARS.map(y => `<th class="n">${y}</th>`).join('')}<th class="n">Total</th></tr></thead><tbody>${fams.map(f => { const fq = qs.filter(q => q.f === f);
+      return `<tr><td>${esc(f)}</td>${YEARS.map(y => { const c = fq.filter(q => q.y === y); return `<td class="cell ${c.length ? 'hit' : ''}"><div class="sim">${c.map(link).join('')}</div></td>`; }).join('')}<td class="n">${fq.length}</td></tr>`; }).join('')}</tbody></table></div>`;
+  const detail = fams.map(f => {
+    const g = {}; qs.filter(q => q.f === f).forEach(q => (g[q.p] = g[q.p] || []).push(q));
+    const rows = Object.entries(g).sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0]));
+    return `<h3 class="fam-h">${esc(f)}</h3><div class="tblwrap"><table class="pat-tbl"><thead><tr><th>Exact pattern</th><th class="n">Times</th><th>Where</th></tr></thead><tbody>${rows.map(([p, l]) => `<tr><td>${esc(p)}</td><td class="n">${l.length}</td><td><div class="yrs sim">${l.map(q => `<a href="#${t.id}-${q.id}" data-j="${q.id}">${q.y} Q${q.q}</a>`).join('')}</div></td></tr>`).join('')}</tbody></table></div>`;
+  }).join('');
+  B.innerHTML = `<p class="muted" style="margin-top:0">Each row is a family of questions that test the same idea. Read across a row to see how often GATE has asked it and in which years. Click a question number to jump to it.</p>${matrix}
+    <h2 class="sec-h">Exact patterns inside each family</h2><p class="muted" style="margin-top:0">A pattern asked two or more times is a near-certain repeat. Practise those first.</p>${detail}`;
+  B.querySelectorAll('[data-j]').forEach(a => a.onclick = e => { e.preventDefault(); jump(a.dataset.j); });
+}
+function jump(id){
+  const q = QBY[id]; if (!q) return;
+  st.years = []; st.types = []; st.fam = ''; st.q = ''; saveF();
+  go({name: 'topic', t: q.t, tab: 'q', focus: id});
+}
+function saveF(){ store.set('filters', {years: st.years, types: st.types, hide: st.hide}); }
+function renderQuestions(B, t, all){
+  const types = [...new Set(all.map(q => q.ty))].filter(Boolean);
+  const yrs = [...new Set(all.map(q => q.y))].sort();
+  const fams = (t.fams || []).filter(f => all.some(q => q.f === f));
+  if (st.fam && !fams.includes(st.fam)) st.fam = '';
+  B.innerHTML = `<div class="filters">
+      ${chipRow('years', yrs, st.years)}
+      <span style="width:6px"></span>${chipRow('types', types, st.types)}
+      <select id="famsel" aria-label="Filter by question family"><option value="">All question families</option>${fams.map(f => `<option value="${esc(f)}" ${st.fam === f ? 'selected' : ''}>${esc(f)} (${all.filter(q => q.f === f).length})</option>`).join('')}</select>
+      <input type="search" id="find" placeholder="Search patterns, e.g. MLE, Markov" aria-label="Search this topic" value="${esc(st.q)}">
+      <label class="switch" for="hide"><input type="checkbox" id="hide" ${st.hide ? 'checked' : ''}>Hide solutions (self-test)</label>
+    </div><div class="qlist" id="ql"></div>`;
+  B.querySelectorAll('.chip').forEach(c => c.onclick = () => { const f = c.dataset.f, v = f === 'years' ? +c.dataset.v : c.dataset.v; const a = st[f]; const i = a.indexOf(v); i < 0 ? a.push(v) : a.splice(i, 1); c.setAttribute('aria-pressed', i < 0); saveF(); list(); });
+  $('#find').oninput = e => { st.q = e.target.value.toLowerCase(); list(); };
+  $('#famsel').onchange = e => { st.fam = e.target.value; list(); };
+  $('#hide').onchange = e => { st.hide = e.target.checked; saveF(); list(); };
+  function list(){
+    let qs = all.filter(q => (!st.years.length || st.years.includes(q.y)) && (!st.types.length || st.types.includes(q.ty)) && (!st.fam || q.f === st.fam) && (!st.q || (q.p + ' ' + q.f + ' ' + q.y + ' q' + q.q).toLowerCase().includes(st.q)));
+    if (view.focus && !qs.find(q => q.id === view.focus)) qs = all;
+    const L = $('#ql');
+    if (!qs.length) { L.innerHTML = '<div class="empty">No questions match these filters. Clear a year or type chip to see more.</div>'; return; }
+    L.innerHTML = qs.map(q => cardHTML(q)).join('');
+    load(t.id).then(data => {
+      qs.forEach(q => { const c = $('#c' + q.id); if (!c) return; const d = data[q.id]; c.querySelector('.paper').innerHTML = d && d.img ? `<img alt="GATE ${q.y} question ${q.q}" src="data:image/webp;base64,${d.img}">` : '<div class="ph">Question image not generated. Run the image pipeline with your own copy of the PDF (see README).</div>'; if (!st.hide || openSet.has(q.id)) showSol(c, q, d); });
+      if (view.focus) { const c = $('#c' + view.focus); if (c) { c.scrollIntoView({block: 'start'}); c.classList.add('flash'); } view.focus = null; }
+    }).catch(() => { L.querySelectorAll('.paper').forEach(p => p.innerHTML = '<div class="ph">Couldn’t load this topic. Check your connection and reopen it.</div>'); });
+    L.querySelectorAll('.paper').forEach(p => p.onclick = () => p.classList.toggle('zoom'));
+    L.querySelectorAll('[data-show]').forEach(b => b.onclick = async () => { const q = QBY[b.dataset.show]; const c = $('#c' + q.id); const d = (await load(t.id))[q.id]; if (c.querySelector('.sol')) { c.querySelector('.sol').remove(); openSet.delete(q.id); b.textContent = 'Show solution'; } else { openSet.add(q.id); showSol(c, q, d); } });
+    L.querySelectorAll('[data-got]').forEach(x => x.onchange = () => { const id = x.dataset.got; if (x.checked) done[id] = 1; else delete done[id]; store.set('done', done); $('#c' + id).classList.toggle('done', x.checked); renderRail(); });
+  }
+  list();
+}
+const openSet = new Set();
+function cardHTML(q){
+  return `<article class="q ${done[q.id] ? 'done' : ''}" id="c${q.id}">
+    <div class="qh"><span class="id">${q.y} · Q${q.q}</span><span class="tag ty">${q.ty}</span><span class="tag">${q.m} mark${q.m > 1 ? 's' : ''}</span><span class="tag fam">${esc(q.f)}</span><span class="pat">${esc(q.p)}</span></div>
+    <div class="zhint">Tap the question to zoom</div><div class="paper"><div class="ph">Loading question…</div></div>
+    <div class="qa"><button class="btn pri" type="button" data-show="${q.id}">${st.hide ? 'Show solution' : 'Hide solution'}</button><span class="sp"></span>
+      <label class="got" for="g${q.id}"><input type="checkbox" id="g${q.id}" data-got="${q.id}" ${done[q.id] ? 'checked' : ''}>I understand this one</label></div>
+  </article>`;
+}
+function fmtAns(q){
+  if (q.ty === 'NAT') return q.a.replace(/\s*to\s*/g, ' to ');
+  return q.a.split(/[;,]\s*/).map(x => '(' + x.toLowerCase() + ')').join(', ');
+}
+function showSol(c, q, d){
+  if (!d || c.querySelector('.sol')) return;
+  const b = c.querySelector('[data-show]'); if (b) b.textContent = 'Hide solution';
+  const sim = q.sim.filter(id => QBY[id]);
+  const el = document.createElement('div'); el.className = 'sol';
+  el.innerHTML = `<div class="ans"><span>Answer</span><span class="mono">${esc(fmtAns(q))}</span></div>
+    ${d.concept ? `<div class="blk"><h4>Concept tested</h4><div class="md">${md(d.concept)}</div></div>` : ''}
+    <div class="blk"><h4>Worked solution</h4><div class="md">${md(d.solution)}</div></div>
+    ${d.shortcut ? `<div class="blk tip"><h4>Shortcut &amp; formula</h4><div class="md">${md(d.shortcut)}</div></div>` : ''}
+    ${d.trap ? `<div class="blk trap"><h4>Common trap</h4><div class="md">${md(d.trap)}</div></div>` : ''}
+    ${sim.length ? `<div class="sim"><span class="lbl">Same pattern</span>${sim.map(id => `<a href="#${QBY[id].t}-${id}" data-j="${id}">${QBY[id].y} Q${QBY[id].q}</a>`).join('')}</div>` : ''}
+    ${q.fam.length ? `<div class="sim"><span class="lbl">Same family</span>${q.fam.map(id => `<a href="#${QBY[id].t}-${id}" data-j="${id}" title="${esc(QBY[id].p)}">${QBY[id].y} Q${QBY[id].q}</a>`).join('')}</div>` : ''}`;
+  c.append(el);
+  el.querySelectorAll('[data-j]').forEach(a => a.onclick = e => { e.preventDefault(); jump(a.dataset.j); });
+  typeset(el);
+}
+
+fetch('data/index.json').then(r => r.json()).then(d => {
+  IDX = d; d.q.forEach(q => QBY[q.id] = q); d.topics.forEach(t => TBY[t.id] = t);
+  view = parseHash(); render();
+}).catch(() => { $('#main').innerHTML = '<div class="empty">Couldn’t load the question index. Reload the page to try again.</div>'; });
+})();
+</script>
