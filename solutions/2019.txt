@@ -1,0 +1,624 @@
+=== 2019 11
+topic: CAL
+pattern: Limit of a sum as a Riemann integral
+type: MCQ
+ans: D
+concept: A limit of the form $\lim_{n\to\infty}\frac1n\sum_{k=1}^{n} f\!\left(\frac kn\right)$ is a Riemann sum, and equals $\int_0^1 f(x)\,dx$.
+solution:
+1. Take $n^2$ out of the denominator: $\dfrac{n}{n^2+k^2}=\dfrac{1}{n}\cdot\dfrac{1}{1+(k/n)^2}$.
+2. So the sum is $\dfrac1n\sum_{k=1}^n f(k/n)$ with $f(x)=\dfrac{1}{1+x^2}$.
+3. Replace $\frac1n\to dx$, $\frac kn\to x$, and the range $k=1..n$ becomes $x\in(0,1]$:
+$$\lim_{n\to\infty}\sum_{k=1}^n \frac{n}{n^2+k^2}=\int_0^1\frac{dx}{1+x^2}=\tan^{-1}x\Big|_0^1=\frac{\pi}{4}.$$
+shortcut: Recipe: (i) pull out $\frac1n$, (ii) write everything else in terms of $r=k/n$, (iii) the limits of $x$ are $\lim k/n$ at the lower and upper ends. If the sum runs to $2n$, the upper limit becomes 2.
+trap: Do not try to sum term by term. Also check that exactly one factor $\frac1n$ comes out. If $\frac{1}{n^2}$ comes out, the limit is 0.
+
+=== 2019 12
+topic: CAL
+pattern: Line integral via Green's theorem
+type: MCQ
+ans: B
+concept: **Green's theorem.** For a positively oriented (anticlockwise) closed curve $C$ in the plane, $\oint_C P\,dx+Q\,dy=\iint_R\left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)dA$.
+solution:
+1. The triangle lies in the plane $z=0$, so $\vec F\cdot d\vec r=(x-y)(dx+dy)$. That gives $P=Q=x-y$.
+2. $(0,0)\to(5,0)\to(5,5)\to(0,0)$ goes anticlockwise, so it is positive orientation.
+3. $\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}=1-(-1)=2$.
+4. The area of the triangle is $\frac12\cdot5\cdot5=12.5$, so the integral is $2\times12.5=25$.
+
+**Direct check:** On edge 1, $y=0$: $\int_0^5x\,dx=12.5$. On edge 2, $x=5$: $\int_0^5(5-y)\,dy=12.5$. On edge 3, $y=x$, so $x-y=0$ and the contribution is 0. Total $=25$.
+shortcut: When $\partial Q/\partial x-\partial P/\partial y$ is a constant $c$, the answer is $c\times$ area. Only the sign needs care: clockwise flips it.
+trap: A careless orientation check gives $-25$. Here the vertices go anticlockwise.
+
+=== 2019 13
+topic: PROB
+pattern: Check independence of events on a finite sample space
+type: MCQ
+ans: C
+concept: Events $A,B$ are independent iff $P(A\cap B)=P(A)P(B)$. With equally likely outcomes, $P(E)=|E|/4$.
+solution:
+$P(A_1)=P(A_2)=P(A_3)=\tfrac12$, $P(A_4)=\tfrac34$.
+
+| Pair | $P(\cap)$ | Product | Independent? |
+|---|---|---|---|
+| $A_1,A_2$ | $P\{2\}=1/4$ | $1/4$ | Yes, so (a) is false |
+| $A_3,A_4$ | $P\{3\}=1/4$ | $3/8$ | No, so (b) is false |
+| $A_1,A_4$ | $P\{1,2\}=1/2$ | $3/8$ | **No, so (c) is true** |
+| $A_2,A_4$ | $P\{2,3\}=1/2$ | $3/8$ | No, so (d) is false |
+shortcut: If $A\subseteq B$ with $0<P(A)$ and $P(B)<1$, then $P(A\cap B)=P(A)\neq P(A)P(B)$. Such events are never independent. Here $A_1\subset A_4$ and $A_2\subset A_4$, so you can answer at once.
+
+=== 2019 14
+topic: PROB
+pattern: Conditional expectation of sum of dice
+type: MCQ
+ans: B
+concept: Linearity of expectation and independence: $E[X_1+X_2\mid X_1=1]=1+E[X_2]$.
+solution:
+The second roll is independent of the first, so $E[X_2\mid X_1=1]=E[X_2]=3.5$.
+Hence $E[X_1+X_2\mid X_1=1]=1+3.5=4.5$.
+shortcut: A fair die has mean $\frac{n+1}{2}=3.5$. A known value adds itself and an unknown independent roll adds 3.5.
+
+=== 2019 15
+topic: LA
+pattern: Dimension of a subspace of matrices
+type: MCQ
+ans: D
+concept: The dimension equals the number of free parameters. Each independent linear constraint lowers it by 1.
+solution:
+1. $n\times n$ symmetric matrices have dimension $\frac{n(n+1)}{2}=\frac{7\cdot8}{2}=28$.
+2. Trace $=0$ is one linear condition on the diagonal, which leaves 27.
+3. Sum of off-diagonal elements $=0$ is one more condition, on the 21 upper-triangle entries $a_{ij}$ ($i<j$). It is independent of the trace condition because it involves different entries. That leaves $28-2=26$.
+shortcut: Symmetric $\frac{n(n+1)}2$, skew-symmetric $\frac{n(n-1)}2$, all $n^2$, upper triangular $\frac{n(n+1)}2$, diagonal $n$. Subtract 1 per independent linear constraint.
+trap: For symmetric matrices, the off-diagonal sum $2\sum_{i<j}a_{ij}=0$ is still just **one** constraint.
+
+=== 2019 16
+topic: LA
+pattern: Nilpotent matrix: Jordan blocks from index
+type: MCQ
+ans: B
+concept: For a nilpotent $A$ (only eigenvalue 0), the **index** $k$ (smallest $k$ with $A^k=0$) equals the **size of the largest Jordan block**. The block sizes add up to $n$.
+solution:
+1. $A^3\ne0$ and $A^4=0$, so the largest block has size exactly 4.
+2. The remaining $6-4=2$ dimensions are split into blocks of size $\le4$: either one block of size 2 or two blocks of size 1.
+3. The partitions are $4+2$ (2 blocks) or $4+1+1$ (3 blocks). The number of blocks is **2 or 3**.
+shortcut: Number of Jordan blocks for eigenvalue $\lambda$ = geometric multiplicity = nullity of $(A-\lambda I)$. Largest block size = power of $(x-\lambda)$ in the minimal polynomial.
+
+=== 2019 17
+topic: EST
+pattern: Basu's theorem: complete sufficient vs ancillary
+type: MCQ
+ans: A
+concept: **Basu's theorem.** A complete sufficient statistic is independent of every ancillary statistic. An ancillary statistic is one whose distribution does not depend on $\theta$.
+solution:
+1. For $U(0,\theta)$, $X_{(n)}$ is complete and sufficient for $\theta$.
+2. Write $X_i=\theta U_i$ with $U_i\sim U(0,1)$. Then $\dfrac{X_{(1)}}{X_{(n)}}=\dfrac{U_{(1)}}{U_{(n)}}$ is free of $\theta$, so it is ancillary.
+3. By Basu, $X_{(n)}$ and $X_{(1)}/X_{(n)}$ are independent, so their covariance is $0$.
+shortcut: In a **scale family**, any ratio of two scale-equivariant statistics, such as $X_{(1)}/X_{(n)}$ or $X_i/\sum X_j$, is ancillary. In a **location family**, any difference ($X_{(n)}-X_{(1)}$, $X_i-\bar X$) is ancillary. Combined with a complete sufficient statistic, the answer is independence and zero covariance.
+trap: Options (b) to (d) are not even dimensionally consistent: covariance must scale like $\theta$ times a dimensionless quantity, i.e. $\theta^1$.
+
+=== 2019 18
+topic: EST
+pattern: MLE for f = θx^(θ−1) (Beta(θ,1))
+type: MCQ
+ans: A
+concept: MLE: maximise $\ell(\theta)=\log L(\theta)$ by solving $\ell'(\theta)=0$.
+solution:
+1. $L(\theta)=\theta^n\prod x_i^{\theta-1}$, so $\ell(\theta)=n\log\theta+(\theta-1)\sum\log x_i$.
+2. $\ell'(\theta)=\dfrac n\theta+\sum\log x_i=0\Rightarrow\hat\theta=\dfrac{-n}{\sum_{i=1}^n\log x_i}$.
+3. $\ell''(\theta)=-n/\theta^2<0$, so this is a maximum. Since $0<x_i<1$, $\log x_i<0$ and $\hat\theta>0$.
+shortcut: If $X\sim\theta x^{\theta-1}$, then $-\log X\sim\text{Exp}(\theta)$ with mean $1/\theta$. So $\hat\theta=1/\overline{(-\log X)}$. This "log trick" appears in many GATE questions (UMVUE, CI, tests).
+
+=== 2019 19
+topic: REG
+pattern: Unbiased estimate of σ² in linear regression (RSS / (n−p))
+type: MCQ
+ans: B
+concept: In $Y=X\beta+\epsilon$ with $p$ parameters (including the intercept), $E(\text{RSS})=(n-p)\sigma^2$. So $\hat\sigma^2=\frac{\text{RSS}}{n-p}$ is unbiased.
+solution:
+$n=10$ observations and $p=3$ parameters $(\beta_0,\beta_1,\beta_2)$. The error degrees of freedom are $10-3=7$, so
+$$\hat\sigma^2=\frac{\sum_{i=1}^{10}(Y_i-\hat Y_i)^2}{7}.$$
+shortcut: Error d.f. = $n-$(number of estimated mean parameters). Simple linear regression has $n-2$.
+
+=== 2019 20
+topic: REG
+pattern: BLUE of α+β in simple linear regression
+type: MCQ
+ans: A
+concept: By the Gauss–Markov theorem, the BLUE of $\alpha+\beta$ is $\hat\alpha+\hat\beta$ (OLS). Formulas: $\hat\beta=\frac{S_{xy}}{S_{xx}}$, $\hat\alpha=\bar y-\hat\beta\bar x$.
+solution:
+1. $x=(1,1,-2)$ gives $\bar x=0$. $y=(0.5,2.5,0.5)$ gives $\bar y=3.5/3$.
+2. Since $\bar x=0$: $S_{xx}=\sum x^2=6$ and $S_{xy}=\sum xy=0.5+2.5-1=2$, so $\hat\beta=1/3$.
+3. $\hat\alpha=\bar y=7/6$.
+4. $\hat\alpha+\hat\beta=7/6+2/6=9/6=1.5$.
+shortcut: When $\bar x=0$, $\hat\alpha=\bar y$ and $\hat\beta=\sum xy/\sum x^2$, with no centring needed. GATE often picks $x$ values that sum to 0 for this reason.
+
+=== 2019 21
+topic: SP
+pattern: Markov chain: classify states (transient / recurrent / absorbing)
+type: MCQ
+ans: B
+concept: In a finite chain, a state is **recurrent iff its communicating class is closed**. Otherwise it is transient. An absorbing state ($p_{ii}=1$) is recurrent.
+solution:
+1. Transitions: $1\to1,2$; $2\to2,3$; $3\to3$ only.
+2. State 3 is absorbing, hence recurrent.
+3. From 1 you can reach 3, but 3 never returns to 1, so 1 is transient. The same holds for 2.
+4. So state 3 is recurrent and states 1 and 2 are transient: option (b).
+shortcut: Draw arrows. Any state that can "leak" into a class it can't come back from is transient.
+
+=== 2019 22
+topic: LA
+pattern: Minimal polynomial of an upper-triangular matrix
+type: MCQ
+ans: B
+concept: The minimal polynomial $m(x)$ divides the characteristic polynomial and has every eigenvalue as a root. Test the candidates from the smallest degree upward.
+solution:
+1. The matrix is upper triangular with diagonal $1,2,1,2$. The characteristic polynomial is $(x-1)^2(x-2)^2$.
+2. Test $(A-I)(A-2I)$. It is non-zero (its $(1,3)$ entry is $-1$), so (a) fails.
+3. $(A-I)^2(A-2I)=0$ (verify by multiplying), so $m(x)=(x-1)^2(x-2)$.
+
+Interpretation: eigenvalue 1 has a $2\times2$ Jordan block, and eigenvalue 2 is diagonalizable (two $1\times1$ blocks).
+shortcut: Power of $(x-\lambda)$ in $m(x)$ = size of the largest Jordan block of $\lambda$. For $\lambda=2$: $\text{rank}(A-2I)=2$ gives nullity 2, which equals the algebraic multiplicity, so the blocks are $1\times1$ and the factor is $(x-2)^1$. For $\lambda=1$: $\text{rank}(A-I)=3$ gives nullity $1<2$, so there is one block of size 2 and the factor is $(x-1)^2$.
+
+=== 2019 23
+topic: MV
+pattern: Independence in multivariate normal via covariances
+type: MCQ
+ans: D
+concept: For a **jointly normal** vector, uncorrelated means independent. Check $\operatorname{Cov}$ of the linear combinations.
+solution:
+$\Sigma$: $\operatorname{Var}=(4,3,4)$, $\sigma_{12}=\sigma_{13}=0$, $\sigma_{23}=-3$.
+- (i) $\operatorname{Cov}(X_2,X_3)=-3\ne0$, so not independent.
+- (ii) $\operatorname{Cov}(X_1+X_3,X_2)=\sigma_{12}+\sigma_{32}=0-3\ne0$, so not independent.
+- (iii) $X_1$ has zero covariance with both $X_2$ and $X_3$, so $X_1$ is independent of the vector $(X_2,X_3)$. True.
+- (iv) $\operatorname{Cov}(\tfrac12(X_2+X_3),X_1)=0$. True.
+
+So the answer is (iii) and (iv).
+shortcut: Block-diagonal covariance makes the blocks independent. Any function of one block is independent of any function of the other.
+
+=== 2019 24
+topic: DOE
+pattern: Identify confounded interaction in 2^3 from block contents
+type: MCQ
+ans: D
+concept: In a $2^k$ design split into 2 blocks, the confounded effect $L$ is the one where every treatment in a block has the same parity of letters in common with $L$.
+solution:
+Block 1: $(1),ab,ac,bc$. Each has an **even** number of letters from $\{a,b,c\}$.
+Block 2: $a,b,c,abc$. Each has an **odd** number.
+The ABC contrast is $(a+b+c+abc)-((1)+ab+ac+bc)$, which is exactly Block 2 minus Block 1. So **ABC** is confounded.
+shortcut: Check one candidate at a time. For effect $L$, count letters shared with $L$ for each treatment in Block 1. If all have the same parity, $L$ is confounded. With only $(1)$ known in Block 1, the principal block holds treatments with even overlap with $L$.
+
+=== 2019 25
+topic: DOE
+pattern: Two-way ANOVA with interaction: error d.f.
+type: MCQ
+ans: C
+concept: Two-way ANOVA with interaction and $r$ replicates: total d.f. $abr-1$ = $(a-1)+(b-1)+(a-1)(b-1)+ab(r-1)$.
+solution:
+Error d.f. $=ab(r-1)$, which is $0$ iff $r=1$. With one observation per cell, the interaction absorbs all residual variation, and you can't estimate $\sigma^2$ without assuming no interaction.
+shortcut: Error d.f. = number of observations − number of independent cell means = $abr-ab$.
+
+=== 2019 26
+topic: RV
+pattern: Expectation of a linear combination of exponentials
+type: NAT
+ans: 385
+concept: $f(x)=\frac1k e^{-x/k}$ is the exponential with **mean $k$**. Expectation is linear.
+solution:
+$E(X_k)=k$, so $E\left(\sum_{k=1}^{10}kX_k\right)=\sum_{k=1}^{10}k\cdot k=\sum k^2=\frac{10\cdot11\cdot21}{6}=385$.
+shortcut: $\sum_{k=1}^n k^2=\frac{n(n+1)(2n+1)}6$, $\sum k=\frac{n(n+1)}2$, $\sum k^3=\left(\frac{n(n+1)}2\right)^2$.
+trap: Mean vs rate: $\frac1k e^{-x/k}$ has mean $k$, while $ke^{-kx}$ has mean $1/k$.
+
+=== 2019 27
+topic: JD
+pattern: Normalising constant of a joint density on a triangle
+type: NAT
+ans: 2
+concept: $\iint f=1$. For a constant density, $c\times\text{Area}=1$.
+solution:
+The region $0<x<y<1$ is a triangle of area $\frac12$. So $c\cdot\frac12=1$ and $c=2$.
+shortcut: Uniform on a region means $c=1/\text{area}$.
+
+=== 2019 28
+topic: LT
+pattern: Limit of probability using WLLN / CLT
+type: NAT
+ans: 0
+concept: WLLN: $\bar X_n\xrightarrow{P}\mu$. So $P(\bar X_n>\mu+\epsilon)\to0$ for any fixed $\epsilon>0$.
+solution:
+$\mu=4$ and $\epsilon=0.0006>0$ is fixed. By WLLN, $P(\bar X_n>4.0006)\to0$.
+Via CLT: $P\left(Z>\frac{0.0006\sqrt n}{1}\right)\to P(Z>\infty)=0$.
+shortcut: Fixed threshold above the mean gives 0, below the mean gives 1, exactly at the mean gives $1/2$ (by CLT).
+trap: If the threshold is exactly the mean, e.g. $P(\bar X_n>4)$, the limit is $\frac12$, not 0.
+
+=== 2019 29
+topic: MV
+pattern: Probability for bivariate normal via symmetry
+type: NAT
+ans: 0.5
+concept: A linear combination of a bivariate normal vector is normal. $X_1+X_2\sim N(0,2+2\rho)$, which is symmetric about 0.
+solution:
+For $|\rho|<1$, $\operatorname{Var}(X_1+X_2)=2(1+\rho)>0$, and the distribution is continuous and symmetric about 0. So $P(X_1+X_2>0)=\frac12$.
+shortcut: Any mean-zero normal combination has $P(>0)=\frac12$. Watch for the degenerate case $\rho=-1$, which is excluded here.
+
+=== 2019 30
+topic: CI
+pattern: Minimum n for CI length (known σ)
+type: NAT
+ans: 4
+concept: With $\sigma$ known, the 95% CI for $\mu$ is $\bar X\pm z_{0.025}\frac{\sigma}{\sqrt n}$, so its length is $\frac{2z\sigma}{\sqrt n}$.
+solution:
+Length $=\frac{2(1.96)(1)}{\sqrt n}\le2\iff\sqrt n\ge1.96\iff n\ge3.8416$. The minimum is $n=4$.
+shortcut: $n\ge\left(\frac{2z\sigma}{L}\right)^2$. Round **up**.
+
+=== 2019 31
+topic: TH
+pattern: Size of a test (exponential)
+type: NAT
+ans: 0.05
+concept: Size $=P_{H_0}(\text{reject }H_0)$. For $\text{Exp}(\theta)$, $P(X>c)=e^{-\theta c}$.
+solution:
+Under $H_0:\theta=1$, $P(X>\log 20)=e^{-\log20}=\frac1{20}=0.05$.
+shortcut: Survival function of $\text{Exp}(\theta)$: $e^{-\theta x}$. Then $e^{-\ln k}=1/k$.
+
+=== 2019 32
+topic: SP
+pattern: Markov chain path probability with initial distribution
+type: NAT
+ans: 0.0186
+concept: $P(X_1=i_1,X_2=i_2,X_3=i_3)=\sum_{i_0}P(X_0=i_0)\,p_{i_0i_1}\,p_{i_1i_2}\,p_{i_2i_3}$.
+solution:
+1. $P(X_1=2)=0.5(0.3)+0.2(0.2)+0.3(0.4)=0.15+0.04+0.12=0.31$.
+2. Multiply by $p_{23}=0.3$ and $p_{31}=0.2$: $0.31\times0.3\times0.2=0.0186$.
+3. Rounded to three decimals this is $0.019$. The PDF writes $0.018$, which truncates instead of rounding. Either value is close enough to fall in a typical GATE answer range.
+shortcut: First get the distribution of $X_1$ as a row vector, $\pi_0P$. Then multiply along the path.
+
+=== 2019 33
+topic: CAL
+pattern: Definite integral by substitution (symmetry)
+type: NAT
+ans: 0
+concept: Substitution $t=\sin x$, $dt=\cos x\,dx$.
+solution:
+Split at $\pi/2$. On $[0,\pi/2]$, $t$ goes $0\to1$. On $[\pi/2,\pi]$, $t$ goes $1\to0$. So
+$$\int_0^\pi f(\sin x)\cos x\,dx=\int_0^1f(t)\,dt+\int_1^0f(t)\,dt=0.$$
+shortcut: Under $x\to\pi-x$, $f(\sin x)$ is unchanged while $\cos x$ changes sign. The integrand is "odd about $\pi/2$", so the integral is 0.
+
+=== 2019 34
+topic: TH
+pattern: Chi-square goodness of fit d.f.
+type: NAT
+ans: 7
+concept: $\chi^2$ GOF d.f. = (number of classes) − 1 − (number of parameters estimated).
+solution:
+$k=10$ classes, and the normal mean and variance are estimated (2 parameters). d.f. $=10-1-2=7$.
+shortcut: Poisson GOF with $\lambda$ estimated: $k-2$. Normal with both estimated: $k-3$. Contingency table $r\times c$: $(r-1)(c-1)$.
+
+=== 2019 35
+topic: REG
+pattern: Variance of LSE of slope
+type: NAT
+ans: 0.1
+concept: $\operatorname{Var}(\hat\beta)=\frac{\sigma^2}{S_{xx}}$, with $S_{xx}=\sum(x_i-\bar x)^2$.
+solution:
+$x=(3,2,-4,-1)$ gives $\bar x=0$ and $S_{xx}=9+4+16+1=30$. So $\operatorname{Var}(\hat\beta)=3/30=0.1$. The $Y$ values are not needed.
+shortcut: $\operatorname{Var}(\hat\alpha)=\sigma^2\left(\frac1n+\frac{\bar x^2}{S_{xx}}\right)$ and $\operatorname{Cov}(\hat\alpha,\hat\beta)=-\frac{\bar x\sigma^2}{S_{xx}}$.
+trap: The given $Y$ values are a distraction. Variances of the estimators depend only on the $x$'s.
+
+=== 2019 36
+topic: CAL
+pattern: Power series: Cauchy product with 1/(1−x)
+type: MCQ
+ans: C
+concept: If $b_n=\sum_{k=0}^n a_k$ (partial sums), then $\sum b_nx^n=\frac{1}{1-x}\sum a_nx^n$. This is the Cauchy product with $\sum x^n$.
+solution:
+1. $\sum_{n\ge0}a_nx^n=\sum\frac{(-1)^{n+1}x^n}{n!}=-\sum\frac{(-x)^n}{n!}=-e^{-x}$.
+2. So $\sum b_nx^n=\dfrac{-e^{-x}}{1-x}$, valid for $|x|<1$.
+shortcut: Multiplying a generating function by $\frac1{1-x}$ produces partial sums of its coefficients.
+
+=== 2019 37
+topic: LT
+pattern: SLLN with Bernoulli powers
+type: MCQ
+ans: A
+concept: SLLN: $\frac1n\sum Y_k\to E(Y)$ a.s. for i.i.d. $Y_k$ with finite mean.
+solution:
+For Bernoulli $X_k\in\{0,1\}$, $(X_k)^k=X_k$. So $\frac1n\sum X_k^k=\bar X_n\to p$ almost surely.
+shortcut: $X^m=X$ for any 0/1 variable and any $m\ge1$.
+
+=== 2019 38
+topic: RV
+pattern: Stochastic ordering of chi-square
+type: MCQ
+ans: B
+concept: $\chi^2_m$ is the sum of $m$ squared standard normals. More degrees of freedom gives a stochastically larger variable.
+solution:
+If $m>n$, write $X\overset d=Y+W$ with $W\sim\chi^2_{m-n}\ge0$ independent of $Y$. Then $P(X>a)\ge P(Y>a)$ for all $a$. So (b).
+shortcut: Adding a non-negative independent piece can only increase tail probabilities.
+
+=== 2019 39
+topic: LA
+pattern: Diagonalizability of triangular matrix with repeated eigenvalue
+type: MCQ
+ans: C
+concept: Diagonalizable iff for each eigenvalue, geometric multiplicity = algebraic multiplicity.
+solution:
+1. The eigenvalues are $1,2,1$. Eigenvalue 1 has algebraic multiplicity 2.
+2. We need $\text{nullity}(A-I)=2$, i.e. $\text{rank}(A-I)=1$.
+3. $A-I=\begin{pmatrix}0&x&z\\0&1&y\\0&0&0\end{pmatrix}$ has rank 1 iff row 1 is a multiple of row 2: $(x,z)=x(1,y)$, i.e. $z=xy$.
+4. Check the options: $(\sqrt2,\sqrt2,2)$ gives $xy=2=z$. ✓ The others fail.
+shortcut: For a $3\times3$ upper triangular matrix with $a_{11}=a_{33}$, the condition is $a_{13}=\frac{a_{12}a_{23}}{a_{22}-a_{11}}$ (here $a_{22}-a_{11}=1$).
+
+=== 2019 40
+topic: MV
+pattern: Fisher LDA with identity covariance and equal priors
+type: MCQ
+ans: A
+concept: With a common covariance $\Sigma$ and equal priors, assign $z$ to $P_1$ iff $(\mu_1-\mu_2)^T\Sigma^{-1}\left(z-\frac{\mu_1+\mu_2}{2}\right)\ge0$. For $\Sigma=I$, this means "assign to the nearest mean".
+solution:
+$\mu_1=(2,3)$, $\mu_2=(1,1)$.
+- $z_1=(2.5,2)$: $d_1^2=0.25+1=1.25$, $d_2^2=2.25+1=3.25$, so $P_1$.
+- $z_2=(2,1.5)$: $d_1^2=0+2.25=2.25$, $d_2^2=1+0.25=1.25$, so $P_2$.
+shortcut: For $\Sigma=I$, compare squared Euclidean distances. For general $\Sigma$, compare Mahalanobis distances.
+
+=== 2019 41
+topic: EST
+pattern: Method of moments estimator
+type: MCQ
+ans: A
+concept: Method of moments: set the sample moment equal to the population moment and solve for $\theta$.
+solution:
+$E(X)=\int_0^\theta x\cdot\frac{2x}{\theta^2}dx=\frac{2\theta}{3}$. Setting $\bar X=\frac{2\theta}3$ gives $\hat\theta=\dfrac{3\sum X_i}{2n}$.
+
+=== 2019 42
+topic: EST
+pattern: Restricted parameter space: MLE vs UMVUE
+type: MCQ
+ans: C
+concept: In a full-rank exponential family the natural statistic is complete. A parameter space that contains an open interval is enough. An unbiased function of a complete sufficient statistic is the UMVUE (Lehmann–Scheffé).
+solution:
+- $X$ is sufficient, and complete because $[1,10]$ contains an open interval. So (a) is false.
+- The MLE is restricted: $\hat\theta=1$ if $X<1$, $X$ if $1\le X\le10$, $10$ if $X>10$. So $X$ is **not** the MLE and (b) is false.
+- $E(X)=\theta$, and $X$ is complete sufficient, so $X$ is the UMVUE. (c) ✓
+- $X$ is not ancillary because its distribution depends on $\theta$. (d) is false.
+trap: When $\Theta$ is restricted, the MLE gets clipped to the boundary, but UMVUE and sufficiency are unaffected.
+
+=== 2019 43
+topic: LT
+pattern: Consistency of a ratio of sample moments
+type: MCQ
+ans: A
+concept: WLLN plus the continuous mapping theorem: $\frac{\frac1n\sum X_i}{\frac1n\sum X_i^2}\to\frac{E X}{E X^2}$.
+solution:
+$EX=\theta$ and $EX^2=\operatorname{Var}+(EX)^2=\theta+\theta^2$. The ratio converges to $\frac{\theta}{\theta+\theta^2}=\frac1{1+\theta}$.
+shortcut: A ratio of sums becomes a ratio of moments. Always write $E X^2=\sigma^2+\mu^2$.
+
+=== 2019 44
+topic: EST
+pattern: MLE of Laplace location: sample median
+type: MCQ
+ans: B
+concept: For the Laplace (double exponential) location family, maximising the likelihood means minimising $\sum|x_i-\theta|$. That minimiser is the **sample median**.
+solution:
+With $n=10$ (even), every $\theta$ in $[X_{(5)},X_{(6)}]$ minimises $\sum|x_i-\theta|$. So the MLE exists but is **not unique**.
+shortcut: Laplace with $n$ odd gives a unique MLE (median). With $n$ even, any point between the two middle values is an MLE. $U(\theta,\theta+1)$ also has a non-unique MLE: any value in $[X_{(n)}-1,X_{(1)}]$.
+
+=== 2019 45
+topic: REG
+pattern: BLUE with heteroscedastic errors (weighted LS)
+type: MCQ
+ans: A
+concept: Generalised/weighted least squares: weight each observation by $1/\sigma_i^2$. The BLUE is the inverse-variance weighted mean.
+solution:
+Minimise $\sum\frac{(Y_i-\beta)^2}{\sigma_i^2}$. Setting the derivative to 0 gives $\hat\beta=\dfrac{\sum Y_i/\sigma_i^2}{\sum1/\sigma_i^2}$. Its variance is $\frac1{\sum1/\sigma_i^2}$, the minimum among linear unbiased estimators.
+shortcut: Minimise $\operatorname{Var}(\sum c_iY_i)=\sum c_i^2\sigma_i^2$ subject to $\sum c_i=1$. Lagrange gives $c_i\propto1/\sigma_i^2$.
+
+=== 2019 46
+topic: JD
+pattern: Regression (conditional mean) from joint density
+type: MCQ
+ans: A
+concept: The regression of $Y$ on $X$ is $E(Y\mid X=x)$. Get it from $f(y\mid x)=f(x,y)/f_X(x)$.
+solution:
+1. $f_X(x)=\int_x^\infty e^{-y}dy=e^{-x}$ for $x>0$.
+2. $f(y\mid x)=e^{-(y-x)}$ for $y>x$, i.e. $Y-x\mid X=x\sim\text{Exp}(1)$.
+3. $E(Y\mid X=x)=x+1$, so the regression is $X+1$.
+shortcut: The density $e^{-y}$ on $0<x<y$ means $X\sim\text{Exp}(1)$ and $Y=X+\text{Exp}(1)$ independently. You get $E(Y|X)=X+1$ and $E(X|Y)=Y/2$ (given $Y$, $X$ is uniform on $(0,Y)$).
+
+=== 2019 47
+topic: SP
+pattern: Limiting distribution of 2-state Markov chain
+type: MCQ
+ans: A
+concept: For an irreducible aperiodic chain, $P^n\to$ a matrix whose every row is the stationary $\pi$, with $\pi P=\pi$.
+solution:
+For a 2-state chain $\begin{pmatrix}1-a&a\\b&1-b\end{pmatrix}$, $\pi=\left(\frac b{a+b},\frac a{a+b}\right)$.
+Here $a=0.8$ and $b=0.3$, so $\pi=\left(\frac{0.3}{1.1},\frac{0.8}{1.1}\right)=\left(\frac3{11},\frac8{11}\right)$. Both rows of the limit equal this.
+shortcut: Memorise the 2-state formula $\pi_1=\frac{b}{a+b}$. Rows of the limit matrix are always identical, which rules out (b), (c) and (d) immediately.
+
+=== 2019 48
+topic: MV
+pattern: Principal components from diagonal covariance
+type: MCQ
+ans: A
+concept: Principal components are $e_i^TX$ where $e_i$ are the eigenvectors of $\Sigma$ ordered by eigenvalue.
+solution:
+$\Sigma=\operatorname{diag}(4,2)$ has eigenvalues 4 and 2 with eigenvectors $(1,0)$ and $(0,1)$. So PC1 $=X_1$ and PC2 $=X_2$.
+Eigenvectors are defined only up to sign, so $-X_1$ would also be a valid PC. The official key chose (a), the standard form.
+shortcut: Diagonal $\Sigma$: the PCs are the variables themselves, ordered by variance.
+
+=== 2019 49
+topic: MV
+pattern: Single-linkage hierarchical clustering
+type: MCQ
+ans: B
+concept: Single linkage: the distance between clusters is the **minimum** pairwise distance. At each step, merge the closest pair.
+solution:
+1. The smallest distance is $d_{12}=1$, so merge $\{1,2\}$.
+2. New distances: $d(\{1,2\},3)=\min(11,2)=2$, $d(\{1,2\},4)=\min(5,3)=3$, $d(3,4)=4$.
+3. The smallest is 2, so merge $\{1,2,3\}$. Clusters: $\{1,2,3\}$ and $\{4\}$.
+shortcut: Complete linkage uses the max, average linkage the mean. Recompute only the row of the merged cluster.
+
+=== 2019 50
+topic: MV
+pattern: MLE of mean vector and covariance (divisor n)
+type: MCQ
+ans: A
+concept: For a multivariate normal, $\hat\mu=\bar x$ and $\hat\Sigma=\frac1n\sum(x_i-\bar x)(x_i-\bar x)^T$, with divisor $n$, not $n-1$.
+solution:
+1. $x_1$: $1,4,4$ gives mean 3. $x_2$: $2,4,3$ gives mean 3.
+2. Deviations: $(-2,-1),(1,1),(1,0)$.
+3. $\hat\sigma_{11}=(4+1+1)/3=2$, $\hat\sigma_{22}=(1+1+0)/3=2/3$, $\hat\sigma_{12}=(2+1+0)/3=1$.
+So $\hat\Sigma=\begin{pmatrix}2&1\\1&2/3\end{pmatrix}$.
+trap: Using $n-1$ (the unbiased $S$) gives a different answer. The MLE uses $n$.
+
+=== 2019 51
+topic: DOE
+pattern: Estimability in one-way ANOVA
+type: MCQ
+ans: C
+concept: In $Y_{ij}=\mu+\tau_i+\epsilon_{ij}$, $E(\bar Y_{i\cdot})=\mu+\tau_i$. Individual $\mu$ and $\tau_i$ are not estimable without constraints, but $\mu+\tau_i$ and contrasts $\sum c_i\tau_i$ with $\sum c_i=0$ are.
+solution:
+$\bar Y_{i\cdot}$ minimises $\sum_j(Y_{ij}-\mu-\tau_i)^2$ for the cell mean, so it is the LSE of $\mu+\tau_i$.
+
+=== 2019 52
+topic: LA
+pattern: Rayleigh quotient bounds
+type: MCQ
+ans: C
+concept: **Rayleigh–Ritz:** for symmetric $A$ and unit $x$, $\lambda_{\min}\le x^TAx\le\lambda_{\max}$.
+solution:
+Any unit vector satisfies $\lambda_n\le x^TAx\le\lambda_1$, so (c). Options (a) and (b) are impossible. For (d), $x=e_i$ gives $x^TAx=a_{ii}\le\alpha$, and in general $x^TAx\le\lambda_1\le\operatorname{tr}A\le n\alpha$, so $x^TAx>n\alpha$ can never happen.
+
+=== 2019 53
+topic: RV
+pattern: Transformation of uniform: pdf of a square
+type: MCQ
+ans: B
+concept: Monotone transformation: $f_Y(y)=f_X(x)\left|\frac{dx}{dy}\right|$.
+solution:
+1. $U=X+1\sim U(0,2)$ with density $\frac12$, and $Y=U^2$ is monotone on $(0,2)$.
+2. $u=\sqrt y$, $\frac{du}{dy}=\frac1{2\sqrt y}$, so $f_Y(y)=\frac12\cdot\frac1{2\sqrt y}=\frac1{4\sqrt y}$ for $0<y<4$.
+3. Check: $\int_0^4\frac{dy}{4\sqrt y}=\frac{2\sqrt y}4\Big|_0^4=1$ ✓.
+shortcut: Use the CDF method: $F_Y(y)=P(U\le\sqrt y)=\frac{\sqrt y}2$. Differentiating gives $\frac1{4\sqrt y}$. Always check that the result integrates to 1, which eliminates wrong options fast.
+
+=== 2019 54
+topic: CAL
+pattern: Volume by known cross-sections
+type: NAT
+ans: 136.53
+concept: Volume $=\int A(x)\,dx$, where $A(x)$ is the area of the cross-section at $x$.
+solution:
+1. The curves meet where $x^2=8-x^2$, i.e. $x=\pm2$. The side of the square is $(8-x^2)-x^2=8-2x^2$.
+2. $V=\int_{-2}^{2}(8-2x^2)^2dx=2\int_0^2(64-32x^2+4x^4)dx=2\left[128-\frac{256}3+\frac{128}5\right]=2(68.2667)=136.53$.
+shortcut: Use evenness to integrate over $[0,a]$ and double.
+
+=== 2019 55
+topic: JD
+pattern: Conditional distribution in multinomial
+type: NAT
+ans: 2
+concept: For a trinomial $(X,Y,7-X-Y)$ with probabilities $(p_1,p_2,p_3)$, $Y\mid X=x\sim\text{Bin}\left(n-x,\frac{p_2}{p_2+p_3}\right)$.
+solution:
+$Y\mid X=3\sim\text{Bin}\left(4,\frac{0.2}{0.4}\right)=\text{Bin}(4,0.5)$, so $E(Y\mid X=3)=2$.
+shortcut: Remove the known category, then renormalise the remaining probabilities. $\operatorname{Cov}(X_i,X_j)=-np_ip_j$ in a multinomial.
+
+=== 2019 56
+topic: CI
+pattern: CI length for regression slope (known σ)
+type: NAT
+ans: 0.92
+concept: With $\sigma^2$ known, $\hat\beta\sim N\left(\beta,\frac{\sigma^2}{S_{xx}}\right)$ and the shortest 95% CI has length $2(1.96)\frac{\sigma}{\sqrt{S_{xx}}}$.
+solution:
+$x=(1,-2,3,-2)$ gives $\bar x=0$ and $S_{xx}=1+4+9+4=18$. $\sigma=1$, so length $=\frac{3.92}{\sqrt{18}}=\frac{3.92}{4.243}=0.924\approx0.92$.
+trap: Again, the $Y$ values aren't needed. If $\sigma$ were unknown, you'd need $t_{n-2}$ and the residuals.
+
+=== 2019 57
+topic: SP
+pattern: Period of a Markov chain
+type: NAT
+ans: 1
+concept: Period of state $i$ = $\gcd\{n\ge1:p_{ii}^{(n)}>0\}$. All states in a communicating class share the same period.
+solution:
+The chain is irreducible. Returns to state 1: $1\to2\to1$ (length 2) and $1\to2\to3\to1$ (length 3). $\gcd(2,3)=1$, so the period is 1 (aperiodic).
+shortcut: Find two return loops whose lengths are coprime. Any $p_{ii}>0$ makes the period 1 at once.
+
+=== 2019 58
+topic: SP
+pattern: Poisson process: probability of no arrivals
+type: NAT
+ans: 0.22
+concept: In a Poisson process with rate $\lambda$, $N(t)\sim\text{Poisson}(\lambda t)$, so $P(N(t)=0)=e^{-\lambda t}$.
+solution:
+18 min $=0.3$ h, so $\lambda t=5\times0.3=1.5$. $P=e^{-1.5}=0.2231\approx0.22$.
+trap: Convert the time units to match the rate.
+
+=== 2019 59
+topic: RV
+pattern: Characteristic function equal to 1 at a point means lattice support
+type: NAT
+ans: 1
+concept: $\phi_X(t)=E(e^{itX})$. $|\phi(t)|=1$ at $t\ne0$ means the distribution sits on a lattice.
+solution:
+$\phi_X(2\pi)=E[\cos2\pi X]+iE[\sin2\pi X]=1$ gives $E[1-\cos2\pi X]=0$. Since $1-\cos2\pi X\ge0$, it must be 0 a.s., so $\cos2\pi X=1$, i.e. $X\in\mathbb Z$ a.s. Hence $P(X\in\mathbb Z)=1$.
+shortcut: $\phi(t_0)=1$ for $t_0\neq0$ means $X\in\frac{2\pi}{t_0}\mathbb Z$ almost surely.
+
+=== 2019 60
+topic: TH
+pattern: Size + power with uniform(θ, θ²)
+type: NAT
+ans: 1.17
+concept: Size $\alpha=P_{H_0}(\text{reject})$. Power $=P_{H_1}(\text{reject})$.
+solution:
+- Under $\theta=2$, $X\sim U(2,4)$: $\alpha=P(X>3.5)=\frac{0.5}{2}=0.25$.
+- Under $\theta=3$, $X\sim U(3,9)$: power $=P(X>3.5)=\frac{5.5}{6}=0.9167$.
+- Sum $=1.1667\approx1.17$.
+
+=== 2019 61
+topic: REG
+pattern: Correlation of intercept and slope estimators
+type: NAT
+ans: 0
+concept: $\operatorname{Cov}(\hat\beta_0,\hat\beta_1)=-\dfrac{\bar x\sigma^2}{S_{xx}}$.
+solution:
+$\sum x_i=0$ means $\bar x=0$, so the covariance is 0 and the correlation is 0.
+shortcut: Centring $x$ makes the intercept and slope estimators uncorrelated. That is why we centre covariates.
+
+=== 2019 62
+topic: CAL
+pattern: Symmetric second difference gives f''(0)
+type: NAT
+ans: 2
+concept: $\lim_{h\to0}\dfrac{f(h)+f(-h)-2f(0)}{h^2}=f''(0)$ (Taylor expansion).
+solution:
+1. $f(0)=4$, so $8=2f(0)$ and the limit equals $f''(0)$.
+2. $f''(x)=6\cos x-12x\sin x-(3x^2+4)\cos x$, so $f''(0)=6-4=2$.
+shortcut: Faster with Taylor: $f(x)=(4+3x^2)\left(1-\frac{x^2}2+\dots\right)=4+(3-2)x^2+\dots=4+x^2+\dots$. Then $\frac{f''(0)}2=1$, so $f''(0)=2$.
+
+=== 2019 63
+topic: CAL
+pattern: Max distance from a point to a disk
+type: NAT
+ans: 80
+concept: $(x-1)^2+(y-2)^2$ is the squared distance from $(1,2)$. The farthest point of a disk lies on the line through the centre, on the far side.
+solution:
+The disk has centre $(0,0)$ and radius $\sqrt{45}=3\sqrt5$. The distance from $(1,2)$ to the centre is $\sqrt5$. Max distance $=3\sqrt5+\sqrt5=4\sqrt5$, so the max squared distance is $80$ (attained at $(-3,-6)$).
+shortcut: Max distance $=R+d$, min distance $=\max(R-d,0)$ (0 if the point is inside the disk).
+
+=== 2019 64
+topic: RV
+pattern: Symmetry: E(X1²/ΣXi²)
+type: NAT
+ans: 0.1
+concept: By exchangeability, $E\left(\frac{X_i^2}{\sum X_j^2}\right)$ is the same for every $i$, and these 10 expectations sum to $E(1)=1$.
+solution:
+Each equals $\frac1{10}=0.1$. The variance value 2 is irrelevant.
+Alternative: $\frac{X_1^2}{\sum X_j^2}\sim\text{Beta}\left(\frac12,\frac92\right)$ with mean $\frac{1/2}{5}=0.1$.
+shortcut: For i.i.d. positive $Y_i$: $E\left(\frac{Y_1}{\sum Y_i}\right)=\frac1n$, always.
+
+=== 2019 65
+topic: LA
+pattern: Determinant of I + vvᵀ (rank-one update)
+type: NAT
+ans: 31
+concept: The eigenvalues of $vv^T$ are $\|v\|^2$ (once) and $0$ ($n-1$ times). So $I+vv^T$ has eigenvalues $1+\|v\|^2,1,\dots,1$.
+solution:
+$\det(I+vv^T)=1+v^Tv=1+(1+4+9+16)=31$.
+shortcut: Matrix determinant lemma: $\det(A+uv^T)=\det A\,(1+v^TA^{-1}u)$. Also $\det(aI+b\mathbf 1\mathbf 1^T)=a^{n-1}(a+nb)$.
