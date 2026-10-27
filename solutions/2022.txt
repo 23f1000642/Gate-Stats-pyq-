@@ -1,0 +1,577 @@
+=== 2022 11
+topic: LA
+pattern: Inverse of I+M as polynomial in M (Cayley–Hamilton)
+type: MCQ
+ans: D
+concept: **Cayley–Hamilton** for $2\times2$: $M^2=(\text{tr}M)M-(\det M)I$.
+solution:
+1. $(I+M)(I-\alpha M)=I$ gives $(1-\alpha)M=\alpha M^2$.
+2. Substitute $M^2=3M-dI$: $(1-\alpha)M=3\alpha M-\alpha dI$, so $(1-4\alpha)M=-\alpha d\,I$.
+3. If $M$ is not a multiple of $I$, both sides must vanish: $1-4\alpha=0$, so $\alpha=\frac14$ (and $\det M=0$).
+4. (The scalar case $M=1.5I$ gives $\alpha=0.4$, which is not an option.)
+shortcut: If $M^2=cM$ (here $\det M=0$, so $M^2=3M$), then $(I+M)^{-1}=I-\frac{1}{1+c}M$. With $c=3$, $\alpha=\frac14$.
+
+=== 2022 12
+topic: SP
+pattern: Kolmogorov forward equations (birth/death process)
+type: MCQ
+ans: B
+concept: Forward equation: $p_i'(t)=\sum_k p_k(t)q_{ki}$, i.e. inflow minus outflow. For pure death, $p_i'=\mu_{i+1}p_{i+1}-\mu_ip_i$.
+solution:
+1. With $\mu_i=5i$: $p_i'=5(i+1)p_{i+1}-5ip_i$ for $i<N$, and $p_N'=-5Np_N$ (nothing flows into the top state).
+2. The process starts at $N$: $p_N(0)=1$ and $p_i(0)=0$ otherwise. Option (b).
+shortcut: In the equation for $p_i'$, the term containing $p_i$ always has a **negative** sign (leaving state $i$). That rules out (a) and (c) at once.
+
+=== 2022 13
+topic: EST
+pattern: Unbiasedness of S vs S² (Jensen)
+type: MCQ
+ans: B
+concept: $E S^2=\sigma^2$, but $E S<\sigma$ (Jensen). MLE invariance: $\hat\sigma=\sqrt{\hat\sigma^2}$.
+solution:
+- (I) $S$ is **not** unbiased for $\sigma$, since $E S=\sigma\sqrt{\frac2{n-1}}\frac{\Gamma(n/2)}{\Gamma((n-1)/2)}<\sigma$. False.
+- (II) $\hat\sigma^2=\frac1n\sum(X_i-\bar X)^2=\frac{n-1}nS^2$ ✓. By invariance, $\hat\sigma=\sqrt{\frac{n-1}{n}}\,S$ ✓. The "/2" printed under the root in this PDF is a typesetting slip for $n$. True.
+Answer: (II) only.
+trap: Unbiasedness does **not** carry through square roots. MLE does carry through any function (invariance).
+
+=== 2022 14
+topic: CAL
+pattern: Boundedness of a function and its partial derivative
+type: MCQ
+ans: B
+concept: Use polar coordinates to see homogeneity. $f$ has degree 1 and $f_x$ has degree 0.
+solution:
+1. $|f|=\frac{x^2|y|}{x^2+y^2}\le|y|$, and along $y=x$, $f=\frac x2\to\infty$. So $f$ is **unbounded**.
+2. $f_x=\frac{2xy^3}{(x^2+y^2)^2}=2\cos\theta\sin^3\theta$ in polar form, so $|f_x|\le2$. At the origin $f_x(0,0)=0$. **Bounded.**
+
+=== 2022 15
+topic: NP
+pattern: Kolmogorov–Smirnov: distribution-free & Glivenko–Cantelli
+type: MCQ
+ans: C
+concept: Under continuous $F$, $F(X)\sim U(0,1)$, so $D_n$ has the same distribution for every continuous $F$. Glivenko–Cantelli: $D_n\to0$ a.s.
+solution:
+Both (I) and (II) are true.
+
+=== 2022 16
+topic: SP
+pattern: Uniqueness of stationary distribution
+type: MCQ
+ans: C
+concept: A finite chain has a unique stationary distribution iff it has exactly one closed (recurrent) class.
+solution:
+- $P_1$: states 1 and 3 are absorbing, so there are two closed classes. Any mixture $(\lambda,0,1-\lambda)$ is stationary: infinitely many.
+- $P_2$: $1\to2\to3\to2\to1$, irreducible, so unique.
+Answer (c).
+
+=== 2022 17
+topic: MV
+pattern: Sample covariance ~ Wishart; plug-in quadratic form not chi-square
+type: MCQ
+ans: A
+concept: $(n-1)S\sim W_p(n-1,\Sigma)$. $(X-\mu)^T\Sigma^{-1}(X-\mu)\sim\chi^2_p$ only with the **true** $\Sigma$.
+solution:
+- (I) $19S\sim W_6(19,\Sigma)$ ✓
+- (II) Replacing $\Sigma$ by $S$ (which also depends on $X_3$) destroys the $\chi^2$. The correctly scaled quantity has a Beta/F-type distribution, not $\chi^2_6$. False.
+Answer: (I) only.
+
+=== 2022 18
+topic: CI
+pattern: Pivot for Weibull / exponential via chi-square
+type: MCQ
+ans: A
+concept: With $f=\frac{2x}\theta e^{-x^2/\theta}$, $X^2\sim\text{Exp}(\text{mean }\theta)$, so $\frac{2\sum X_i^2}{\theta}\sim\chi^2_{2n}$.
+solution:
+1. $n=18$, so the pivot is $\frac{2\sum x_i^2}\theta\sim\chi^2_{36}$.
+2. $P\left(\chi^2_{0.99,36}\le\frac{2\sum x^2}{\theta}\le\chi^2_{0.01,36}\right)=0.98$, where $\chi^2_{\alpha,n}$ is the upper-$\alpha$ point.
+3. Invert: $\theta\in\left(\frac{2\sum x^2}{\chi^2_{0.01,36}},\frac{2\sum x^2}{\chi^2_{0.99,36}}\right)$, option (a).
+shortcut: Same template as 2020 Q18: find $g(X)\sim$ exponential, then $2\sum g/\text{mean}\sim\chi^2_{2n}$. d.f. is always $2n$, not $n$.
+
+=== 2022 19
+topic: EST
+pattern: Complete sufficient / MLR / ancillary: which is false
+type: MCQ
+ans: B
+concept: Complete sufficient statistics come from full-rank exponential families. Curved families such as $N(\theta,\theta^2)$ are not complete.
+solution:
+- (a) Poisson: $\sum X$ is complete sufficient. True.
+- (b) $N(\theta,\theta^2)$: $(\sum X,\sum X^2)$ is sufficient but **not complete**, because $E\left[\frac{(\sum X)^2}{n(n+1)}-\frac{\sum X^2}{2n}\right]=0$ with a non-zero statistic. **Not true.**
+- (c) $\theta x^{\theta-1}$ has MLR in $\prod X_i$. True.
+- (d) $U(\theta,\theta+1)$ is a location family, so the range is ancillary. True.
+
+=== 2022 20
+topic: TH
+pattern: Exact p-value from binomial
+type: MCQ
+ans: C
+concept: For a right-tailed test, p-value $=P_{H_0}(Y\ge y_{\text{obs}})$.
+solution:
+$Y\sim\text{Bin}(6,\frac12)$: $P(Y\ge4)=\frac{\binom64+\binom65+\binom66}{64}=\frac{15+6+1}{64}=\frac{11}{32}$.
+
+=== 2022 21
+topic: CAL
+pattern: Recursive sequence: monotone + bounded
+type: MCQ
+ans: C
+concept: Monotone convergence theorem: a bounded monotone sequence converges, and its limit is a fixed point of the recursion.
+solution:
+1. Fixed point: $\frac8L=\frac7L+\frac{L^2}{343}$ gives $L^3=343$, so $L=7$.
+2. $a_{n+1}>a_n\iff8>7+\frac{a_n^3}{343}\iff a_n<7$, which is given. So the sequence is increasing.
+3. Increasing and bounded by 7, it converges to $7\in[3,7]$. Both (I) and (II) are true.
+
+=== 2022 22
+topic: LA
+pattern: Nilpotent M²=0: rank ≤ n/2
+type: NAT
+ans: 12
+concept: $M^2=0$ means $\text{Im}(M)\subseteq\ker(M)$, so $\text{rank}\le\text{nullity}$, i.e. $\text{rank}\le\frac n2$.
+solution:
+$\text{rank}=n-6\le6$, so $n\le12$. The maximum $n=12$ is attained by six $2\times2$ blocks $\begin{pmatrix}0&1\\0&0\end{pmatrix}$.
+
+=== 2022 23
+topic: LA
+pattern: Orthogonal projection onto a line
+type: NAT
+ans: 0.25
+concept: $v-\alpha u\perp u$ with $\|u\|=1$ gives $\alpha=\langle v,u\rangle$, the projection coefficient.
+solution:
+1. $S^\perp$ is spanned by $(1,1,1,1)$, so $u=\pm\frac12(1,1,1,1)$.
+2. $\alpha=\pm\frac{1-2+1+1}2=\pm\frac12$, so $\alpha^2=0.25$.
+
+=== 2022 24
+topic: SP
+pattern: Brownian motion linear combination via independent increments
+type: NAT
+ans: 22
+concept: Write it as a sum of independent increments: $B(2)+2B(3)=3B(2)+2[B(3)-B(2)]$.
+solution:
+$\operatorname{Var}=9\cdot2+4\cdot1=22$, and $P(N(0,22)>1)=1-\Phi(1/\sqrt{22})$. So $\alpha=22$.
+shortcut: $\operatorname{Var}(aB(s)+bB(t))=a^2s+b^2t+2ab\min(s,t)$. Here $a=1,s=2,b=2,t=3$: $2+12+8=22$ ✓.
+
+=== 2022 25
+topic: RV
+pattern: P(X < cY) for independent exponentials
+type: NAT
+ans: 0.57
+concept: For exponentials, $E X^2=\frac2{\lambda^2}$. $P(X>cY)=E[e^{-\lambda_XcY}]=\frac{\lambda_Y}{\lambda_Y+c\lambda_X}$.
+solution:
+1. $\frac2{\lambda_X^2}=\frac12$ gives $\lambda_X=2$. $\frac2{\lambda_Y^2}=\frac29$ gives $\lambda_Y=3$.
+2. $P(X<2Y)=1-\frac{3}{3+4}=\frac47\approx0.57$.
+shortcut: $P(X<cY)=\frac{c\lambda_X}{\lambda_Y+c\lambda_X}$, a "race" with $Y$ scaled by $c$.
+
+=== 2022 26
+topic: RV
+pattern: Tail-sum / E[min(X,k)] for geometric
+type: NAT
+ans: 2.31
+concept: Swap the order of summation: $\sum_n P(n<X\le n+3)=\sum_xP(X=x)\cdot\#\{n\ge0:x-3\le n<x\}=E[\min(X,3)]$.
+solution:
+$E\min(X,3)=P(X\ge1)+P(X\ge2)+P(X\ge3)=1+\frac34+\frac9{16}=\frac{37}{16}=2.3125\approx2.31$.
+shortcut: $E[\min(X,k)]=\sum_{j=1}^kP(X\ge j)$ for positive integer $X$.
+
+=== 2022 27
+topic: LT
+pattern: Moments of squares of normal; variance of X²
+type: NAT
+ans: 23
+concept: For $X\sim N(\mu,\sigma^2)$: $EX^2=\mu^2+\sigma^2$ and $\operatorname{Var}(X^2)=2\sigma^4+4\mu^2\sigma^2$.
+solution:
+1. $\mu=1$, $\sigma^2=4$: $EX^2=5$ and $\operatorname{Var}X^2=32+16=48$.
+2. $\frac{\operatorname{Var}S_n}{n}=48$ and $\frac{ES_n}n=5$. The limit is $48-25=23$. (The "$m$" printed in the denominator is $n$.)
+
+=== 2022 28
+topic: SP
+pattern: Poisson counts over disjoint intervals
+type: NAT
+ans: 243
+concept: Counts in disjoint intervals are independent Poisson with mean $\lambda t$.
+solution:
+Per interval, mean $=2$, so $P(\le1)=e^{-2}(1+2)=3e^{-2}$. For five independent intervals, $p=(3e^{-2})^5=243e^{-10}$, and $e^{10}p=243$.
+
+=== 2022 29
+topic: RV
+pattern: Density with greatest-integer function
+type: NAT
+ans: 0.58
+concept: $x-[x]$ is the fractional part, which repeats the shape $t$ on each unit interval.
+solution:
+1. $c\cdot3\cdot\int_0^1t\,dt=\frac{3c}2=1$ gives $c=\frac23$.
+2. $P(\frac12\le X\le2)=\frac23\left[\int_{1/2}^1t\,dt+\int_0^1t\,dt\right]=\frac23\left[\frac38+\frac12\right]=\frac7{12}\approx0.58$.
+
+=== 2022 30
+topic: RV
+pattern: MGF factorisation → independent sum
+type: NAT
+ans: 1
+concept: $H=\left(\frac34e^{2t}+\frac14\right)M(t)$ means $Y=X+B$ with $B\in\{0,2\}$ independent of $X$, $P(B=2)=\frac34$.
+solution:
+$\operatorname{Var}B=4\cdot\frac34\cdot\frac14=\frac34$. $\operatorname{Var}Y=\frac14+\frac34=1$.
+shortcut: Directly: $\operatorname{Var}Y=(\ln H)''(0)=\operatorname{Var}X+(\ln K)''(0)$, where $K$ is the bracket.
+
+=== 2022 31
+topic: LT
+pattern: Delta method
+type: NAT
+ans: 1.19
+concept: **Delta method:** $\sqrt n(g(\bar X)-g(\mu))\to N(0,[g'(\mu)]^2\sigma^2)$.
+solution:
+1. $f\propto x^{1/6-1}e^{-x/8}$ is Gamma(shape $\frac16$, scale 8): $\mu=\frac86=\frac43$, $\sigma^2=\frac16\cdot64=\frac{32}3$.
+2. $g(x)=x(3-x)$: $g(\frac43)=\frac{20}9$ ✓ matches the centring. $g'(x)=3-2x$, so $g'(\frac43)=\frac13$.
+3. $\sigma^2_{\text{limit}}=\frac19\cdot\frac{32}3=\frac{32}{27}\approx1.19$.
+shortcut: The centring constant ($\frac{20}9$) is $g(\mu)$. Use it to confirm you have the right $\mu$.
+
+=== 2022 32
+topic: SP
+pattern: Covariance function of Poisson process
+type: NAT
+ans: 12
+concept: $\operatorname{Cov}(N(s),N(t))=\lambda\min(s,t)$.
+solution:
+$\lambda=4$, so $C(5,3)=4\times3=12$.
+
+=== 2022 33
+topic: EST
+pattern: Method of moments estimate
+type: NAT
+ans: 15
+concept: Match $E X$ to $\bar x$.
+solution:
+$EX=\int_0^\theta x\frac{2(\theta-x)}{\theta^2}dx=\frac\theta3$. $\bar x=5$, so $\hat\theta=15$.
+
+=== 2022 34
+topic: SP
+pattern: Long-run proportion: 2-state Markov chain
+type: NAT
+ans: 0.375
+concept: 2-state chain with $p_{12}=a$ and $p_{21}=b$: stationary $\pi=\left(\frac b{a+b},\frac a{a+b}\right)$.
+solution:
+Paid→Not paid with $a=0.3$, Not paid→Paid with $b=0.5$. $\pi_{\text{Not}}=\frac{0.3}{0.8}=0.375$.
+
+=== 2022 35
+topic: NP
+pattern: Variance of empirical CDF at a point
+type: NAT
+ans: 3
+concept: $nF_n(x)\sim\text{Bin}(n,F(x))$, so $\operatorname{Var}F_n(x)=\frac{F(1-F)}n$.
+solution:
+$F(2)=\int_0^2\frac x8dx=\frac14$. $\alpha=\frac{\frac14\cdot\frac34}8=\frac3{128}$, so $128\alpha=3$.
+
+=== 2022 36
+topic: LA
+pattern: Spectral decomposition: solve Mx = b in eigenbasis
+type: MCQ
+ans: A
+concept: In an orthonormal eigenbasis, $M^k$ acts on each coordinate by $\lambda^k$. Solve coordinate by coordinate.
+solution:
+1. $Mx=u+2v+2w$ gives $x=\frac1{-1}u+\frac21v+\frac22w=-u+2v+w$.
+2. $M^2y=u-v-2w$ gives $y=\frac11u-\frac11v-\frac24w=u-v-\frac12w$.
+3. $x+y=v+\frac12w$, so $|x+y|^2=1+\frac14=1.25$.
+
+=== 2022 37
+topic: CAL
+pattern: Absolute vs conditional convergence
+type: MCQ
+ans: C
+concept: Leibniz test for alternating series. Limit comparison with $\frac1n$ for absolute convergence.
+solution:
+- $S_1$: $\frac{n}{n^2+4}\downarrow0$ (eventually), so it converges. $\sum\frac n{n^2+4}\sim\sum\frac1n$ diverges, so the convergence is **conditional**.
+- $S_2$: $\sqrt{n^2+1}-n=\frac1{\sqrt{n^2+1}+n}\sim\frac1{2n}\downarrow0$. Converges conditionally.
+Both.
+
+=== 2022 38
+topic: MV
+pattern: MLE of mean vector and covariance (divisor n)
+type: MCQ
+ans: A
+concept: For a multivariate normal, $\hat\mu=\bar x$ and $\hat\Sigma=\frac1n\sum(x_i-\bar x)(x_i-\bar x)^T$.
+solution:
+1. $\bar x=(4,6)$. Deviations: $(-1,0),(0,-2),(1,1),(0,1)$.
+2. $\hat\Sigma=\frac14\begin{pmatrix}2&1\\1&6\end{pmatrix}=\begin{pmatrix}0.5&0.25\\0.25&1.5\end{pmatrix}$.
+3. $\hat\Sigma\hat\mu=(0.5\cdot4+0.25\cdot6,\;0.25\cdot4+1.5\cdot6)=(3.5,10)$.
+
+=== 2022 39
+topic: MV
+pattern: Partial correlation from covariance matrix
+type: MCQ
+ans: A
+concept: Partial covariances: $\sigma_{ij\cdot1}=\sigma_{ij}-\frac{\sigma_{i1}\sigma_{j1}}{\sigma_{11}}$, and $\rho_{23\cdot1}=\frac{\sigma_{23\cdot1}}{\sqrt{\sigma_{22\cdot1}\sigma_{33\cdot1}}}$.
+solution:
+1. $\sigma_{22\cdot1}=2-\frac14=\frac74$ and $\sigma_{33\cdot1}=2-\frac14=\frac74$.
+2. $\sigma_{23\cdot1}=a-\frac{(-1)(1)}4=a+\frac14$.
+3. $\frac{a+1/4}{7/4}=\frac57$ gives $a=1$.
+
+=== 2022 40
+topic: CAL
+pattern: Area bisected by a line
+type: MCQ
+ans: A
+concept: Area by integration. Pick the simpler of the two pieces to integrate.
+solution:
+1. $R$: $0\le x\le\sqrt y$, $0\le y\le2$. Area $=\int_0^2\sqrt y\,dy=\frac{4\sqrt2}3$.
+2. For $\alpha\ge\sqrt2$, the line meets the top edge $y=2$ at $x=\frac2\alpha$, inside the region. The piece above the line is $\int_0^{2/\alpha}(2-\alpha x)dx=\frac2\alpha$.
+3. Set $\frac2\alpha=\frac{2\sqrt2}3$, giving $\alpha=\frac3{\sqrt2}$.
+
+=== 2022 41
+topic: JD
+pattern: Regression (conditional mean) from joint density
+type: MCQ
+ans: A
+concept: $E(X\mid y,z)=\frac{\int xf\,dx}{\int f\,dx}$.
+solution:
+1. Let $c=3y+z$: $E(X|y,z)=\frac{\int_0^1x(2x+c)dx}{\int_0^1(2x+c)dx}=\frac{\frac23+\frac c2}{1+c}=\frac{4+3c}{6(1+c)}$.
+2. (a): $y=z=\frac13$ gives $c=\frac43$, and $E=\frac{8}{6\cdot7/3}=\frac47$ ✓.
+
+=== 2022 42
+topic: CI
+pattern: Pivot-based CI for scale parameter (equal tails)
+type: MCQ
+ans: A
+concept: $U=X/\theta$ has CDF $u^2$ on $(0,1)$. Equal-tail 80%: $P(U\le a)=0.1$ and $P(U\le b)=0.9$.
+solution:
+1. $a=\sqrt{0.1}=0.3162$ and $b=\sqrt{0.9}=0.9487$.
+2. $a\le\frac{10}\theta\le b$ gives $\theta\in\left(\frac{10}{0.9487},\frac{10}{0.3162}\right)=(10.541,31.623)$.
+
+=== 2022 43
+topic: RV
+pattern: Beta from ratio of chi-squares; independence of ratio and sum
+type: MCQ
+ans: B
+concept: If $U\sim\chi^2_a$ and $V\sim\chi^2_b$ are independent, $\frac U{U+V}\sim\text{Beta}(\frac a2,\frac b2)$, independent of $U+V$.
+solution:
+1. $K\sim\text{Beta}(1,\frac52)$, independent of $\sum X^2$. (I) ✓
+2. (II) The F-statistic is $\frac{(X_1^2+X_2^2)/2}{(X_3^2+\dots+X_7^2)/5}=\frac52\cdot\frac{K}{1-K}$, not $\frac{7K}2$. ✗
+3. (III) $EK^2=\frac{a(a+1)}{(a+b)(a+b+1)}=\frac{1\cdot2}{3.5\cdot4.5}=\frac8{63}$ ✓
+Answer: (I) and (III).
+
+=== 2022 44
+topic: RV
+pattern: Which distributions are differences of i.i.d. variables (c.f. must be ≥0)
+type: MCQ
+ans: A
+concept: If $Y\overset d=Y_1-Y_2$ with $Y_i$ i.i.d., then $\phi_Y(t)=|\phi_{Y_1}(t)|^2\ge0$ for all $t$.
+solution:
+- (I) Laplace has c.f. $\frac1{1+t^2}$, which equals $\left|\frac1{1-it}\right|^2$: the difference of two i.i.d. Exp(1). True.
+- (II) $U(-2,2)$ has c.f. $\frac{\sin2t}{2t}$, which is negative for some $t$. Impossible. False.
+
+=== 2022 45
+topic: LT
+pattern: Borel–Cantelli with exponential tails
+type: MSQ
+ans: A;B;D
+concept: For independent events, $\sum P(A_n)=\infty$ means $P(A_n\text{ i.o.})=1$, and $\sum P(A_n)<\infty$ means $P(A_n\text{ i.o.})=0$.
+solution:
+$X_n\sim\text{Exp}(\text{rate }2)$, so $P(X_n>\frac\epsilon2\ln n)=e^{-\epsilon\ln n}=n^{-\epsilon}$.
+- (a) $\epsilon\le1$: $\sum n^{-\epsilon}=\infty$, so probability 1. ✓
+- (c) $\epsilon>1$: summable, so probability 0. ✗
+- (b), (d): $P(X_n<\frac\epsilon2\ln n)=1-n^{-\epsilon}\to1$, the sum diverges, so probability 1 for every $\epsilon$. ✓ ✓
+
+=== 2022 46
+topic: LT
+pattern: Modes of convergence: counterexample with escaping mass
+type: MSQ
+ans: A;B;D
+concept: Convergence in probability does not imply convergence of means. In probability does imply a.s. along a subsequence.
+solution:
+- (a), (b): $P(|X_n|>\epsilon)=\frac1{n+1}\to0$. ✓ ✓
+- (c): $EX_n=\frac n{n+1}\to1\ne0$. ✗
+- (d): Riesz: some subsequence converges a.s. Here $X_{k^2}$ works, since $\sum\frac1{k^2+1}<\infty$. ✓
+Note: the PDF lists (a, b, c), but (c) fails.
+
+=== 2022 47
+topic: LA
+pattern: Lyapunov-type equation: bounds on eigenvalues via Rayleigh quotient
+type: MSQ
+ans: A;D
+concept: If $Nx=\lambda x$, then $x^T(MN+N^TM)x=2\lambda\,x^TMx$, and $x^TMx\in[1,3]\cdot\|x\|^2$.
+solution:
+1. $2\lambda\,x^TMx=3\|x\|^2$, so $\lambda=\frac{3}{2R(x)}$ with $R\in[1,3]$.
+2. So $\lambda\in[\frac12,\frac32]$.
+3. $\frac14$ and $\frac74$ lie outside: they **cannot** be eigenvalues. $\frac34$ and $\frac12$ are possible.
+
+=== 2022 48
+topic: LA
+pattern: Singular value decomposition: rank, trace, pseudo-inverse
+type: MSQ
+ans: B;C
+concept: Rank = number of non-zero singular values. $\text{tr}(M^TM)=\sum s_i^2$. $(M^TM)^{-1}M^T$ (the pseudo-inverse) has singular values $1/s_i$.
+solution:
+- (a) Rank $=2$. ✗
+- (b) $\text{tr}(M^TM)=3+1=4$. ✓
+- (c) The singular values are $\frac1{\sqrt3}$ and $1$, so the largest is $1$. ✓
+- (d) Nullity $=2-2=0$. ✗
+
+=== 2022 49
+topic: RV
+pattern: Lattice distributions and periodic characteristic functions
+type: MSQ
+ans: A;B
+concept: If $X\in\frac{2\pi}a\mathbb Z$ a.s., then $e^{iaX}=1$, so $\phi(t+a)=\phi(t)$.
+solution:
+- (a) $\phi(a)=E e^{iaX}=1$. ✓
+- (b) $\phi(t+a)=E[e^{itX}e^{iaX}]=\phi(t)$, periodic with period $a$. ✓
+- (c) False: $\phi(2a)=1$ too.
+- (d) The inversion formula is $P(X=\frac{2\pi n}a)=\frac1a\int_0^ae^{-it\frac{2\pi n}a}\phi(t)\,dt$, not as stated. ✗
+
+=== 2022 50
+topic: CAL
+pattern: Uniform continuity
+type: MSQ
+ans: A;C
+concept: A bounded derivative means Lipschitz, which means UC. Oscillations that get faster as $x$ grows break UC.
+solution:
+- (a) $\sin^2x$: $|f'|=|\sin2x|\le1$. UC ✓
+- (b) $x\sin x$: amplitude grows. Not UC.
+- (c) $\sin(\sin x)$: $|f'|\le1$. UC ✓
+- (d) $\sin(x\sin x)$: oscillates ever faster, with $f'$ unbounded and no UC.
+
+=== 2022 51
+topic: NP
+pattern: Mann–Whitney U statistic with ties
+type: NAT
+ans: 15
+concept: $U_1=R_1-\frac{n_1(n_1+1)}2$ (rank sum minus minimum), $U_1+U_2=n_1n_2$, and $U=\min(U_1,U_2)$. Ties get midranks.
+solution:
+1. Pool and rank the 14 values with midranks: $R_1=62$, so $U_1=62-28=34$.
+2. $U_2=49-34=15$, so $U=\min=15$.
+shortcut: Or count directly: for each pair $(x,y)$, score 1 if $x>y$ and $\frac12$ if tied. That sum is $U_1$.
+
+=== 2022 52
+topic: REG
+pattern: ANOVA F for overall regression significance
+type: NAT
+ans: 4.908
+concept: $F=\frac{SSR/k}{SSE/(n-k-1)}\sim F_{k,n-k-1}$.
+solution:
+$k=3$, $n=52$, $SSE=79.23-18.6=60.63$. $F=\frac{6.2}{60.63/48}=\frac{6.2}{1.2631}=4.908$.
+
+=== 2022 53
+topic: RV
+pattern: Order statistics probability (joint of min & max)
+type: NAT
+ans: 0.4375
+concept: Condition on the minimum $m$: the other two must lie in $(m,\cdot)$. $P(\max<2\min)=n\int f(m)[F(\min(2m,1))-F(m)]^{n-1}dm$.
+solution:
+1. $F=x^2$, $n=3$.
+2. For $m\le\frac12$: $[4m^2-m^2]^2=9m^4$, giving $3\int_0^{1/2}2m\cdot9m^4dm=\frac9{64}$.
+3. For $m>\frac12$: $(1-m^2)^2$, giving $3\int_{1/2}^12m(1-m^2)^2dm=\left(\frac34\right)^3=\frac{27}{64}$.
+4. $P(\max<2\min)=\frac{36}{64}$, so $p=1-\frac9{16}=\frac7{16}=0.4375$ (≈0.437 or 0.438, inside the accepted range).
+
+=== 2022 54
+topic: REG
+pattern: Variance of predicted mean response
+type: NAT
+ans: 1.8
+concept: $\operatorname{Var}(\hat Y_0)=\sigma^2\left(\frac1n+\frac{(x_0-\bar x)^2}{S_{xx}}\right)$.
+solution:
+$\bar x=2$, $S_{xx}=10$, $n=5$, $x_0=6$: $c=\frac15+\frac{16}{10}=1.8$.
+
+=== 2022 55
+topic: EST
+pattern: UMVUE of P(X ≤ k) for Poisson (Rao–Blackwell)
+type: NAT
+ans: 512
+concept: For Poisson, $X_1\mid T=t\sim\text{Bin}(t,\frac1n)$. The UMVUE of $P(X\le1)$ is $P(X_1\le1\mid T)$.
+solution:
+1. $T=4$, $n=5$: $P(X_1\le1\mid T=4)=\left(\frac45\right)^4+4\cdot\frac15\left(\frac45\right)^3=\frac{256+256}{625}$.
+2. $5^4\alpha=512$.
+shortcut: The UMVUE of $e^{-\theta}$ is $(1-\frac1n)^T$, and of $\theta e^{-\theta}$ is $\frac Tn(1-\frac1n)^{T-1}$.
+
+=== 2022 56
+topic: NP
+pattern: Spearman's rank correlation: bound on Σd²
+type: NAT
+ans: 60
+concept: $\sum d_i^2\le\frac{n^3-n}3$, with the maximum at perfect reverse ranking. So $\rho_s=1-\frac{6\sum d^2}{n^3-n}\ge-1$.
+solution:
+1. $\rho_s\ge-1$ gives $\frac{6(19.5)}{n^3-n}\le2$, so $n^3-n\ge58.5$.
+2. The smallest value of $n^3-n$ (6, 24, 60, …) that is $\ge58.5$ is **60** ($n=4$). This is the intended answer.
+Note: a full check shows that with exactly one tied pair, $\sum d^2=19.5$ is only achievable from $n=6$ (largest possible for $n=4$ is 18.5). The exam intends the bound argument above.
+
+=== 2022 57
+topic: SP
+pattern: Two-step evolution of a 2-state chain
+type: NAT
+ans: 61.6
+concept: $p_{n+1}(A)=0.7\,p_n(A)+0.5\,(1-p_n(A))$.
+solution:
+$p_1=0.4$, $p_2=0.28+0.30=0.58$, $p_3=0.406+0.21=0.616$. Answer: 61.6%.
+
+=== 2022 58
+topic: EST
+pattern: MLE of θ for f=3x²/θ³ and invariance for quantile
+type: NAT
+ans: 3.5
+concept: For support $(0,\theta)$ with a decreasing likelihood in $\theta$, the MLE is $X_{(n)}$. Invariance carries over to any function such as a quantile.
+solution:
+1. $\hat\theta=X_{(5)}=7$.
+2. $F(q)=\left(\frac q\theta\right)^3=\frac18$ gives $q=\frac\theta2$. So $\hat q=3.5$.
+
+=== 2022 59
+topic: EST
+pattern: Cramér–Rao lower bound for g(θ)
+type: NAT
+ans: 1.6
+concept: $\text{CRLB}=\frac{[g'(\beta)]^2}{nI(\beta)}$. For Gamma with shape $\alpha$ and scale $\beta$, $I(\beta)=\frac\alpha{\beta^2}$.
+solution:
+1. Shape $\alpha=5$, $g=\beta^2$, $g'=2\beta$.
+2. $\text{CRLB}=\frac{4\beta^2}{8\cdot5/\beta^2}=\frac{\beta^4}{10}$.
+3. At $\beta=2$: $\frac{16}{10}=1.6$.
+
+=== 2022 60
+topic: TH
+pattern: Size and power for binomial test
+type: NAT
+ans: 3
+concept: $\alpha=P_{H_0}(\text{reject})$, $\gamma(\theta)=P_\theta(\text{reject})$.
+solution:
+1. Reject if $\sum X\ge3$.
+2. $\alpha=4(\frac14)^3\frac34+(\frac14)^4=\frac{13}{256}$, so $16\alpha=\frac{13}{16}$.
+3. $\gamma(\frac12)=\frac{4+1}{16}=\frac5{16}$, so $7\gamma=\frac{35}{16}$.
+4. Total $=\frac{48}{16}=3$.
+
+=== 2022 61
+topic: TH
+pattern: Sample size for given α and β (z-test)
+type: NAT
+ans: 16
+concept: One-sided z-test: $n\ge\left(\frac{(z_\alpha+z_\beta)\sigma}{\mu_1-\mu_0}\right)^2$.
+solution:
+$\frac{(1.645+2.33)\cdot2}{2}=3.975$, so $n\ge15.8$ and $n=16$.
+
+=== 2022 62
+topic: NP
+pattern: Order statistics covering the median (distribution-free)
+type: NAT
+ans: 8
+concept: $P(Y_1<\text{median}<Y_n)=1-P(\text{all above})-P(\text{all below})=1-2\cdot2^{-n}$.
+solution:
+$1-2^{1-n}\ge0.99$ gives $2^{n-1}\ge100$, so $n-1\ge7$ and $n=8$.
+
+=== 2022 63
+topic: CAL
+pattern: Closest point on a curve (constrained optimisation)
+type: NAT
+ans: 3
+concept: Eliminate $z$ and minimise the squared distance subject to the remaining constraint.
+solution:
+1. From $x+y+z=1$ and $z=xy+5$: $x+y+xy+4=0$, i.e. $(x+1)(y+1)=-3$.
+2. Minimising $x^2+y^2+z^2$ (by Lagrange or symmetry) gives $P=(2,-2,1)$ or $(-2,2,1)$.
+3. Distance $=\sqrt{4+4+1}=3$.
+
+=== 2022 64
+topic: JD
+pattern: E(Y²) via conditioning
+type: NAT
+ans: 1.067
+concept: Tower property: $E Y^2=E[E(Y^2\mid X)]$. For $U(0,c)$, $E(Y^2)=\frac{c^2}3$.
+solution:
+$E(Y^2\mid X)=\frac{(X^2/4)^2}3=\frac{X^4}{48}$, and $EX^4=\frac{4^4}5=\frac{256}5$. So $EY^2=\frac{256}{240}=1.067$.
+
+=== 2022 65
+topic: MV
+pattern: Conditional mean in multivariate normal
+type: NAT
+ans: 6
+concept: $E(X_1\mid X_2)=\mu_1+\Sigma_{12}\Sigma_{22}^{-1}(x_2-\mu_2)$.
+solution:
+$\Sigma_{12}=(2,1)$, $\Sigma_{22}=\text{diag}(3,2)$, $x-\mu=(2,3)$: $3+\frac23\cdot2+\frac12\cdot3=3+\frac43+\frac32=\frac{35}6=5.83$. Rounded to an integer: **6**.
