@@ -1,0 +1,560 @@
+=== 2025 11
+topic: CAL
+pattern: Integral equation → differential equation
+type: MCQ
+ans: B
+concept: Differentiate both sides (fundamental theorem of calculus) to turn the integral equation into an ODE. The initial value comes from $x=0$.
+solution:
+1. $2ff'=f^2+f$. Since $f>0$, $f'=\frac{f+1}2$.
+2. $\frac{d}{dx}\ln(f+1)=\frac12$, so $f+1=Ce^{x/2}$. With $f(0)=0$, $C=1$.
+3. $f(x)=e^{x/2}-1$, so $f(2)=e-1\approx1.718\in(1,2]$.
+
+=== 2025 12
+topic: CAL
+pattern: Countable vs uncountable sets
+type: MCQ
+ans: B
+concept: Countable union of finite sets is countable. A set that can encode infinite binary choices is uncountable. Disjoint open intervals each contain a distinct rational.
+solution:
+- (a) Each $n$ gives finitely many numbers, so the union is countable ✗
+- (b) Infinite sequences of 1s and 2s map one-to-one onto distinct decimals, a copy of $\{0,1\}^{\mathbb N}$. Uncountable ✓
+- (c) Pick a rational in each interval: an injection into $\mathbb Q$. Countable ✗
+- (d) $\mathbb Q\times\mathbb Q$ is countable ✗
+
+=== 2025 13
+topic: LA
+pattern: Orthogonal complement of a plane
+type: MCQ
+ans: C
+concept: $S^\perp$ is always a subspace. For a spanning set of a plane in $\mathbb R^3$, the complement is the normal line.
+solution:
+$S$ is the plane $x+y+z=0$ (minus the origin, which doesn't change its span). $S^\perp=\text{span}\{(1,1,1)\}$, so $\dim=1$.
+
+=== 2025 14
+topic: RV
+pattern: MGF evaluated at a point
+type: MCQ
+ans: D
+concept: $E e^{tX}=M_X(t)=e^{\lambda(e^t-1)}$ for Poisson.
+solution:
+$t=\ln3$ gives $e^t=3$. $M=e^{\ln2\cdot(3-1)}=e^{2\ln2}=4$.
+shortcut: $E[a^X]=e^{\lambda(a-1)}$ for Poisson.
+
+=== 2025 15
+topic: JD
+pattern: Conditional distribution in multinomial
+type: MCQ
+ans: B
+concept: $X_2\mid X_3=x_3\sim\text{Bin}\left(n-x_3,\frac{p_2}{p_1+p_2}\right)$.
+solution:
+$X_2\mid X_3=40\sim\text{Bin}\left(60,\frac{0.1}{0.4}\right)$, so $E=60\times\frac14=15$.
+
+=== 2025 16
+topic: LT
+pattern: Probability integral transform of Cauchy; WLLN fails for Cauchy
+type: MCQ
+ans: A
+concept: $F(x)=\frac12+\frac1\pi\tan^{-1}x$ is the Cauchy CDF, so $Y_n=F(X_n)\sim U(0,1)$. A Cauchy sample mean does **not** converge.
+solution:
+WLLN on $Y$ (mean $\frac12$): $\bar Y\to\frac12$ ✓. $\bar X_n$ is again standard Cauchy for every $n$, so (c) and (d) fail.
+
+=== 2025 17
+topic: SP
+pattern: Poisson process: covariance of increments
+type: MCQ
+ans: D
+concept: For increments over intervals $I$ and $J$, $\operatorname{Cov}=\lambda|I\cap J|$.
+solution:
+- (a) $W$ on $(5,6]$, $Z$ on $(1,3]$: disjoint, so Cov $=0$ ✗
+- (b) $Y+Z=N(5)-N(1)\sim\text{Poi}(8)$ ✗
+- (d) $X$ on $(1,6]$, $Y$ on $(3,5]$: overlap 2, so Cov $=2\cdot2=4$ ✓
+
+=== 2025 18
+topic: EST
+pattern: Complete sufficient implies minimal; functions of complete statistics
+type: MCQ
+ans: D
+concept: A complete sufficient statistic is minimal sufficient (Bahadur), so it is a function of every sufficient statistic. Functions of a complete statistic are complete.
+solution:
+- (a) $T^2$ is complete ✓
+- (b) $T\ge0$, so $T\mapsto T^2$ is one-to-one. $T^2$ is still complete sufficient, hence minimal ✓
+- (c) A minimal sufficient $T$ is a function of any sufficient $U$ ✓
+- (d) $U$ can contain more information than $T$, e.g. the whole sample. **Not necessarily** a function of $T$.
+
+=== 2025 19
+topic: TH
+pattern: UMP existence for two-sided / interval hypotheses
+type: MCQ
+ans: B
+concept: The two-sided LRT for a normal mean is the UMP **unbiased** test. No UMP test exists for $\theta\ne0$.
+solution:
+1. $\phi=1\{|X_1+X_2|>1.96\sqrt2\}$.
+2. (a), (c) are false: no UMP test exists for a two-sided alternative.
+3. (b) ✓ It is unbiased: power $\ge0.05$ everywhere.
+4. (d) is false: under $\theta=0$, $(X_1,X_2)\to(-X_1,-X_2)$ leaves $\phi$ unchanged, so $E[X_1\phi]=0$.
+
+=== 2025 20
+topic: TH
+pattern: NP test with disjoint supports
+type: MCQ
+ans: B
+concept: When supports barely overlap, a test can have power 1 at level $\le\alpha$. Then every MP test must have power 1.
+solution:
+1. Reject when $X>1$: size $=P_{f_0}(X>1)=0\le0.05$ and power $=1$.
+2. So every MP level-0.05 test has $E_{f_1}\phi=1$. (b) is necessarily true.
+3. (a), (c) can fail: an MP test may use any spare size inside $[0,1]$, or none.
+
+=== 2025 21
+topic: TH
+pattern: Properties of MP tests (NP lemma)
+type: MCQ
+ans: A
+concept: NP lemma: an MP test has the form $\phi=1$ when $f_1>cf_0$, $0$ when $f_1<cf_0$, and is arbitrary on the boundary. Its power is $\ge\alpha$.
+solution:
+- (a) **Not necessarily** true: the MP test can differ on $\{f_1=cf_0\}$, so it is not unique in general.
+- (b) Power $\ge\alpha$ (compare with the trivial test $\phi\equiv0.05$) ✓
+- (c) Level 0.05 ✓
+- (d) NP structure: $\{f_1>cf_0\}\subseteq\{\phi=1\}$ a.e. ✓
+
+=== 2025 22
+topic: NP
+pattern: Empirical CDF at a point: LLN & CLT
+type: MCQ
+ans: C
+concept: $nF_n(x)\sim\text{Bin}(n,F(x))$: SLLN gives $F_n(x)\to F(x)$ a.s., and CLT gives $\sqrt n(F_n-F)\to N(0,F(1-F))$.
+solution:
+- (c) ✓
+- (a) The limit is normal, not 0 ✗
+- (b) Wrong scaling ($n$ instead of $\sqrt n$) ✗
+- (d) $n\operatorname{Var}=F(1-F)\not\to0$ ✗
+
+=== 2025 23
+topic: MV
+pattern: Bivariate normal regression line → ρ
+type: MCQ
+ans: A
+concept: $E(Y|X=x)=\mu_Y+\frac{\sigma_{XY}}{\sigma_X^2}(x-\mu_X)$.
+solution:
+$4+\frac{50\rho}{25}(5-3)=4+4\rho=4.32$, so $\rho=0.08$.
+
+=== 2025 24
+topic: REG
+pattern: Regression through origin under linear transformation of variables
+type: MCQ
+ans: A
+concept: No-intercept LSE: $\hat\beta=\frac{\sum xy}{\sum x^2}$. Rewrite the new estimator in terms of the old sums.
+solution:
+$\hat\gamma=\frac{\sum u v}{\sum u^2}=\frac{\sum2x(y-x)}{4\sum x^2}=\frac{2\sum xy-2\sum x^2}{4\sum x^2}=\frac{\hat\beta-1}2=4.5$.
+
+=== 2025 25
+topic: CAL
+pattern: Double integral: integrate in the easier order
+type: NAT
+ans: -1
+concept: $\cos(\pi+\theta)=-\cos\theta$. Integrate over $x$ first so the $\frac1y$ cancels.
+solution:
+1. $I=-\pi^2\int_0^1y^2\int_0^1\cos(\pi xy)\,dx\,dy=-\pi^2\int_0^1y^2\frac{\sin\pi y}{\pi y}dy=-\pi\int_0^1y\sin\pi y\,dy$.
+2. $\int_0^1y\sin\pi y\,dy=\frac1\pi$ (by parts), so $I=-1$.
+
+=== 2025 26
+topic: LA
+pattern: Determinant of a polynomial in A via eigenvalues
+type: NAT
+ans: 50
+concept: $\det p(P)=\prod p(\lambda_i)$.
+solution:
+1. $\text{tr}P=5$ and $\det P=6$, so $\lambda=2,3$.
+2. $p(2)=8-8-8+13=5$ and $p(3)=27-18-12+13=10$.
+3. $\det Q=50$.
+
+=== 2025 27
+topic: LA
+pattern: Rank of a linear map from its matrix
+type: NAT
+ans: 3
+concept: Rank $=3$ iff the determinant is non-zero.
+solution:
+$\begin{vmatrix}3&5&1\\0&0&1\\2&0&2\end{vmatrix}=-5(0-2)=10\ne0$, so the rank is 3.
+
+=== 2025 28
+topic: RV
+pattern: Mixed distribution: jump in CDF
+type: NAT
+ans: 8
+concept: $P(X=a)=F(a)-F(a^-)$.
+solution:
+$P(X=3)=\frac34-\frac14=\frac12$, so $16\times\frac12=8$.
+
+=== 2025 29
+topic: RV
+pattern: Binomial second moment
+type: NAT
+ans: 16
+concept: $E X^2=\operatorname{Var}X+(EX)^2=np(1-p)+n^2p^2$.
+solution:
+$\frac49+\frac49=\frac89$, so $18\times\frac89=16$.
+
+=== 2025 30
+topic: RV
+pattern: Moments of chi-square via gamma function
+type: NAT
+ans: 10
+concept: $M_Y(t)=E\left[(X^TX)^{t/2}\right]$ with $X^TX\sim\chi^2_{10}$. For $V\sim\chi^2_k$, $E V^r=2^r\frac{\Gamma(k/2+r)}{\Gamma(k/2)}$.
+solution:
+$t=2$, $r=1$: $E V=10$. So $M_Y(2)=10$.
+shortcut: $M_{\ln\sqrt V}(t)=E[V^{t/2}]$. At $t=2$ this is just the mean of $V$.
+
+=== 2025 31
+topic: SP
+pattern: Brownian motion second moments
+type: NAT
+ans: 9
+concept: $E[W(s)W(t)]=\min(s,t)$.
+solution:
+$E(W_2+W_3)^2=2+3+2\cdot2=9$.
+
+=== 2025 32
+topic: EST
+pattern: MLE under restricted parameter space
+type: NAT
+ans: 0.6
+concept: Bernoulli MLE is $\bar x$, clipped to the allowed range.
+solution:
+$\bar x=\frac35=0.6\le0.7$, which is inside $(0,0.7]$, so $\hat\theta=0.60$.
+
+=== 2025 33
+topic: EST
+pattern: Cramér–Rao lower bound for normal mean
+type: NAT
+ans: 18
+concept: For $N(\theta,\sigma^2)$ with $\sigma^2$ known, $\text{CRLB}=\frac{\sigma^2}n$.
+solution:
+$c(\theta)=\frac65$ (constant in $\theta$), so $15\times\frac65=18$.
+
+=== 2025 34
+topic: NP
+pattern: Spearman's rank correlation
+type: NAT
+ans: 1
+concept: $\rho_s=1-\frac{6\sum d^2}{n(n^2-1)}$.
+solution:
+Ranks of $x$: $1,2,3$. Ranks of $y$: $1,2,3$. $\sum d^2=0$, so $\rho_s=1.00$.
+
+=== 2025 35
+topic: REG
+pattern: Adjusted R²
+type: NAT
+ans: 0.8
+concept: $R^2_{adj}=1-(1-R^2)\frac{n-1}{n-k-1}$.
+solution:
+$1-\frac16\cdot\frac{24}{20}=1-0.2=0.80$.
+
+=== 2025 36
+topic: CAL
+pattern: Mean value theorem, Darboux, monotonicity
+type: MCQ
+ans: C
+concept: MVT: a secant slope equals a derivative value, but **not** the converse. Darboux: derivatives have the intermediate value property.
+solution:
+- (a) $|f(x)-f(y)|\le|x-y|^2$ gives $f'\equiv0$, so $f$ is constant ✗
+- (b) $f=x^3$, $x_0=0$: no secant has slope 0 ✗
+- (c) $f'\ge0$, vanishing at only finitely many points, means strictly increasing ✓
+- (d) Darboux says such an $x_0$ **does** exist ✗
+
+=== 2025 37
+topic: CAL
+pattern: Constrained minimum on a half-plane
+type: MCQ
+ans: D
+concept: If the unconstrained minimum is infeasible, the constrained one lies on the boundary.
+solution:
+1. The free minimum $(1,2)$ has $1+2=3>2$, which is infeasible.
+2. On $x+y=2$, let $a=x-1$ and $b=y-2$ with $a+b=-1$. Minimise $a^4+b^4$: by symmetry and convexity, $a=b=-\frac12$.
+3. Minimum $=2\cdot\frac1{16}=\frac18$.
+
+=== 2025 38
+topic: LA
+pattern: Rank of the centring matrix I − J/n
+type: MCQ
+ans: B
+concept: $I-\frac1nJ$ is idempotent with trace $n-1$, so its rank is $n-1$.
+solution:
+$P=I_{10}-\frac1{10}J$ has rank $9$.
+
+=== 2025 39
+topic: RV
+pattern: Median from a mixed CDF
+type: MCQ
+ans: C
+concept: The median $m$ satisfies $F(m)=\frac12$ (continuous at $m$).
+solution:
+$\alpha\left(1+2\cdot\frac12\right)=2\alpha=\frac12$, so $\alpha=\frac14$.
+
+=== 2025 40
+topic: RV
+pattern: Lognormal moments
+type: MCQ
+ans: B
+concept: $X=e^Y$ with $Y\sim N(\mu,\sigma^2)$: $E X^k=e^{k\mu+k^2\sigma^2/2}$.
+solution:
+$\frac{EX^2}{(EX)^2}=\frac{e^{2\mu+2\sigma^2}}{e^{2\mu+\sigma^2}}=e^{\sigma^2}$. $\log=\sigma^2=4=\operatorname{Var}(\ln X)$.
+
+=== 2025 41
+topic: JD
+pattern: Recognise a joint pmf as Poisson + independent Poisson
+type: MCQ
+ans: C
+concept: Sum over $m$: $\sum_m\frac1{m!(n-m)!}=\frac{2^n}{n!}$. So $Y\sim\text{Poi}(\lambda)$ and $X\mid Y=n\sim\text{Bin}(n,\frac12)$.
+solution:
+- (c) ✓
+- $X\sim\text{Poi}(\lambda/2)$ (thinning), so (a), (b) are wrong.
+- (d) $Y=X+\text{Poi}(\lambda/2)$, so $E(Y|X=2)=2+\frac\lambda2$ ✗
+
+=== 2025 42
+topic: EST
+pattern: Sufficiency/completeness when mean & variance share θ
+type: MCQ
+ans: B
+concept: Expand the exponent and keep only the terms involving $\theta$.
+solution:
+1. $-\frac{(x+\theta)^2}{2\theta}=-\frac{x^2}{2\theta}-x-\frac\theta2$. The $-x$ term doesn't involve $\theta$.
+2. So $\sum X_i^2$ is minimal sufficient ✓ (b).
+3. (c) $(\bar X,S^2)$ is not complete, because $E(\bar X+S^2)=-\theta+\theta=0$.
+4. (d) $-\bar X$ is unbiased, but not a function of $\sum X^2$, so it is not the UMVUE.
+
+=== 2025 43
+topic: TH
+pattern: Rao–Blackwellised test has same power function
+type: MCQ
+ans: A
+concept: $E[\phi\mid T]$ with $T$ sufficient has the same power function as $\phi$, since $E_\theta E[\phi|T]=E_\theta\phi$.
+solution:
+1. $T=X_1+X_2$. Given $T=t$, $X_1\sim U(0,t)$ (exponential property).
+2. $E[1\{X_1>1\}\mid T=t]=\frac{t-1}t$ for $t>1$, else 0. That is $\phi_1$.
+
+=== 2025 44
+topic: NP
+pattern: Expected ranks of independent variables
+type: MCQ
+ans: A
+concept: Rank of $Y_1$ $=1+1\{Y_1>X\}+1\{Y_1>Y_2\}$. For independent exponentials, $P(Y>X)=\frac{\lambda_X}{\lambda_X+\lambda_Y}$.
+solution:
+$E R_1=1+\frac23+\frac12=\frac{13}6$. The same holds for $R_2$, so the sum is $\frac{13}3$.
+
+=== 2025 45
+topic: MV
+pattern: Wishart entries: variances & covariances
+type: MCQ
+ans: C
+concept: $W=X^TX\sim W_2(5,I)$. $W_{11},W_{22}\sim\chi^2_5$ and $W_{12}=\sum X_{k1}X_{k2}$. All three are uncorrelated when $\Sigma=I$.
+solution:
+$\operatorname{Var}W_{11}=\operatorname{Var}W_{22}=10$ and $\operatorname{Var}W_{12}=5$. So $\operatorname{Var}Z=10+16(5)+16(10)=250$.
+shortcut: For $W_p(n,I)$: $\operatorname{Var}(W_{ii})=2n$ and $\operatorname{Var}(W_{ij})=n$ for $i\ne j$.
+
+=== 2025 46
+topic: REG
+pattern: ANOVA F for overall regression significance
+type: MCQ
+ans: D
+concept: $F=\frac{SSR/1}{SSE/(n-2)}$, with $SSR=\frac{S_{xy}^2}{S_{xx}}$.
+solution:
+$SSR=\frac{15.48^2}{22.82}=10.501$. $SSE=43.62-10.501=33.119$. $F=\frac{10.501}{33.119/22}=6.975\approx6.98$.
+
+=== 2025 47
+topic: CAL
+pattern: Monotone bounded sequence (sum vs integral)
+type: MSQ
+ans: B;D
+concept: Compare $\sum\frac1{\sqrt k}$ with $\int\frac{dx}{\sqrt x}=2\sqrt x$. The difference converges.
+solution:
+1. $x_{n+1}-x_n=\frac1{\sqrt{n+1}}-\frac2{\sqrt{n+1}+\sqrt n}<0$, since $\sqrt{n+1}+\sqrt n<2\sqrt{n+1}$. Decreasing ✓
+2. $\sum_1^n\frac1{\sqrt k}\ge\int_1^{n+1}\frac{dx}{\sqrt x}=2\sqrt{n+1}-2$, so $x_n\ge0$. Bounded below, so it converges ✓
+
+=== 2025 48
+topic: LA
+pattern: Eigenvalues of rotation matrices SO(3)
+type: MSQ
+ans: C;D
+concept: An orthogonal matrix has $|\lambda|=1$. In $SO(3)$ the eigenvalues are $1,e^{\pm i\theta}$.
+solution:
+- (a), (b) ✗ Not unit modulus.
+- (c) ✓ If there is only one real eigenvalue, the complex pair contributes product 1, so $\lambda=\det=1$.
+- (d) ✓ Rotation by $\pi$ has eigenvalues $1,-1,-1$.
+
+=== 2025 49
+topic: MV
+pattern: Orthogonal transforms of normals: χ², t, F
+type: MSQ
+ans: A;C
+concept: Orthogonal rows give independence for normals. Build $t$ and $F$ from standardised pieces.
+solution:
+1. Rows $(1,-1,0)$, $(1,1,-2)$, $(1,1,1)$ are mutually orthogonal, so $Y_i$ are independent with variances $2,6,3$. (a) ✓
+2. (b) ✗ They are not standardised.
+3. (c) $\frac{Y_3/\sqrt3}{\sqrt{\left(\frac{Y_1^2}2+\frac{Y_2^2}6\right)/2}}=\frac{2Y_3}{\sqrt{3Y_1^2+Y_2^2}}\sim t_2$ ✓
+4. (d) The ratio is $\frac23F_{2,1}$, not $F_{1,1}$ ✗
+
+=== 2025 50
+topic: LT
+pattern: Almost sure convergence with independence (Borel–Cantelli converse)
+type: MSQ
+ans: B;C;D
+concept: a.s. implies in probability. For **independent** $X_n$, a.s. convergence to 0 is equivalent to $\sum P(|X_n|\ge\epsilon)<\infty$ (BC II). Continuous maps preserve a.s. limits.
+solution:
+- (a) ✗ Moments need not converge.
+- (b) ✓ Continuous mapping.
+- (c) ✓ BC II plus independence.
+- (d) ✓ Continuous mapping.
+
+=== 2025 51
+topic: SP
+pattern: Verify stationary distribution; 2-step probability
+type: MSQ
+ans: A;B;C
+concept: $\pi P=\pi$ is equivalent to $P^T\pi^T=\pi^T$. Two-step probability $=(P^2)_{ij}$.
+solution:
+1. Check $\pi P$: column 1: $\frac{8+10}{67}$ ✓, column 2: $\frac{9+15}{67}$ ✓, column 3: $\frac{9+16}{67}$ ✓. (a), (b) ✓
+2. $(P^2)_{11}=\frac12\cdot\frac13+\frac12\cdot\frac25=\frac{11}{30}$ ✓ (c)
+3. Finite irreducible chain: no transient states, so (d) ✗.
+
+=== 2025 52
+topic: EST
+pattern: Minimal sufficient statistic for uniform families
+type: MSQ
+ans: B;D
+concept: $U(-\frac\theta2,\frac\theta2)$: $L=\theta^{-n}1\{2\max|X_i|\le\theta\}$. MLE $=2\max|X_i|$, which is complete sufficient.
+solution:
+- (a) ✗ The MLE uses $\max|X_i|$, not $\max X_i$.
+- (b) ✓ $\max|X_i|=\max(-X_{(1)},X_{(n)})$, a function of $(X_{(1)},X_{(n)})$.
+- (c) ✗ $E(X_{(1)}+X_{(n)})=0$, so it is not complete.
+- (d) ✓ $E\max|X_i|=\frac\theta2\cdot\frac n{n+1}$, so $\frac{2(n+1)}n\max|X_i|$ is the UMVUE. (The printed "/2" is "/n".)
+
+=== 2025 53
+topic: MV
+pattern: Expectation/variance of linear and quadratic forms
+type: MSQ
+ans: A;B;C
+concept: $E(a^TX)^2=a^T\Sigma a$ (mean 0), $E\,\text{tr}(XX^T)=\text{tr}\Sigma$, and $\operatorname{Cov}(a^TX,b^TX)=a^T\Sigma b$.
+solution:
+1. $\alpha^T\Sigma\alpha=4\cdot4+0+1\cdot4=20$. This gives (a) ✓ since $\text{tr}(XX^T\alpha\alpha^T)=(\alpha^TX)^2$, and (b) ✓ since $\text{tr}(X\alpha^T)=\alpha^TX$.
+2. (c) $\text{tr}\Sigma=17$ ✓
+3. (d) $\alpha^T\Sigma\beta=8+0-4=4\ne3$ ✗
+
+=== 2025 54
+topic: REG
+pattern: Ridge regression estimator properties
+type: MSQ
+ans: B;C
+concept: Ridge: $\hat\beta=(X^TX+\lambda I)^{-1}X^TY$ is biased, linear in $Y$, with $\operatorname{Var}=(X^TX+\lambda I)^{-1}X^TX(X^TX+\lambda I)^{-1}$.
+solution:
+- (a) ✗ Biased.
+- (b) ✓ $X^TX$ is PSD and $\lambda I$ is PD, so the sum is PD.
+- (c) ✓ Linear in Gaussian $Y$.
+- (d) ✗ Sandwich form.
+
+=== 2025 55
+topic: CAL
+pattern: Classify critical points (Hessian test)
+type: NAT
+ans: 1
+concept: Solve $\nabla f=0$, then use the Hessian determinant.
+solution:
+1. $f_x=2xy^2+8=0$ and $f_y=2x^2y-4=0$. From $x^2y=2$, $y=\frac2{x^2}$. Then $\frac8{x^3}=-8$, so $x=-1$ and $y=2$.
+2. $f_{xx}=2y^2=8$, $f_{yy}=2x^2=2$, $f_{xy}=4xy=-8$. $D=16-64<0$: a saddle. Exactly **1** saddle point.
+
+=== 2025 56
+topic: LA
+pattern: Skew-symmetric of odd order: determinant 0
+type: NAT
+ans: 0
+concept: $\prod\lambda_i=\det P$. A skew-symmetric matrix of odd order is singular.
+solution:
+$P^T=-P$ and $n=5$, so $\det P=(-1)^5\det P$ and $\det P=0$.
+
+=== 2025 57
+topic: LA
+pattern: Trace of matrix powers via eigenvalues
+type: NAT
+ans: 341
+concept: $\text{tr}(A^k)=\sum\lambda_i^k$.
+solution:
+1. $P$ has eigenvalues $1,3$: $\text{tr}P^5=1+243=244$.
+2. $Q$ has $\text{tr}=5$ and $\det=6$, so eigenvalues $2,3$: $\text{tr}Q^4=16+81=97$.
+3. Total $=341$.
+
+=== 2025 58
+topic: RV
+pattern: Identify distributions from MGFs; P(X > Y+Z)
+type: NAT
+ans: 0.44
+concept: $\left(\frac{2+e^t}3\right)^2$ is the MGF of Bin($2,\frac13$). $Y\sim\text{Poi}(1)$ and $Z\sim\text{Poi}(2)$ give $S=Y+Z\sim\text{Poi}(3)$.
+solution:
+$P(X>S)=P(X=1)P(S=0)+P(X=2)P(S\le1)=\frac49e^{-3}+\frac19\cdot4e^{-3}=\frac89e^{-3}=0.0443$. Times 10: $0.44$.
+
+=== 2025 59
+topic: RV
+pattern: Mixture distribution: tail probability
+type: NAT
+ans: 2
+concept: Mixture: $P(T>1)=\frac12P_1+\frac12P_2$. For Gamma(2), $P(T>t)=e^{-\lambda t}(1+\lambda t)$.
+solution:
+$\frac12e^{-\lambda}+\frac12e^{-\lambda}(1+\lambda)=\frac12e^{-\lambda}(2+\lambda)=2e^{-2}$ when $\lambda=2$ ✓.
+
+=== 2025 60
+topic: LT
+pattern: Random binary expansion → uniform
+type: NAT
+ans: 5
+concept: $\sum_{i\ge1}\pm2^{-i}$ with fair signs equals $2V-1$ where $V=\sum b_i2^{-i}\sim U(0,1)$. So $U\sim U(-1,1)$.
+solution:
+$P(U\le\frac23)=\frac{2/3+1}2=\frac56$, so $6\times\frac56=5$.
+shortcut: Check the c.f.: $\prod\cos(t/2^i)=\frac{\sin t}t$, which is the c.f. of $U(-1,1)$.
+
+=== 2025 61
+topic: EST
+pattern: Bias of MLE for gamma rate
+type: NAT
+ans: 20
+concept: For Gamma(shape $a$, rate $\lambda$), the MLE of $\lambda$ is $\frac{a}{\bar X}=\frac{na}{T}$ with $T\sim\text{Gamma}(na,\lambda)$, and $E\frac1T=\frac{\lambda}{na-1}$.
+solution:
+1. $a=3$, $n=7$, so $T\sim\text{Gamma}(21,\lambda)$. $E\hat\lambda=21\cdot\frac\lambda{20}$.
+2. Bias $=\frac{\lambda}{20}$, so $\alpha=\frac1{20}$ and $\frac1\alpha=20$.
+shortcut: Exponential rate ($a=1$): $E\hat\lambda=\frac{n}{n-1}\lambda$.
+
+=== 2025 62
+topic: TH
+pattern: UMP test via the sample maximum (truncated / shifted family)
+type: NAT
+ans: 0.69
+concept: For $f=e^{x-\theta}$ on $x\le\theta$, $M=X_{(2)}$ is sufficient with $P(M\le m)=e^{2(m-\theta)}$. The UMP test for $\theta<0$ rejects for small $M$.
+solution:
+1. Size at $\theta=0$: $e^{2c}=0.09$, so $c=\ln0.3$.
+2. At $\theta=\ln0.36=2\ln0.6$ ($>c$): $\beta=e^{2(c-\theta)}=\frac{0.09}{0.36^2}=\frac{0.09}{0.1296}=0.694\approx0.69$.
+
+=== 2025 63
+topic: TH
+pattern: Size of a test with composite null (sup over H0)
+type: NAT
+ans: 0.44
+concept: Size $=\sup_{\theta\in H_0}P_\theta(\text{reject})$.
+solution:
+$P_\theta(X\in\{0,3\})=(1-\theta)^3+\theta^3$, which is convex and symmetric about $\frac12$, so it is largest at the endpoints. At $\theta=\frac14$: $\frac{27+1}{64}=0.4375\approx0.44$.
+trap: Don't evaluate at a single interior point. The size is the **supremum** over the whole null.
+
+=== 2025 64
+topic: MV
+pattern: Partial correlation formula
+type: NAT
+ans: 0.5
+concept: $\rho_{12\cdot3}=\frac{\rho_{12}-\rho_{13}\rho_{23}}{\sqrt{(1-\rho_{13}^2)(1-\rho_{23}^2)}}$.
+solution:
+$\frac{0.4-0}{\sqrt{1\cdot(1-0.36)}}=\frac{0.4}{0.8}=0.5$.
+
+=== 2025 65
+topic: MV
+pattern: Orthant probability for bivariate normal
+type: NAT
+ans: 0.78
+concept: Sheppard's formula: $P(Z_1>0,Z_2>0)=\frac14+\frac{\sin^{-1}\rho}{2\pi}$.
+solution:
+1. $\rho=\frac{14}{4\cdot5}=0.7$. $P(X>\mu_X,Y>\mu_Y)=\frac14+\frac{\sin^{-1}0.7}{2\pi}$.
+2. So $2\pi(P-\frac14)=\sin^{-1}0.7=0.7754\approx0.78$.
